@@ -1,0 +1,154 @@
+// data/presentations.js — talks, invited seminars and conference contributions.
+//
+// HOW TO ADD A TALK
+//   1. (Optional) drop the slide deck into assets/pdf/presentations/<id>.pdf and a
+//      16:9 thumbnail into assets/img/talks/<id>.webp (or run tools/make_thumbnails.py).
+//   2. Add one object below. `type`: "invited" | "contributed" | "seminar".
+//      `month` may be null; `award`, `pdf`, `video`, `thumbnail` may be null.
+window.SITE = window.SITE || {};
+window.SITE.presentations = [
+  {
+    id: "2025-icmm-rising-star",
+    year: 2025, month: null,
+    title: "Optimizing surface-based quantum architectures with quantum optimal control theory",
+    event: "International Conference on Molecular Magnetism (ICMM)",
+    location: "Bordeaux, France",
+    type: "invited",
+    award: { en: "“Rising Star” invited speaker", fr: "Orateur invité « Rising Star »", ko: "“Rising Star” 초청 연사", de: "Eingeladener „Rising Star“-Vortrag" },
+    pdf: "assets/pdf/presentations/2025-icmm-rising-star.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2025-icmm-rising-star.webp"
+  },
+  {
+    id: "2026-aqis-shooting",
+    year: 2026, month: 8,
+    title: "Fast and smooth quantum unitary control of high-dimensional spin qudits via a shooting technique",
+    event: "Asian Quantum Information Science Conference (AQIS)",
+    location: "Daejeon, South Korea",
+    type: "contributed",
+    award: null,
+    pdf: "assets/pdf/presentations/2026-aqis-shooting.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2026-aqis-shooting.webp"
+  },
+  {
+    id: "2026-acmm-ho-mgo",
+    year: 2026, month: null,
+    title: "Single Ho atoms on MgO as 16-level nuclear–electronic qudits: crystal-field theory, quadrupole effects, and Landau–Zener quantum operations",
+    event: "Asian Conference on Molecular Magnetism (ACMM26)",
+    location: "Dalian, China",
+    type: "contributed",
+    award: null,
+    pdf: "assets/pdf/presentations/2026-acmm-ho-mgo.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2026-acmm-ho-mgo.webp"
+  },
+  {
+    id: "2026-dpg-surface-spins",
+    year: 2026, month: 3,
+    title: "Optimizing on-surface quantum spins for quantum information processing",
+    event: "DPG Spring Meeting, Condensed Matter Section (SKM)",
+    location: "Dresden, Germany",
+    type: "contributed",
+    award: null,
+    pdf: "assets/pdf/presentations/2026-dpg-surface-spins.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2026-dpg-surface-spins.webp"
+  },
+  {
+    id: "2026-kps-surface-spins",
+    year: 2026, month: null,
+    title: "Optimizing on-surface quantum spins for quantum information processing",
+    event: "Korean Physical Society (KPS) Spring Meeting",
+    location: "Daejeon, South Korea",
+    type: "contributed",
+    award: null,
+    pdf: "assets/pdf/presentations/2026-kps-surface-spins.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2026-kps-surface-spins.webp"
+  },
+  {
+    id: "2026-baden-baden-optical",
+    year: 2026, month: 3,
+    title: "Electric (and future optical) addressing of Ln on-surface qudits in STM",
+    event: "German-French Workshop “Optical Quantum Systems”",
+    location: "Baden-Baden, Germany",
+    type: "invited",
+    award: null,
+    pdf: "assets/pdf/presentations/2026-baden-baden-optical.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2026-baden-baden-optical.webp"
+  },
+  {
+    id: "2025-kit-hyperfine",
+    year: 2025, month: null,
+    title: "Hyperfine interactions in lanthanide-organic complexes for QIP",
+    event: "Physikalisches Institut, Karlsruhe Institute of Technology",
+    location: "Karlsruhe, Germany",
+    type: "seminar",
+    award: null,
+    pdf: "assets/pdf/presentations/2025-kit-hyperfine.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2025-kit-hyperfine.webp"
+  },
+  {
+    id: "2024-qns-ln-qudits",
+    year: 2024, month: null,
+    title: "Controlling Ln-based qudits: a theoretical framework",
+    event: "Center for Quantum Nanoscience (QNS)",
+    location: "Seoul, South Korea",
+    type: "seminar",
+    award: null,
+    pdf: "assets/pdf/presentations/2024-qns-ln-qudits.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2024-qns-ln-qudits.webp"
+  },
+  {
+    id: "2024-hirschegg-immobilization",
+    year: 2024, month: null,
+    title: "Controlling Ln-based qudits: a theoretical framework",
+    event: "Workshop on Immobilization of Molecular Quantum Bits",
+    location: "Hirschegg, Austria",
+    type: "invited",
+    award: null,
+    pdf: "assets/pdf/presentations/2024-hirschegg-immobilization.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2024-hirschegg-immobilization.webp"
+  },
+  {
+    id: "baden-baden-molecular-qudits",
+    year: null, month: null,
+    title: "Controlling molecular qudits: from pulses to quantum gates",
+    event: "Workshop on Optically Addressable Molecular Lanthanide Qubits",
+    location: "Baden-Baden, Germany",
+    type: "invited",
+    award: null,
+    pdf: "assets/pdf/presentations/baden-baden-molecular-qudits.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/baden-baden-molecular-qudits.webp"
+  },
+  {
+    id: "wurzburg-quantmocote",
+    year: null, month: null,
+    title: "Hyperfine interactions in lanthanide-organic complexes for QIP",
+    event: "QuantMOCOTE Workshop, University of Würzburg",
+    location: "Würzburg, Germany",
+    type: "invited",
+    award: null,
+    pdf: "assets/pdf/presentations/wurzburg-quantmocote.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/wurzburg-quantmocote.webp"
+  },
+  {
+    id: "2023-am2-electric-avenue",
+    year: 2023, month: null,
+    title: "Spins down to Electric Avenue: electrical addressability of Ln nuclear spins via ligand-field theory for QIP",
+    event: "Journées de l'Association française de Magnétisme Moléculaire (AM2)",
+    location: "France",
+    type: "contributed",
+    award: null,
+    pdf: "assets/pdf/presentations/2023-am2-electric-avenue.pdf",
+    video: null,
+    thumbnail: "assets/img/talks/2023-am2-electric-avenue.webp"
+  }
+];

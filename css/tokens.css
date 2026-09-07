@@ -1,0 +1,200 @@
+/* ==========================================================================
+   tokens.css — QNS design tokens for jankovic.phd
+   Source: QNS Corporate Design guideline (see QNS-color-coding.md).
+   Purple-forward interpretation: purple owns identity (headings, buttons,
+   tags, motif), cyan/teal owns interactivity (links, focus, hover).
+   ========================================================================== */
+
+:root {
+  /* ---- Raw QNS brand palette (never use directly in components; map below) */
+  --qns-teal-deep: #006760;
+  --qns-teal: #01877e;
+  --qns-cyan: #00efdf;
+  --qns-maroon: #670007;
+  --qns-red-deep: #87010a;
+  --qns-red: #ef0010;
+  --qns-blue-deep: #234c7f;
+  --qns-blue: #3c77b1;
+  --qns-purple: #714c8b;
+  --qns-orange: #f7901e;
+  --qns-navy: #004678;
+  --qns-navy-deep: #002846;
+  --qns-steel: #bebec8;
+  --qns-black: #000000;
+  --qns-ink: #111517;
+  --qns-graphite: #2a3134;
+  --qns-slate: #5b686d;
+  --qns-grey: #8e9a9e;
+  --qns-mist: #d7dedf;
+  --qns-fog: #eef2f2;
+  --qns-white: #ffffff;
+  /* Purple derivatives (text-safe on dark) */
+  --qns-purple-deep: #5d3a77;
+  --qns-lavender-1: #a583bd;
+  --qns-lavender-2: #b795d1;
+  --qns-lavender-3: #c3a8dd;
+
+  /* ---- Typography */
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: clamp(0.875rem, 0.85rem + 0.15vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --text-xl: clamp(1.35rem, 1.2rem + 0.75vw, 1.75rem);
+  --text-2xl: clamp(1.6rem, 1.35rem + 1.3vw, 2.3rem);
+  --text-3xl: clamp(2.1rem, 1.7rem + 2.2vw, 3.4rem);
+
+  /* ---- Spacing (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* ---- Radii */
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-pill: 999px;
+
+  /* ---- Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1: 150ms;
+  --dur-2: 250ms;
+  --dur-3: 400ms;
+  --dur-4: 600ms;
+
+  /* ---- Layout */
+  --container: 72rem;
+  --nav-height: 64px;
+}
+
+/* ==========================================================================
+   DARK THEME (default)
+   ========================================================================== */
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg-page: #05100f;
+  --bg-subtle: #0c1a19;
+  --surface-card: #0f211f;
+  --surface-raised: #142a28;
+  --border-hairline: #1f3b38;
+  --border-strong: #33534f;
+
+  --text-body: #e8f2f0;
+  --text-muted: #9db3af;
+  --text-heading: var(--qns-lavender-3);   /* 9.2:1 on page bg */
+  --text-eyebrow: var(--qns-lavender-2);   /* 7.6:1 */
+  --text-link: var(--qns-cyan);            /* 13.3:1 */
+  --text-link-hover: #7ffff2;
+  --text-on-accent: #05100f;
+
+  --accent-primary: var(--qns-lavender-1); /* primary buttons, active chips */
+  --accent-primary-hover: var(--qns-lavender-2);
+  --accent-interactive: var(--qns-cyan);
+  --accent-teal: var(--qns-teal);
+  --accent-decor-purple: var(--qns-purple); /* decorative only on dark */
+
+  --focus-ring: var(--qns-cyan);
+  --selection-bg: var(--qns-purple);
+  --selection-text: #f5eefc;
+
+  --grad-hero: linear-gradient(120deg, #00efdf 0%, #a583bd 55%, #714c8b 100%);
+  --grad-rule: linear-gradient(90deg, var(--qns-teal), var(--qns-purple));
+  --grad-rail: linear-gradient(180deg, var(--qns-teal), var(--qns-purple));
+  --motif-a: #00efdf;
+  --motif-b: #a583bd;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), inset 0 1px 0 rgb(255 255 255 / 0.04);
+  --shadow-card-hover: 0 12px 32px rgb(0 0 0 / 0.5), 0 0 0 1px var(--border-strong);
+
+  --nav-bg: rgb(5 16 15 / 0.82);
+
+  /* Badges: tinted chips (all AA-verified) */
+  --badge-article-text: #8fe8e0;   --badge-article-bg: #0f2e2b;   --badge-article-border: rgb(143 232 224 / 0.35);
+  --badge-preprint-text: #ffd9a8;  --badge-preprint-bg: #3a2a10;  --badge-preprint-border: rgb(255 217 168 / 0.35);
+  --badge-proc-text: #a9cdf0;      --badge-proc-bg: #16283c;      --badge-proc-border: rgb(169 205 240 / 0.35);
+  --badge-topic-text: #d9c8ea;     --badge-topic-bg: #2a1f38;     --badge-topic-border: rgb(217 200 234 / 0.35);
+  --badge-award-text: #ffd9a8;     --badge-award-bg: #3a2a10;     --badge-award-border: rgb(255 217 168 / 0.45);
+
+  --status-danger: #ff5a4e;
+  --status-warning: var(--qns-orange);
+  --status-info: #6ea5dc;
+
+  --thumb-dim: brightness(0.85) contrast(1.03);
+  --thumb-dim-hover: brightness(0.97);
+
+  --nebula:
+    radial-gradient(60rem 40rem at -10% -10%, rgb(113 76 139 / 0.07), transparent 60%),
+    radial-gradient(55rem 40rem at 110% 110%, rgb(1 135 126 / 0.05), transparent 60%);
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-page: #ffffff;
+  --bg-subtle: var(--qns-fog);
+  --surface-card: #ffffff;
+  --surface-raised: #ffffff;
+  --border-hairline: var(--qns-mist);
+  --border-strong: var(--qns-slate);
+
+  --text-body: var(--qns-ink);
+  --text-muted: var(--qns-slate);
+  --text-heading: var(--qns-purple-deep);  /* 9.0:1 on white */
+  --text-eyebrow: var(--qns-purple);       /* 6.8:1 */
+  --text-link: var(--qns-teal-deep);       /* 6.8:1 — #01877e fails AA small */
+  --text-link-hover: var(--qns-purple);
+  --text-on-accent: #ffffff;
+
+  --accent-primary: var(--qns-purple);
+  --accent-primary-hover: var(--qns-purple-deep);
+  --accent-interactive: var(--qns-teal-deep);
+  --accent-teal: var(--qns-teal);
+  --accent-decor-purple: var(--qns-purple);
+
+  --focus-ring: var(--qns-purple);         /* cyan on white is ~1.4:1 — never */
+  --selection-bg: #e5d8f0;
+  --selection-text: var(--qns-ink);
+
+  --grad-hero: linear-gradient(120deg, var(--qns-teal-deep), var(--qns-purple));
+  --grad-rule: linear-gradient(90deg, var(--qns-teal), var(--qns-purple));
+  --grad-rail: linear-gradient(180deg, var(--qns-teal), var(--qns-purple));
+  --motif-a: #01877e;
+  --motif-b: #714c8b;
+
+  --shadow-card: 0 1px 3px rgb(17 21 23 / 0.08);
+  --shadow-card-hover: 0 12px 32px rgb(17 21 23 / 0.14), 0 0 0 1px var(--qns-mist);
+
+  --nav-bg: rgb(255 255 255 / 0.85);
+
+  --badge-article-text: #005a54;   --badge-article-bg: #d9f3f0;   --badge-article-border: rgb(0 90 84 / 0.25);
+  --badge-preprint-text: #8a4a00;  --badge-preprint-bg: #ffe9cf;  --badge-preprint-border: rgb(138 74 0 / 0.25);
+  --badge-proc-text: #234c7f;      --badge-proc-bg: #dbe8f5;      --badge-proc-border: rgb(35 76 127 / 0.25);
+  --badge-topic-text: #5d3a77;     --badge-topic-bg: #ece2f4;     --badge-topic-border: rgb(93 58 119 / 0.25);
+  --badge-award-text: #8a4a00;     --badge-award-bg: #ffe9cf;     --badge-award-border: rgb(138 74 0 / 0.35);
+
+  --status-danger: var(--qns-red);
+  --status-warning: var(--qns-orange);
+  --status-info: var(--qns-blue);
+
+  --thumb-dim: none;
+  --thumb-dim-hover: none;
+
+  --nebula:
+    radial-gradient(60rem 40rem at -10% -10%, rgb(113 76 139 / 0.05), transparent 60%),
+    radial-gradient(55rem 40rem at 110% 110%, rgb(1 135 126 / 0.04), transparent 60%);
+}

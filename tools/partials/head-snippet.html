@@ -1,0 +1,15 @@
+<!-- @partial:boot -->
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.remove("no-js"); d.classList.add("js");
+  try {
+    d.dataset.theme = localStorage.getItem("dj-theme") || "dark";
+    var l = localStorage.getItem("dj-lang");
+    if (["en", "fr", "ko", "de"].indexOf(l) === -1) l = "en";
+    d.dataset.lang = l;
+    d.lang = l;
+  } catch (e) { /* storage unavailable (private mode, file://) — keep defaults */ }
+})();
+</script>
+<!-- /@partial:boot -->

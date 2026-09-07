@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jankovic.phd/sitemap.xml

@@ -1,0 +1,122 @@
+// data/lectures.js — teaching: lectures, lab courses, tutorials (from the CV, section C.2).
+//
+// HOW TO ADD A LECTURE
+//   1. (Optional) drop material files into assets/lectures/ — any of:
+//        <id>-slides.pdf, <id>-notebooks.zip (or .ipynb/.html),
+//        <id>-handout.pdf, <id>-tutorial.pdf
+//   2. Add one object below. `slides` / `notebooks` / `handouts` / `tutorial`
+//      are file paths — each button only appears when the file actually exists
+//      on the server, so you can pre-fill paths and drop files in later.
+//   `type`: "lecture" | "lab" | "tutorial" | "oral" | "coordination".
+//   `year` sorts (use the end year); `years` is the displayed range.
+window.SITE = window.SITE || {};
+window.SITE.lectures = [
+  {
+    id: "qns-open-quantum-systems",
+    year: 2025, years: "2024 – 2025",
+    title: "Introduction to Open Quantum Systems and Quantum Optimal Control",
+    institution: "Center for Quantum Nanoscience (QNS), IBS — Seoul",
+    level: "M1–M2 / PhD", hours: 2,
+    type: "lecture",
+    desc: {
+      en: "Graduate mini-course in English: Lindblad dynamics, fidelity measures, and pulse-level optimal control.",
+      fr: "Mini-cours de niveau master/doctorat en anglais : dynamique de Lindblad, mesures de fidélité et contrôle optimal au niveau des impulsions.",
+      ko: "영어 대학원 미니 강의: 린드블라드 동역학, 충실도 측도, 펄스 수준 최적 제어.",
+      de: "Graduierten-Minikurs auf Englisch: Lindblad-Dynamik, Fidelity-Maße und Optimalsteuerung auf Pulsebene."
+    },
+    slides: "assets/lectures/qns-open-quantum-systems-slides.pdf",
+    notebooks: "assets/lectures/qns-open-quantum-systems-notebooks.zip",
+    handouts: "assets/lectures/qns-open-quantum-systems-handout.pdf",
+    tutorial: "assets/lectures/qns-open-quantum-systems-tutorial.pdf"
+  },
+  {
+    id: "qns-ligand-field-theory",
+    year: 2026, years: "2025 – 2026",
+    title: "Introduction to Ligand-Field Theory and Molecular Quantum Systems",
+    institution: "Center for Quantum Nanoscience (QNS), IBS — Seoul",
+    level: "M1–M2 / PhD", hours: 2,
+    type: "lecture",
+    desc: {
+      en: "Graduate mini-course in English: crystal- and ligand-field Hamiltonians for molecular and on-surface spins.",
+      fr: "Mini-cours en anglais : hamiltoniens de champ cristallin et de champ de ligands pour les spins moléculaires et sur surface.",
+      ko: "영어 대학원 미니 강의: 분자 및 표면 스핀을 위한 결정장·리간드장 해밀토니안.",
+      de: "Graduierten-Minikurs auf Englisch: Kristall- und Ligandenfeld-Hamiltonians für molekulare und Oberflächen-Spins."
+    },
+    slides: "assets/lectures/qns-ligand-field-theory-slides.pdf",
+    notebooks: "assets/lectures/qns-ligand-field-theory-notebooks.zip",
+    handouts: "assets/lectures/qns-ligand-field-theory-handout.pdf",
+    tutorial: "assets/lectures/qns-ligand-field-theory-tutorial.pdf"
+  },
+  {
+    id: "qns-scientific-computing",
+    year: 2026, years: "2025 – 2026",
+    title: "Introduction to Scientific Computing (Python, QuTiP)",
+    institution: "Center for Quantum Nanoscience (QNS), IBS — Seoul",
+    level: "M1–M2 / PhD", hours: 4,
+    type: "lab",
+    desc: {
+      en: "Lecture + hands-on sessions: simulating open quantum systems in Python with QuTiP.",
+      fr: "Cours + séances pratiques : simulation de systèmes quantiques ouverts en Python avec QuTiP.",
+      ko: "강의 + 실습: Python과 QuTiP로 열린 양자계 시뮬레이션.",
+      de: "Vorlesung + Praxis: Simulation offener Quantensysteme in Python mit QuTiP."
+    },
+    slides: "assets/lectures/qns-scientific-computing-slides.pdf",
+    notebooks: "assets/lectures/qns-scientific-computing-notebooks.zip",
+    handouts: "assets/lectures/qns-scientific-computing-handout.pdf",
+    tutorial: "assets/lectures/qns-scientific-computing-tutorial.pdf"
+  },
+  {
+    id: "unistra-champs-interactions",
+    year: 2023, years: "2022 – 2023",
+    title: "Champs et interactions (Physique pour les Sciences de la Vie)",
+    institution: "UFR de Physique et Ingénierie, Université de Strasbourg",
+    level: "L1", hours: 16,
+    type: "tutorial",
+    desc: {
+      en: "Tutorials in physics for life-sciences students, including grading and exam supervision.",
+      fr: "Travaux dirigés de physique pour les étudiants en sciences de la vie, correction et surveillance incluses.",
+      ko: "생명과학 전공 학생을 위한 물리학 튜토리얼(채점 및 시험 감독 포함).",
+      de: "Übungen in Physik für Studierende der Lebenswissenschaften, einschließlich Korrektur und Aufsicht."
+    },
+    slides: null,
+    notebooks: null,
+    handouts: "assets/lectures/unistra-champs-interactions-handout.pdf",
+    tutorial: "assets/lectures/unistra-champs-interactions-tutorial.pdf"
+  },
+  {
+    id: "unistra-physique-experimentale",
+    year: 2024, years: "2021 – 2024",
+    title: "Physique expérimentale 1 & 2",
+    institution: "UFR de Physique et Ingénierie, Université de Strasbourg",
+    level: "L1", hours: 97,
+    type: "lab",
+    desc: {
+      en: "Experimental physics lab courses, including grading.",
+      fr: "Travaux pratiques de physique expérimentale, correction incluse.",
+      ko: "실험 물리학 실습(채점 포함).",
+      de: "Praktika der Experimentalphysik, einschließlich Korrektur."
+    },
+    slides: null,
+    notebooks: null,
+    handouts: "assets/lectures/unistra-physique-experimentale-handout.pdf",
+    tutorial: null
+  },
+  {
+    id: "unistra-colles",
+    year: 2024, years: "2021 – 2024",
+    title: "Colles de physique (Licence MPA)",
+    institution: "UFR de Physique et Ingénierie, Université de Strasbourg",
+    level: "L1–L2", hours: 80,
+    type: "oral",
+    desc: {
+      en: "Weekly oral examinations in physics — mechanics, optics, electromagnetism, thermodynamics.",
+      fr: "Colles hebdomadaires de physique — mécanique, optique, électromagnétisme, thermodynamique.",
+      ko: "주간 물리학 구술 평가 — 역학, 광학, 전자기학, 열역학.",
+      de: "Wöchentliche mündliche Prüfungen in Physik — Mechanik, Optik, Elektromagnetismus, Thermodynamik."
+    },
+    slides: null,
+    notebooks: null,
+    handouts: null,
+    tutorial: "assets/lectures/unistra-colles-tutorial.pdf"
+  }
+];
