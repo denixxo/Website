@@ -10,8 +10,9 @@ The repository is [`denixxo/Website`](https://github.com/denixxo/Website) and
 made in the content manager is such a push.
 
 1. On GitHub: **Settings → Pages → Source: Deploy from a branch → main / (root)**.
-2. Custom domain: the `CNAME` file (containing `jankovic.phd`) is already in place.
-   At your DNS provider, point the domain at GitHub Pages:
+2. Custom domain: entering it in **Settings → Pages** creates the `CNAME` file
+   in the repository root — do not add or delete that file by hand, GitHub
+   manages it. At your DNS provider, point the domain at GitHub Pages:
    - `A` records for the apex `jankovic.phd`: 185.199.108.153, 185.199.109.153,
      185.199.110.153, 185.199.111.153
    - (optional) `CNAME` record for `www` → `denixxo.github.io`
