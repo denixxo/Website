@@ -340,10 +340,11 @@
         <h1>Curriculum Vitae</h1>
       </div>
       <div class="cv-head__actions">
-        <!-- Drop the exported (non password-protected) PDF at assets/pdf/cv/cv-denis-jankovic-fr.pdf -->
-        <a class="btn btn--primary" href="assets/pdf/cv/cv-denis-jankovic-fr.pdf" download>
+        <!-- js/cv.js picks the PDF for the current language, falls back to the
+             English one, and hides this button when neither exists. -->
+        <a class="btn btn--primary" href="assets/pdf/cv/cv-denis-jankovic-en.pdf" download data-cv-download hidden>
           <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-          <span lang="en">Download PDF (FR)</span><span lang="fr">Télécharger le PDF</span><span lang="ko">PDF 다운로드 (FR)</span><span lang="de">PDF herunterladen (FR)</span>
+          <span lang="en">Download PDF</span><span lang="fr">Télécharger le PDF</span><span lang="ko">PDF 다운로드</span><span lang="de">PDF herunterladen</span><span data-cv-lang></span>
         </a>
         <button class="btn btn--secondary" type="button" onclick="window.print()">
           <svg class="icon" aria-hidden="true"><use href="#i-file"/></svg>
@@ -718,7 +719,6 @@
 <!-- /@partial:footer -->
 
 <script src="data/i18n.js"></script>
-<script src="js/main.js"></script>
-<script src="js/reveal.js"></script>
+<script src="js/boot.js" data-content="site" data-scripts="js/main.js,js/reveal.js,js/cv.js"></script>
 </body>
 </html>

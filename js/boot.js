@@ -27,10 +27,13 @@
         if (!res.ok) throw new Error(res.status + " " + res.statusText);
         return res.json();
       })
-      // Decap file collections need a named key, so each file holds
-      // { "<name>": [ ... ] }; a bare array is accepted too.
+      // A list file wraps its array in a named key, because that is what a
+      // Decap file collection maps onto: { "<name>": [ ... ] }. A file whose
+      // fields are the content itself (data/site.json) is used as-is.
       .then(function (json) {
-        SITE[name] = Array.isArray(json) ? json : (json && json[name]) || [];
+        SITE[name] = Array.isArray(json) ? json
+          : json && Object.prototype.hasOwnProperty.call(json, name) ? json[name]
+          : json || {};
       })
       .catch(function (err) {
         console.error("[boot] data/" + name + ".json failed to load — " + err.message);

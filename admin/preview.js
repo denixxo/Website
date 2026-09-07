@@ -10,7 +10,8 @@
 // deliberately identical, e.g. collection "posters" holds file "posters".
 (function () {
   var h = window.h || (window.React && window.React.createElement);
-  if (!window.CMS || !h) return;
+  var createClass = window.createClass;
+  if (!window.CMS || !h || !createClass) return;
 
   // Where each collection's uploads live, and how their filenames are built
   // from the entry id. Keep in step with the media_folder settings in
@@ -150,4 +151,116 @@
   Object.keys(SPECS).forEach(function (key) {
     CMS.registerPreviewTemplate(key, makePreview(key));
   });
+
+  // ---------------------------------------------------------------- misc ---
+  // These are referenced from hand-written HTML at a fixed path, so unlike the
+  // collections above they cannot be recorded in JSON: the favicon and the
+  // social card in particular are read by crawlers that never run our scripts.
+  // Upload them through Media, but named exactly as listed here.
+  var FIXED = [
+    { path: "assets/img/portrait.jpg", what: "Portrait",
+      note: "square, ~600×600; the homepage falls back to the DJ initials without it" },
+    { path: "assets/img/og-card.png", what: "Social card",
+      note: "1200×630; shown when a link to the site is shared" },
+    { path: "favicon.svg", what: "Favicon",
+      note: "repository root, not assets/" },
+    { path: "assets/pdf/thesis/thesis-jankovic-2024.pdf", what: "Thesis PDF",
+      note: "switches the thesis page from the KIT record to the local copy" }
+  ];
+
+  var LANGS = [
+    { code: "en", label: "English" },
+    { code: "fr", label: "Français" },
+    { code: "ko", label: "한국어" },
+    { code: "de", label: "Deutsch" }
+  ];
+
+  var MiscPreview = createClass({
+    getInitialState: function () {
+      return { present: {} };
+    },
+    componentDidMount: function () {
+      var self = this;
+      FIXED.forEach(function (f) {
+        // The admin page is served from the same origin as the site, so a HEAD
+        // is enough to say whether the file has actually been uploaded.
+        fetch("/" + f.path, { method: "HEAD" })
+          .then(function (r) { return r.ok; }, function () { return null; })
+          .then(function (ok) {
+            if (!self.isMounted_) return;
+            // Functional form: these four resolve independently, and reading
+            // this.state directly would let one overwrite another's result.
+            self.setState(function (prev) {
+              var next = Object.assign({}, prev.present);
+              next[f.path] = ok;
+              return { present: next };
+            });
+          });
+      });
+      this.isMounted_ = true;
+    },
+    componentWillUnmount: function () { this.isMounted_ = false; },
+    render: function () {
+      var data = this.props.entry.getIn(["data"]);
+      var cv = data && data.get ? data.get("cv") : null;
+      var get = function (k) { return (cv && cv.get ? cv.get(k) : "") || ""; };
+      var english = get("en").trim();
+      var present = this.state.present;
+
+      return h("div", { className: "fg" },
+        h("h2", null, "CV downloads"),
+        h("p", { className: "rule" },
+          english
+            ? "English is set, so every language has something to download."
+            : "No English CV yet — the download button stays hidden until there is one."
+        ),
+        h("div", { className: "entry" },
+          LANGS.map(function (l) {
+            var own = get(l.code).trim();
+            var state, mark, body;
+            if (own) {
+              state = "ok"; mark = "✓"; body = h("code", null, own);
+            } else if (english) {
+              state = "exempt"; mark = "*";
+              body = h("span", null, "falls back to the English PDF, labelled ",
+                h("code", null, "(EN)"));
+            } else {
+              state = "none"; mark = "·"; body = h("span", null, "button hidden");
+            }
+            return h("div", { className: "slot " + state, key: l.code },
+              h("span", { className: "mark" }, mark),
+              h("span", { className: "lbl" }, l.label),
+              body
+            );
+          })
+        ),
+
+        h("h2", { style: { marginTop: "22px" } }, "Fixed filenames"),
+        h("p", { className: "rule" },
+          "These are referenced straight from the HTML, so the name matters — ",
+          "upload them under Media, named exactly as below. ",
+          "The favicon and social card are read by crawlers that never run the ",
+          "page scripts, which is why they cannot be chosen here."
+        ),
+        FIXED.map(function (f) {
+          var ok = present[f.path];
+          var state = ok === true ? "ok" : ok === false ? "none" : "exempt";
+          var mark = ok === true ? "✓" : ok === false ? "·" : "?";
+          return h("div", { className: "entry", key: f.path },
+            h("div", { className: "slot " + state },
+              h("span", { className: "mark" }, mark),
+              h("span", { className: "lbl" }, f.what),
+              h("span", null,
+                h("code", null, f.path),
+                h("span", { className: "was" },
+                  ok === false ? "not uploaded yet — " + f.note : f.note)
+              )
+            )
+          );
+        })
+      );
+    }
+  });
+
+  CMS.registerPreviewTemplate("site", MiscPreview);
 })();

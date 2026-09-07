@@ -58,12 +58,21 @@ thumbnails.
 the thesis page then switches its Download/Open links from the KIT record to
 the local copy and offers the embedded reader.
 
-**CV PDF** — export an *unprotected* PDF to
-`assets/pdf/cv/cv-denis-jankovic-fr.pdf` (the current `CV FR CPJ bleu.pdf` is
-password-protected and cannot be used for the download button).
+**CV PDF** — export an *unprotected* PDF per language to
+`assets/pdf/cv/cv-denis-jankovic-<lang>.pdf` (the current `CV FR CPJ bleu.pdf`
+is password-protected and cannot be used). English is the canonical one:
 
-**Portrait** — save as `assets/img/portrait.jpg` and swap the placeholder block
-in `index.html` (see the comment near `hero__portrait`).
+- a language with its own PDF gets it, with no language tag on the button;
+- a language without one falls back to English, and the button reads
+  "Download PDF (EN)";
+- with no English PDF either, the button hides itself rather than 404.
+
+Either drop the files under the conventional name above, or record any path you
+like in **Misc → CV PDFs** in the CMS — a recorded path wins over the
+convention.
+
+**Portrait** — save as `assets/img/portrait.jpg`; it replaces the initials
+placeholder automatically, and the initials return if the file is missing.
 
 **Editing shared chrome** (nav / footer / icon sprite / boot snippet): edit the
 file in `tools/partials/`, then run `python tools/sync_partials.py` to stamp it
@@ -118,6 +127,8 @@ the Netlify host. Set `window.IDENTITY_API` at the top of `admin/index.html` to
 | `admin/index.html` | Loads the CMS and the Identity widget |
 | `admin/config.yml` | Collections, fields and per-field upload folders |
 | `admin/preview.js` | The Files panel: expected filename per entry, and mismatch warnings |
+| `data/site.json` | CV PDF paths, edited under Misc |
+| `js/cv.js` | Chooses the CV for the current language, falling back to English |
 | `js/boot.js` | Fetches `data/*.json`, then runs the page scripts in order |
 | `netlify.toml` | Publish settings + `noindex` for the Netlify copy |
 
@@ -137,6 +148,13 @@ Every uploaded file is named after its entry's `id`:
 
 Course material is `assets/lectures/<id>` plus `-slides.pdf`, `-notebooks.zip`,
 `-handout.pdf` or `-tutorial.pdf`.
+
+Four files are referenced straight from the HTML and so must keep their exact
+names — `assets/img/portrait.jpg`, `assets/img/og-card.png`, `favicon.svg` and
+`assets/pdf/thesis/thesis-jankovic-2024.pdf`. Upload them through **Media**,
+named as listed. They cannot be chosen in a form: the favicon and the social
+card are read by crawlers that never run the page scripts. The **Misc** panel
+lists all four and marks which are in place.
 
 The **Files** panel beside each list in the CMS states the expected name for
 every entry and marks it ✓ when the stored path matches, `!` when it does not,

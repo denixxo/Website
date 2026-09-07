@@ -357,3 +357,47 @@ collections:
                 required: false
                 media_folder: '/assets/lectures'
                 public_folder: 'assets/lectures'
+
+  # ------------------------------------------------------------------ misc ---
+  - name: misc
+    label: Misc
+    files:
+      - name: site
+        label: CV & site files
+        file: data/site.json
+        description: >-
+          The CV PDFs, plus the fixed-name assets listed in the panel beside
+          this form.
+        fields:
+          - name: cv
+            label: CV PDFs
+            widget: object
+            hint: >-
+              English is the canonical CV. A language left empty falls back to
+              the English PDF, and the download button then says "(EN)". If the
+              English one is missing too, the button hides itself.
+            fields:
+              - name: en
+                label: English
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/cv'
+                public_folder: 'assets/pdf/cv'
+              - name: fr
+                label: Français
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/cv'
+                public_folder: 'assets/pdf/cv'
+              - name: ko
+                label: 한국어
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/cv'
+                public_folder: 'assets/pdf/cv'
+              - name: de
+                label: Deutsch
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/cv'
+                public_folder: 'assets/pdf/cv'
