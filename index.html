@@ -412,9 +412,14 @@
         </g>
         <circle class="orbital__nucleus" cx="300" cy="300" r="8" stroke="none"/>
       </svg>
-      <!-- Portrait: replace this placeholder with
-           <div class="hero__portrait"><img src="assets/img/portrait.jpg" alt=""></div> -->
-      <div class="hero__portrait hero__portrait--initials"><span>DJ</span></div>
+      <!-- Portrait: drop a square photo at assets/img/portrait.jpg and it takes
+           over automatically. Until the file exists — or if it fails to load —
+           the initials stay. Nothing else to edit. -->
+      <div class="hero__portrait hero__portrait--initials" data-portrait>
+        <span>DJ</span>
+        <img src="assets/img/portrait.jpg" alt="Denis Janković" hidden
+             onload="var b=this.closest('[data-portrait]');b.classList.remove('hero__portrait--initials');b.querySelector('span').remove();this.hidden=false">
+      </div>
     </div>
   </section>
 
