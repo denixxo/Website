@@ -96,6 +96,14 @@ being served by GitHub Pages.
 > own account) and drop the Identity script from `admin/index.html`; everything
 > else — the collections, the JSON files, the commit flow — stays as it is.
 
+### Editing locally, without logging in
+
+`local_backend: true` in `admin/config.yml` only takes effect on localhost. With
+the site served locally, run `npx decap-server` in the repo root, open
+`http://localhost:8321/admin/` and click **Login** — the CMS then reads and
+writes the working copy directly, with no Identity and no commits. Useful for
+trying out config or preview changes before pushing them.
+
 ### Serving /admin from jankovic.phd instead
 
 The admin page works from GitHub Pages too, but the Identity API only exists on

@@ -19,6 +19,11 @@ backend:
 
 publish_mode: simple
 
+# Only active when /admin is served from localhost: the CMS then talks to
+# `npx decap-server` against the local checkout instead of Identity, so the
+# editor can be opened without logging in. Ignored on the deployed site.
+local_backend: true
+
 site_url: https://jankovic.phd
 display_url: https://jankovic.phd
 logo_url: https://jankovic.phd/favicon.svg
