@@ -109,12 +109,33 @@ the Netlify host. Set `window.IDENTITY_API` at the top of `admin/index.html` to
 |---|---|
 | `admin/index.html` | Loads the CMS and the Identity widget |
 | `admin/config.yml` | Collections, fields and per-field upload folders |
+| `admin/preview.js` | The Files panel: expected filename per entry, and mismatch warnings |
 | `js/boot.js` | Fetches `data/*.json`, then runs the page scripts in order |
 | `netlify.toml` | Publish settings + `noindex` for the Netlify copy |
 
 Adding a field means adding it in **both** `admin/config.yml` and the rendering
 script in `js/`. A field present in the JSON but absent from the config is
 silently dropped the next time that file is saved through the CMS.
+
+### Filenames
+
+Every uploaded file is named after its entry's `id`:
+
+| Collection | PDF | Thumbnail |
+|---|---|---|
+| Publications | `assets/pdf/publications/<id>.pdf` | `assets/img/pubs/<id>.webp` |
+| Talks | `assets/pdf/presentations/<id>.pdf` | `assets/img/talks/<id>.webp` |
+| Posters | `assets/pdf/posters/<id>.pdf` | `assets/img/posters/<id>.webp` |
+
+Course material is `assets/lectures/<id>` plus `-slides.pdf`, `-notebooks.zip`,
+`-handout.pdf` or `-tutorial.pdf`.
+
+The **Files** panel beside each list in the CMS states the expected name for
+every entry and marks it ✓ when the stored path matches, `!` when it does not,
+and `*` for the one deliberate exception (the thesis PDF, which sits in
+`assets/pdf/thesis/` because `thesis.html` links the same file). Nothing
+enforces the convention — a path that drifts simply stops rendering its button
+— so the panel is the only thing that will tell you.
 
 ## Languages
 
