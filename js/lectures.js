@@ -42,7 +42,7 @@
   }
 
   function descHTML(d) {
-    if (!d) return "";
+    if (!SITE.filled(d)) return "";
     return '<p class="talk-row__event">' +
       dual(esc(d.en || ""),
            d.fr == null ? null : esc(d.fr),

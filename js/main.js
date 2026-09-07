@@ -1,5 +1,6 @@
 // js/main.js — theme toggle, language toggle, nav state, back-to-top,
-// shared helpers. Loaded on every page (after the data/*.js files).
+// shared helpers. Loaded on every page (after data/i18n.js, via js/boot.js on
+// the pages that also need JSON content).
 (function () {
   "use strict";
   var d = document.documentElement;
@@ -30,6 +31,15 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
   };
+  // Content edited through /admin comes back with "" where the hand-written data
+  // used null (Decap has no null). Treat both as "absent".
+  SITE.num = function (v) {
+    return v == null || v === "" ? null : Number(v);
+  };
+  SITE.filled = function (obj) {
+    return !!obj && SITE.LANGS.some(function (l) { return obj[l]; });
+  };
+
   SITE.reducedMotion = function () {
     return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   };

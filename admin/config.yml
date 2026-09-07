@@ -1,0 +1,354 @@
+# admin/config.yml — Decap CMS.
+#
+# Decap is a git-based CMS: it has no database. Every save is a commit to
+# github.com/denixxo/Website, and GitHub Pages redeploys from that commit.
+# Netlify supplies only the login (Identity) and the token exchange
+# (Git Gateway) — it never holds a copy of the content.
+#
+# Each data/*.json file holds a single named list, e.g. { "posters": [ ... ] },
+# because a Decap file collection maps top-level keys to fields. js/boot.js
+# fetches these files and hands them to the page scripts as window.SITE.*.
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    update: 'content: update {{collection}}'
+    uploadMedia: 'content: upload {{path}}'
+    deleteMedia: 'content: delete {{path}}'
+
+publish_mode: simple
+
+site_url: https://jankovic.phd
+display_url: https://jankovic.phd
+logo_url: https://jankovic.phd/favicon.svg
+
+# Fallback for uploads made outside a field that sets its own folder.
+media_folder: 'assets/img'
+public_folder: 'assets/img'
+
+collections:
+  # ---------------------------------------------------------------- papers ---
+  - name: publications
+    label: Publications
+    files:
+      - name: publications
+        label: Publication list
+        file: data/publications.json
+        description: >-
+          Papers, preprints and the thesis. Sorted automatically by year and
+          month — the order here does not matter.
+        fields:
+          - name: publications
+            label: Publications
+            label_singular: Publication
+            widget: list
+            collapsed: true
+            summary: '{{fields.year}} · {{fields.title}}'
+            fields:
+              - name: id
+                label: ID
+                widget: string
+                hint: 'year-venue-slug (e.g. 2024-npjqi-noisy-qudit). Also the PDF and thumbnail filename.'
+              - name: type
+                label: Type
+                widget: select
+                default: article
+                options: [article, preprint, thesis]
+              - name: year
+                label: Year
+                widget: number
+                value_type: int
+                min: 1990
+                max: 2100
+              - name: month
+                label: Month
+                widget: number
+                value_type: int
+                min: 1
+                max: 12
+                required: false
+                hint: '1–12. Leave empty if unknown; only affects sort order within a year.'
+              - name: authors
+                label: Authors
+                widget: string
+                hint: 'Comma-separated, in publication order: D. Janković, J.-G. Hartmann, …'
+              - name: title
+                label: Title
+                widget: string
+              - name: journal
+                label: Journal / venue
+                widget: string
+                required: false
+                hint: 'With volume and pages, e.g. "npj Quantum Information 10, 59". Leave empty for a preprint — the arXiv ID is shown instead.'
+              - name: doi
+                label: DOI
+                widget: string
+                required: false
+                hint: 'Bare DOI, without the https://doi.org/ prefix.'
+              - name: arxiv
+                label: arXiv ID
+                widget: string
+                required: false
+                hint: 'e.g. 2408.13601'
+              - name: pdf
+                label: PDF
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/publications'
+                public_folder: 'assets/pdf/publications'
+              - name: thumbnail
+                label: Thumbnail
+                widget: image
+                required: false
+                media_folder: '/assets/img/pubs'
+                public_folder: 'assets/img/pubs'
+                hint: '900×429 WebP. tools/make_thumbnails.py generates these from the PDF.'
+              - name: selected
+                label: Feature on the homepage
+                widget: boolean
+                default: false
+              - name: topics
+                label: Topics
+                widget: list
+                hint: 'Filter chips. Existing: qudits, open-systems, numerics, esr-stm, optimal-control, encoding, hyperfine, nuclear'
+              - name: bibtex
+                label: BibTeX
+                widget: text
+                hint: 'Paste the entry exactly as BibTeX wants it. The old rule about doubling backslashes was a JavaScript quirk and no longer applies.'
+              - name: notes
+                label: One-line note
+                widget: object
+                fields:
+                  - { name: en, label: English, widget: text }
+                  - { name: fr, label: Français, widget: text, required: false }
+                  - { name: ko, label: 한국어, widget: text, required: false }
+                  - { name: de, label: Deutsch, widget: text, required: false }
+
+  # ----------------------------------------------------------------- talks ---
+  - name: presentations
+    label: Talks
+    files:
+      - name: presentations
+        label: Talk list
+        file: data/presentations.json
+        description: 'Invited talks, contributed talks and seminars.'
+        fields:
+          - name: presentations
+            label: Talks
+            label_singular: Talk
+            widget: list
+            collapsed: true
+            summary: '{{fields.year}} · {{fields.title}}'
+            fields:
+              - name: id
+                label: ID
+                widget: string
+                hint: 'year-venue-slug. Also the PDF and thumbnail filename.'
+              - name: year
+                label: Year
+                widget: number
+                value_type: int
+                min: 1990
+                max: 2100
+                required: false
+              - name: month
+                label: Month
+                widget: number
+                value_type: int
+                min: 1
+                max: 12
+                required: false
+              - name: title
+                label: Title
+                widget: string
+              - name: event
+                label: Event
+                widget: string
+                hint: 'Conference or seminar series, with the acronym in brackets if there is one.'
+              - name: location
+                label: Location
+                widget: string
+                required: false
+                hint: 'City, Country'
+              - name: type
+                label: Type
+                widget: select
+                default: contributed
+                options: [invited, contributed, seminar]
+              - name: award
+                label: Award / distinction
+                widget: object
+                required: false
+                hint: 'Leave every language empty if there was none — the badge is hidden when all four are blank.'
+                fields:
+                  - { name: en, label: English, widget: string, required: false }
+                  - { name: fr, label: Français, widget: string, required: false }
+                  - { name: ko, label: 한국어, widget: string, required: false }
+                  - { name: de, label: Deutsch, widget: string, required: false }
+              - name: pdf
+                label: Slide deck
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/presentations'
+                public_folder: 'assets/pdf/presentations'
+              - name: video
+                label: Video URL
+                widget: string
+                required: false
+                hint: 'Full URL to a recording, if one exists.'
+              - name: thumbnail
+                label: Thumbnail
+                widget: image
+                required: false
+                media_folder: '/assets/img/talks'
+                public_folder: 'assets/img/talks'
+                hint: '16:9, 400×225 WebP.'
+
+  # --------------------------------------------------------------- posters ---
+  - name: posters
+    label: Posters
+    files:
+      - name: posters
+        label: Poster list
+        file: data/posters.json
+        description: 'Poster gallery. Thumbnails are full-page renders of the PDF.'
+        fields:
+          - name: posters
+            label: Posters
+            label_singular: Poster
+            widget: list
+            collapsed: true
+            summary: '{{fields.year}} · {{fields.title}}'
+            fields:
+              - name: id
+                label: ID
+                widget: string
+                hint: 'year-poster-slug. Also the PDF and thumbnail filename.'
+              - name: year
+                label: Year
+                widget: number
+                value_type: int
+                min: 1990
+                max: 2100
+              - name: title
+                label: Title
+                widget: string
+              - name: event
+                label: Event
+                widget: string
+              - name: location
+                label: Location
+                widget: string
+                required: false
+                hint: 'City, Country'
+              - name: award
+                label: Award / distinction
+                widget: object
+                required: false
+                hint: 'Leave every language empty if there was none.'
+                fields:
+                  - { name: en, label: English, widget: string, required: false }
+                  - { name: fr, label: Français, widget: string, required: false }
+                  - { name: ko, label: 한국어, widget: string, required: false }
+                  - { name: de, label: Deutsch, widget: string, required: false }
+              - name: pdf
+                label: PDF
+                widget: file
+                required: false
+                media_folder: '/assets/pdf/posters'
+                public_folder: 'assets/pdf/posters'
+              - name: thumbnail
+                label: Thumbnail
+                widget: image
+                required: false
+                media_folder: '/assets/img/posters'
+                public_folder: 'assets/img/posters'
+
+  # -------------------------------------------------------------- teaching ---
+  - name: lectures
+    label: Teaching
+    files:
+      - name: lectures
+        label: Teaching list
+        file: data/lectures.json
+        description: >-
+          Lectures, lab courses and tutorials. Material buttons appear only once
+          the corresponding file exists on the server.
+        fields:
+          - name: lectures
+            label: Courses
+            label_singular: Course
+            widget: list
+            collapsed: true
+            summary: '{{fields.years}} · {{fields.title}}'
+            fields:
+              - name: id
+                label: ID
+                widget: string
+                hint: 'institution-topic slug. Material filenames are built from it: <id>-slides.pdf, <id>-handout.pdf, …'
+              - name: year
+                label: Sort year
+                widget: number
+                value_type: int
+                min: 1990
+                max: 2100
+                hint: 'Used for ordering — give the end year of the range.'
+              - name: years
+                label: Displayed years
+                widget: string
+                hint: 'e.g. "2024 – 2025" or "2025"'
+              - name: title
+                label: Title
+                widget: string
+              - name: institution
+                label: Institution
+                widget: string
+              - name: level
+                label: Level
+                widget: string
+                required: false
+                hint: 'e.g. M1–M2 / PhD'
+              - name: hours
+                label: Hours
+                widget: number
+                value_type: int
+                required: false
+              - name: type
+                label: Type
+                widget: select
+                default: lecture
+                options: [lecture, lab, tutorial, oral, coordination]
+              - name: desc
+                label: Description
+                widget: object
+                required: false
+                fields:
+                  - { name: en, label: English, widget: text, required: false }
+                  - { name: fr, label: Français, widget: text, required: false }
+                  - { name: ko, label: 한국어, widget: text, required: false }
+                  - { name: de, label: Deutsch, widget: text, required: false }
+              - name: slides
+                label: Slides
+                widget: file
+                required: false
+                media_folder: '/assets/lectures'
+                public_folder: 'assets/lectures'
+              - name: notebooks
+                label: Notebooks
+                widget: file
+                required: false
+                media_folder: '/assets/lectures'
+                public_folder: 'assets/lectures'
+              - name: handouts
+                label: Handouts
+                widget: file
+                required: false
+                media_folder: '/assets/lectures'
+                public_folder: 'assets/lectures'
+              - name: tutorial
+                label: Tutorial sheet
+                widget: file
+                required: false
+                media_folder: '/assets/lectures'
+                public_folder: 'assets/lectures'

@@ -1,0 +1,20 @@
+# netlify.toml — the Netlify deploy exists only to host the content manager.
+#
+# jankovic.phd is served by GitHub Pages. This repo is *also* linked to a
+# Netlify site because Decap CMS uses Netlify Identity for login and Git Gateway
+# to commit; both need somewhere to run. Editing happens at
+# <site>.netlify.app/admin/, the commit lands in GitHub, and GitHub Pages
+# redeploys the public site from it.
+#
+# The Netlify deploy therefore renders a full copy of the site. That copy is
+# not meant to be found: the header below keeps it out of search results so it
+# never competes with jankovic.phd.
+
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

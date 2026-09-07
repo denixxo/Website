@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <title>Content manager — jankovic.phd</title>
+</head>
+<body>
+  <!--
+    Decap CMS. Content is committed straight to github.com/denixxo/Website;
+    Netlify only supplies the login (Identity) and the token exchange
+    (Git Gateway). Nothing is stored on Netlify.
+
+    Serve this page from the Netlify deploy of this repo, where
+    /.netlify/identity exists. To use it on jankovic.phd (GitHub Pages)
+    instead, set IDENTITY_API below to the Netlify site's identity endpoint.
+  -->
+  <script>
+    // e.g. "https://jankovic-phd.netlify.app/.netlify/identity"
+    // Leave null when this page is served from the Netlify site itself.
+    window.IDENTITY_API = null;
+  </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.IDENTITY_API) {
+      window.netlifyIdentity.init({ APIUrl: window.IDENTITY_API });
+    }
+  </script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+</body>
+</html>

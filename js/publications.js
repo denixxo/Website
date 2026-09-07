@@ -8,7 +8,7 @@
   var selectedGrid = document.querySelector("[data-selected-grid]");
   if (!selectedGrid || !pubs.length) return;
 
-  var dual = SITE.dual, esc = SITE.esc;
+  var dual = SITE.dual, esc = SITE.esc, num = SITE.num;
   var t = function (k) { return SITE.t(k); };
   function tFor(lang, k) {
     return k.split(".").reduce(function (o, x) { return o && o[x]; }, SITE.i18n[lang] || {});
@@ -23,7 +23,7 @@
   function dateCompare(a, b) {
     var ya = a.year == null ? -1 : a.year, yb = b.year == null ? -1 : b.year;
     if (yb !== ya) return yb - ya;
-    var ma = a.month == null ? 0 : a.month, mb = b.month == null ? 0 : b.month;
+    var ma = num(a.month) || 0, mb = num(b.month) || 0;
     if (mb !== ma) return mb - ma;
     return a.title.localeCompare(b.title);
   }

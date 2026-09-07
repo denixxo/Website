@@ -7,7 +7,7 @@
   var posterGrid = document.querySelector("[data-poster-grid]");
   if (!talksList && !posterGrid) return;
 
-  var dual = SITE.dual, esc = SITE.esc;
+  var dual = SITE.dual, esc = SITE.esc, num = SITE.num, filled = SITE.filled;
   function tFor(lang, k) {
     return k.split(".").reduce(function (o, x) { return o && o[x]; }, SITE.i18n[lang] || {});
   }
@@ -19,10 +19,10 @@
 
   function sorted(list) {
     return list.slice().sort(function (a, b) {
-      var ya = a.year == null ? -1 : a.year, yb = b.year == null ? -1 : b.year;
+      var ya = num(a.year) == null ? -1 : num(a.year);
+      var yb = num(b.year) == null ? -1 : num(b.year);
       if (yb !== ya) return yb - ya;
-      var ma = a.month == null ? 0 : a.month, mb = b.month == null ? 0 : b.month;
-      return mb - ma;
+      return (num(b.month) || 0) - (num(a.month) || 0);
     });
   }
 
@@ -34,11 +34,12 @@
   }
 
   function dateHTML(item) {
-    if (item.year == null) return "";
-    if (item.month == null) return String(item.year);
+    var year = num(item.year), month = num(item.month);
+    if (year == null) return "";
+    if (!month) return String(year);
     var per = SITE.LANGS.map(function (lang) {
       var months = tFor(lang, "months") || tFor("en", "months");
-      return '<span lang="' + lang + '">' + esc(months[item.month - 1] + " " + item.year) + "</span>";
+      return '<span lang="' + lang + '">' + esc(months[month - 1] + " " + year) + "</span>";
     });
     return per.join("");
   }
@@ -52,7 +53,7 @@
         : "";
       var placeholder = '<svg class="icon" aria-hidden="true"><use href="#i-talks"/></svg>';
       var chips = ['<span class="chip chip--' + esc(talk.type) + '">' + dualT("talkType." + talk.type) + "</span>"];
-      if (talk.award) {
+      if (filled(talk.award)) {
         chips.push('<span class="chip chip--award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>' +
           awardHTML(talk.award) + "</span>");
       }
@@ -81,7 +82,7 @@
   var dialog = document.querySelector("[data-lightbox]");
   if (posterGrid && SITE.posters) {
     posterGrid.innerHTML = sorted(SITE.posters).map(function (p, i) {
-      var award = p.award
+      var award = filled(p.award)
         ? '<span class="chip chip--award poster-card__award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>' +
           awardHTML(p.award) + "</span>"
         : "";

@@ -1,0 +1,283 @@
+{
+  "publications": [
+    {
+      "id": "2024-npjqi-noisy-qudit",
+      "type": "article",
+      "year": 2024,
+      "month": 6,
+      "authors": "D. Janković, J.-G. Hartmann, M. Ruben, P.-A. Hervieux",
+      "title": "Noisy qudit vs multiple qubits: conditions on gate efficiency for enhancing fidelity",
+      "journal": "npj Quantum Information 10, 59",
+      "doi": "10.1038/s41534-024-00829-6",
+      "arxiv": null,
+      "pdf": "assets/pdf/publications/2024-npjqi-noisy-qudit.pdf",
+      "thumbnail": "assets/img/pubs/2024-npjqi-noisy-qudit.webp",
+      "selected": true,
+      "topics": [
+        "qudits",
+        "open-systems"
+      ],
+      "bibtex": "@article{jankovic2024noisy,\n  author  = {Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Noisy qudit vs multiple qubits: conditions on gate efficiency for enhancing fidelity},\n  journal = {npj Quantum Information},\n  volume  = {10},\n  pages   = {59},\n  year    = {2024},\n  doi     = {10.1038/s41534-024-00829-6}\n}",
+      "notes": {
+        "en": "Establishes the quantitative criterion for when a noisy d-level qudit beats an equivalent register of qubits.",
+        "fr": "Établit le critère quantitatif pour qu'un qudit bruité à d niveaux surpasse un registre de qubits équivalent.",
+        "ko": "잡음이 있는 d준위 큐디트가 동등한 큐비트 레지스터를 능가하는 정량적 기준을 확립.",
+        "de": "Etabliert das quantitative Kriterium, wann ein verrauschtes d-Niveau-Qudit ein äquivalentes Qubit-Register übertrifft."
+      }
+    },
+    {
+      "id": "2025-quantum-nonlinearity",
+      "type": "article",
+      "year": 2025,
+      "month": 4,
+      "authors": "J.-G. Hartmann, D. Janković, R. Pasquier, M. Ruben, P.-A. Hervieux",
+      "title": "Nonlinearity of the fidelity in open qudit systems: gate and noise dependence in high-dimensional quantum computing",
+      "journal": "Quantum 9, 1690",
+      "doi": "10.22331/q-2025-04-07-1690",
+      "arxiv": null,
+      "pdf": "assets/pdf/publications/2025-quantum-nonlinearity.pdf",
+      "thumbnail": "assets/img/pubs/2025-quantum-nonlinearity.webp",
+      "selected": true,
+      "topics": [
+        "qudits",
+        "open-systems"
+      ],
+      "bibtex": "@article{hartmann2025nonlinearity,\n  author  = {Hartmann, Jean-Gabriel and Jankovi\\'c, Denis and Pasquier, R{\\'e}mi and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Nonlinearity of the fidelity in open qudit systems: gate and noise dependence in high-dimensional quantum computing},\n  journal = {Quantum},\n  volume  = {9},\n  pages   = {1690},\n  year    = {2025},\n  doi     = {10.22331/q-2025-04-07-1690}\n}",
+      "notes": {
+        "en": "All-order expansion of the average gate infidelity, revealing how the control Hamiltonian couples to dissipation.",
+        "fr": "Développement à tout ordre de l'infidélité moyenne, révélant le couplage entre hamiltonien de contrôle et dissipation.",
+        "ko": "평균 게이트 비충실도의 전차수 전개를 통해 제어 해밀토니안과 소산의 결합 방식을 규명.",
+        "de": "Entwicklung der mittleren Gate-Infidelity zu allen Ordnungen — zeigt, wie der Steuer-Hamiltonian an die Dissipation koppelt."
+      }
+    },
+    {
+      "id": "2026-siam-lindblad-integrators",
+      "type": "article",
+      "year": 2026,
+      "month": 1,
+      "authors": "H. Chen, A. Borzì, D. Janković, J.-G. Hartmann, P.-A. Hervieux",
+      "title": "Full- and low-rank exponential Euler integrators for the Lindblad equation",
+      "journal": "SIAM Journal on Scientific Computing 48, 1",
+      "doi": null,
+      "arxiv": "2408.13601",
+      "pdf": "assets/pdf/publications/2026-siam-lindblad-integrators.pdf",
+      "thumbnail": "assets/img/pubs/2026-siam-lindblad-integrators.webp",
+      "selected": false,
+      "topics": [
+        "open-systems",
+        "numerics"
+      ],
+      "bibtex": "@article{chen2026integrators,\n  author  = {Chen, Hao and Borzì, Alfio and Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Hervieux, Paul-Antoine},\n  title   = {Full- and low-rank exponential Euler integrators for the Lindblad equation},\n  journal = {SIAM Journal on Scientific Computing},\n  volume  = {48},\n  number  = {1},\n  year    = {2026},\n  eprint  = {2408.13601}\n}",
+      "notes": {
+        "en": "Lindblad integrators that unconditionally preserve complete positivity and trace, in full- and low-rank versions."
+      }
+    },
+    {
+      "id": "2026-npjqi-surface-qubits",
+      "type": "article",
+      "year": 2026,
+      "month": 3,
+      "authors": "H.-A. Le, S. Taherpour, D. Janković, C. Wolf",
+      "title": "Overcoming limitations on gate fidelity in noisy static exchange-coupled surface qubits",
+      "journal": "npj Quantum Information 12, 69",
+      "doi": "10.1038/s41534-026-01214-1",
+      "arxiv": "2509.18737",
+      "pdf": "assets/pdf/publications/2026-npjqi-surface-qubits.pdf",
+      "thumbnail": "assets/img/pubs/2026-npjqi-surface-qubits.webp",
+      "selected": true,
+      "topics": [
+        "esr-stm",
+        "optimal-control",
+        "open-systems"
+      ],
+      "bibtex": "@article{le2026overcoming,\n  author  = {Le, Hoang-Anh and Taherpour, Saba and Jankovi\\'c, Denis and Wolf, Christoph},\n  title   = {Overcoming limitations on gate fidelity in noisy static exchange-coupled surface qubits},\n  journal = {npj Quantum Information},\n  volume  = {12},\n  pages   = {69},\n  year    = {2026},\n  doi     = {10.1038/s41534-026-01214-1},\n  eprint  = {2509.18737}\n}",
+      "notes": {
+        "en": "How to beat the gate-fidelity limits of always-on exchange coupling in ESR-STM surface qubits.",
+        "fr": "Dépasser les limites de fidélité imposées par le couplage d'échange permanent des qubits de surface ESR-STM.",
+        "ko": "ESR-STM 표면 큐비트에서 상시 활성 교환 결합이 부과하는 게이트 충실도 한계를 극복하는 방법.",
+        "de": "Wie sich die Fidelity-Grenzen der immer aktiven Austauschkopplung in ESR-STM-Oberflächenqubits überwinden lassen."
+      }
+    },
+    {
+      "id": "2026-andp-thue-morse",
+      "type": "article",
+      "year": 2026,
+      "month": null,
+      "authors": "D. Janković, R. Pasquier, J.-G. Hartmann, P.-A. Hervieux",
+      "title": "Elucidating the physical and mathematical properties of the Prouhet–Thue–Morse sequence in quantum computing",
+      "journal": "Annalen der Physik 538, e00630",
+      "doi": null,
+      "arxiv": null,
+      "pdf": "assets/pdf/publications/2026-andp-thue-morse.pdf",
+      "thumbnail": "assets/img/pubs/2026-andp-thue-morse.webp",
+      "selected": false,
+      "topics": [
+        "encoding",
+        "open-systems"
+      ],
+      "bibtex": "@article{jankovic2026thuemorse,\n  author  = {Jankovi\\'c, Denis and Pasquier, R{\\'e}mi and Hartmann, Jean-Gabriel and Hervieux, Paul-Antoine},\n  title   = {Elucidating the physical and mathematical properties of the Prouhet--Thue--Morse sequence in quantum computing},\n  journal = {Annalen der Physik},\n  volume  = {538},\n  pages   = {e00630},\n  year    = {2026}\n}",
+      "notes": {
+        "en": "Thue–Morse logical encodings that cancel first-order dephasing in Ising spin chains."
+      }
+    },
+    {
+      "id": "2026-jpcm-esr-stm-review",
+      "type": "article",
+      "year": 2026,
+      "month": null,
+      "authors": "S. Taherpour, D. Janković, J. Reina-Galvez, H.-A. Le, C. Wolf",
+      "title": "Theory of electron spin resonance scanning tunneling microscopy: the first decade",
+      "journal": "Journal of Physics: Condensed Matter 38, 243003",
+      "doi": "10.1088/1361-648X/ae76a6",
+      "arxiv": "2606.27830",
+      "pdf": "assets/pdf/publications/2026-jpcm-esr-stm-review.pdf",
+      "thumbnail": "assets/img/pubs/2026-jpcm-esr-stm-review.webp",
+      "selected": false,
+      "topics": [
+        "esr-stm",
+        "hyperfine"
+      ],
+      "bibtex": "@article{taherpour2026esrstm,\n  author  = {Taherpour, Saba and Jankovi\\'c, Denis and Reina-Galvez, Jose and Le, Hoang-Anh and Wolf, Christoph},\n  title   = {Theory of electron spin resonance scanning tunneling microscopy: the first decade},\n  journal = {Journal of Physics: Condensed Matter},\n  volume  = {38},\n  pages   = {243003},\n  year    = {2026},\n  doi     = {10.1088/1361-648X/ae76a6},\n  eprint  = {2606.27830}\n}",
+      "notes": {
+        "en": "Co-directed review of ESR-STM theory, including the formalism of nuclear-spin control on this platform."
+      }
+    },
+    {
+      "id": "2025-arxiv-magicarp",
+      "type": "preprint",
+      "year": 2025,
+      "month": 5,
+      "authors": "D. Janković, J.-G. Hartmann, P.-L. Etienney, K. Lutz, Y. Privat, P.-A. Hervieux",
+      "title": "Quantum optimal control using MAGICARP: combining Pontryagin's maximum principle and gradient ascent",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2505.21203",
+      "pdf": "assets/pdf/publications/2025-arxiv-magicarp.pdf",
+      "thumbnail": "assets/img/pubs/2025-arxiv-magicarp.webp",
+      "selected": false,
+      "topics": [
+        "optimal-control",
+        "numerics"
+      ],
+      "bibtex": "@misc{jankovic2025magicarp,\n  author        = {Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Etienney, Paul-Louis and Lutz, K{\\'e}vin and Privat, Yannick and Hervieux, Paul-Antoine},\n  title         = {Quantum optimal control using MAGICARP: combining Pontryagin's maximum principle and gradient ascent},\n  year          = {2025},\n  eprint        = {2505.21203},\n  archivePrefix = {arXiv}\n}",
+      "notes": {
+        "en": "The MAGICARP algorithm: a shooting technique that optimizes the adjoint co-state instead of discretized pulse amplitudes."
+      }
+    },
+    {
+      "id": "2026-arxiv-hyperfine-nucleus",
+      "type": "preprint",
+      "year": 2026,
+      "month": 2,
+      "authors": "D. Janković, J.-G. Hartmann, J. Bartel, H. Molique, L. Bonneau, P.-A. Hervieux",
+      "title": "The hyperfine interaction as a probe of the microscopic structure of the atomic nucleus",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2602.18144",
+      "pdf": "assets/pdf/publications/2026-arxiv-hyperfine-nucleus.pdf",
+      "thumbnail": "assets/img/pubs/2026-arxiv-hyperfine-nucleus.webp",
+      "selected": false,
+      "topics": [
+        "hyperfine",
+        "nuclear"
+      ],
+      "bibtex": "@misc{jankovic2026hyperfine,\n  author        = {Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Bartel, Johann and Molique, Herv{\\'e} and Bonneau, Ludovic and Hervieux, Paul-Antoine},\n  title         = {The hyperfine interaction as a probe of the microscopic structure of the atomic nucleus},\n  year          = {2026},\n  eprint        = {2602.18144},\n  archivePrefix = {arXiv}\n}",
+      "notes": {
+        "en": "Hydrogen-like (and muonic) lanthanide ions as metrological probes of internal nuclear structure. Submitted to Physical Review X."
+      }
+    },
+    {
+      "id": "2026-arxiv-shooting-qudits",
+      "type": "preprint",
+      "year": 2026,
+      "month": 3,
+      "authors": "P.-L. Etienney, D. Janković, K. Lutz, J.-G. Hartmann, E. Franck, P.-A. Hervieux",
+      "title": "Implementation of a shooting technique for quantum optimal control on spin qudits",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2603.21689",
+      "pdf": "assets/pdf/publications/2026-arxiv-shooting-qudits.pdf",
+      "thumbnail": "assets/img/pubs/2026-arxiv-shooting-qudits.webp",
+      "selected": false,
+      "topics": [
+        "optimal-control",
+        "qudits"
+      ],
+      "bibtex": "@misc{etienney2026shooting,\n  author        = {Etienney, Paul-Louis and Jankovi\\'c, Denis and Lutz, K{\\'e}vin and Hartmann, Jean-Gabriel and Franck, Emmanuel and Hervieux, Paul-Antoine},\n  title         = {Implementation of a shooting technique for quantum optimal control on spin qudits},\n  year          = {2026},\n  eprint        = {2603.21689},\n  archivePrefix = {arXiv}\n}",
+      "notes": {
+        "en": "MAGICARP validated on TbPc₂ (d = 4) and Tb₂Pc₃ (d = 16) molecular qudits. Submitted to Physical Review Research."
+      }
+    },
+    {
+      "id": "2026-arxiv-drift-aware-qsl",
+      "type": "preprint",
+      "year": 2026,
+      "month": 6,
+      "authors": "D. Janković, S. Taherpour, P.-L. Etienney, P.-A. Hervieux, C. Wolf",
+      "title": "Probing the weak-driving quantum speed limit via drift-aware shooting methods",
+      "journal": null,
+      "doi": null,
+      "arxiv": "2606.22212",
+      "pdf": "assets/pdf/publications/2026-arxiv-drift-aware-qsl.pdf",
+      "thumbnail": "assets/img/pubs/2026-arxiv-drift-aware-qsl.webp",
+      "selected": true,
+      "topics": [
+        "optimal-control",
+        "esr-stm"
+      ],
+      "bibtex": "@misc{jankovic2026driftaware,\n  author        = {Jankovi\\'c, Denis and Taherpour, Saba and Etienney, Paul-Louis and Hervieux, Paul-Antoine and Wolf, Christoph},\n  title         = {Probing the weak-driving quantum speed limit via drift-aware shooting methods},\n  year          = {2026},\n  eprint        = {2606.22212},\n  archivePrefix = {arXiv}\n}",
+      "notes": {
+        "en": "Drift-aware MAGICARP pulses reveal a pole in the energy–time trade-off: the quantum speed limit is a property of the drift Hamiltonian itself. Invited submission to Annalen der Physik.",
+        "fr": "Les impulsions MAGICARP conscientes de la dérive révèlent un pôle dans le compromis énergie–temps : la limite de vitesse quantique est une propriété de l'hamiltonien de dérive. Soumission invitée à Annalen der Physik.",
+        "ko": "드리프트를 고려한 MAGICARP 펄스가 에너지-시간 트레이드오프의 극점을 드러냄: 양자 속도 한계는 드리프트 해밀토니안 자체의 성질. Annalen der Physik 초청 투고.",
+        "de": "Drift-bewusste MAGICARP-Pulse offenbaren einen Pol im Energie-Zeit-Kompromiss: Das Quanten-Geschwindigkeitslimit ist eine Eigenschaft des Drift-Hamiltonians selbst. Eingeladene Einreichung bei Annalen der Physik."
+      }
+    },
+    {
+      "id": "2026-science-ho-mgo",
+      "type": "preprint",
+      "year": 2026,
+      "month": null,
+      "authors": "V. Sheina, S. Jang, D. Janković, A. Ollier, M. Sande, L. Colazzo, G. A. Traeger, L. Fang, C. Bui, S.-H. Phark, C. Wolf, F. Donati, S.-J. Kahng, A. Heinrich, W.-J. Jang",
+      "title": "Long-lived nuclear spin states of a single atom magnet",
+      "journal": null,
+      "doi": null,
+      "arxiv": null,
+      "pdf": null,
+      "thumbnail": null,
+      "selected": false,
+      "topics": [
+        "esr-stm",
+        "hyperfine",
+        "qudits"
+      ],
+      "bibtex": "@misc{sheina2026longlived,\n  author = {Sheina, V. and Jang, S. and Jankovi\\'c, D. and Ollier, A. and Sande, M. and Colazzo, L. and Traeger, G. A. and Fang, L. and Bui, C. and Phark, S.-H. and Wolf, C. and Donati, F. and Kahng, S.-J. and Heinrich, A. and Jang, W.-J.},\n  title  = {Long-lived nuclear spin states of a single atom magnet},\n  year   = {2026},\n  note   = {Submitted to Science}\n}",
+      "notes": {
+        "en": "Single Ho atoms on MgO as 16-level nuclear–electronic qudits with minute-scale nuclear lifetimes. Submitted to Science — links will appear once the preprint is online."
+      }
+    },
+    {
+      "id": "2024-thesis",
+      "type": "thesis",
+      "year": 2024,
+      "month": 11,
+      "authors": "D. Janković",
+      "title": "Hyperfine interactions in lanthanide-organic complexes for quantum information processing",
+      "journal": "PhD thesis, Université de Strasbourg & Karlsruhe Institute of Technology (488 pp.)",
+      "doi": "10.5445/IR/1000186876",
+      "arxiv": null,
+      "pdf": "assets/pdf/thesis/thesis-jankovic-2024.pdf",
+      "thumbnail": "assets/img/pubs/2024-thesis.webp",
+      "selected": false,
+      "topics": [
+        "hyperfine",
+        "qudits",
+        "optimal-control"
+      ],
+      "bibtex": "@phdthesis{jankovic2024thesis,\n  author = {Jankovi\\'c, Denis},\n  title  = {Hyperfine interactions in lanthanide-organic complexes for quantum information processing},\n  school = {Universit{\\'e} de Strasbourg and Karlsruhe Institute of Technology},\n  year   = {2024},\n  doi    = {10.5445/IR/1000186876}\n}",
+      "notes": {
+        "en": "Summa cum laude (KIT) · Université de Strasbourg thesis prize 2024."
+      }
+    }
+  ]
+}

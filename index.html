@@ -544,5 +544,19 @@
 <script src="data/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reveal.js"></script>
+<!-- Netlify Identity — only fetched when the URL carries an invite or password
+     recovery token, so ordinary visitors never pay for it. Accepting an invite
+     lands here; this hands the editor on to the content manager afterwards. -->
+<script>
+(function () {
+  if (!/[#&](invite_token|recovery_token|email_change_token|confirmation_token)=/.test(location.hash)) return;
+  var s = document.createElement("script");
+  s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+  s.onload = function () {
+    window.netlifyIdentity.on("login", function () { location.href = "/admin/"; });
+  };
+  document.head.appendChild(s);
+})();
+</script>
 </body>
 </html>
