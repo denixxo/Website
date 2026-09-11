@@ -35,10 +35,15 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
 .orbital__nucleus { fill: var(--accent-primary); }
 .orbital__satellite { fill: var(--motif-a); }
 
+/* isolation: the pictures' z-indexes stay inside the circle, and WebKit keeps
+   clipping to the round border while they fade. */
 .hero__portrait { position: absolute; width: clamp(170px, 42%, 240px); aspect-ratio: 1;
   border-radius: 50%; overflow: hidden; border: 3px solid var(--border-strong);
-  background: var(--surface-raised); box-shadow: var(--shadow-card); }
-.hero__portrait img { width: 100%; height: 100%; object-fit: cover; }
+  background: var(--surface-raised); box-shadow: var(--shadow-card); isolation: isolate; }
+/* Pictures are stacked; js/portrait.js fades the next one in on top. */
+.hero__portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity var(--portrait-fade, 0s) var(--ease-in-out); }
+.hero__portrait img.is-shown { opacity: 1; }
 .hero__portrait--initials { display: grid; place-items: center;
   font-family: var(--font-display); font-weight: 700; font-size: clamp(3rem, 8vw, 4.5rem);
   color: var(--text-heading); }

@@ -5,9 +5,11 @@
 # Netlify supplies only the login (Identity) and the token exchange
 # (Git Gateway) — it never holds a copy of the content.
 #
-# Each data/*.json file holds a single named list, e.g. { "posters": [ ... ] },
-# because a Decap file collection maps top-level keys to fields. js/boot.js
-# fetches these files and hands them to the page scripts as window.SITE.*.
+# A Decap file collection maps a file's top-level keys to fields. The four list
+# files therefore each hold a single named list, e.g. { "posters": [ ... ] };
+# site.json, cv.json and portraits.json are plain objects whose keys are the
+# fields themselves. js/boot.js fetches these files and hands them to the page
+# scripts as window.SITE.*.
 
 backend:
   name: git-gateway
@@ -357,6 +359,227 @@ collections:
                 required: false
                 media_folder: '/assets/lectures'
                 public_folder: 'assets/lectures'
+
+  # -------------------------------------------------------------------- cv ---
+  # Every text on the CV is an { en, fr, ko, de } object. The three shapes —
+  # English required, all optional, and all optional as multi-line boxes — are
+  # written out once, named with a YAML anchor (&text, &text_optional, &prose),
+  # and reused through aliases (*text …) so they cannot drift apart.
+  - name: cv
+    label: CV
+    files:
+      - name: cv
+        label: Curriculum vitae
+        file: data/cv.json
+        description: >-
+          Everything on the CV page, in the order it is shown there. A language
+          left empty shows the English text, so names and acronyms only need
+          the English box. The downloadable PDFs are under Misc → CV & site
+          files.
+        fields:
+          - name: contact
+            label: Contact
+            label_singular: Address
+            widget: list
+            required: false
+            collapsed: false
+            field: { name: address, label: Address, widget: string }
+            hint: 'An email address becomes a mail link, an https:// address a link, a phone number a call link.'
+          - name: location
+            label: Location
+            label_singular: Line
+            widget: list
+            required: false
+            collapsed: true
+            summary: '{{fields.en}}'
+            fields: &text
+              - { name: en, label: English, widget: string }
+              - { name: fr, label: Français, widget: string, required: false }
+              - { name: ko, label: 한국어, widget: string, required: false }
+              - { name: de, label: Deutsch, widget: string, required: false }
+          - name: languages
+            label: Languages
+            label_singular: Language
+            widget: list
+            required: false
+            collapsed: true
+            summary: '{{fields.name.en}} · {{fields.level.en}}'
+            fields:
+              - { name: name, label: Language, widget: object, fields: *text }
+              - name: dots
+                label: Dots
+                widget: number
+                value_type: int
+                min: 0
+                max: 5
+                default: 3
+                hint: 'Filled dots, out of five.'
+              - name: level
+                label: Level
+                widget: object
+                required: false
+                hint: 'e.g. Native, or C1 — a CEFR level reads the same everywhere, so English alone is enough.'
+                fields: &text_optional
+                  - { name: en, label: English, widget: string, required: false }
+                  - { name: fr, label: Français, widget: string, required: false }
+                  - { name: ko, label: 한국어, widget: string, required: false }
+                  - { name: de, label: Deutsch, widget: string, required: false }
+          - name: skills
+            label: Skill groups
+            label_singular: Skill group
+            widget: list
+            required: false
+            collapsed: true
+            summary: '{{fields.title.en}}'
+            fields:
+              - { name: title, label: Heading, widget: object, fields: *text }
+              - name: items
+                label: Skills
+                widget: list
+                hint: 'Comma-separated; each one becomes a chip.'
+          - name: sections
+            label: Sections
+            label_singular: Section
+            widget: list
+            collapsed: true
+            summary: '{{fields.title.en}}'
+            hint: 'The main column, top to bottom. Drag a section to move it.'
+            fields:
+              - name: id
+                label: Anchor
+                widget: string
+                required: false
+                pattern: ['^[a-z0-9-]+$', 'Lowercase letters, digits and dashes only']
+                hint: 'Lets you link straight to the section: cv.html#<anchor>.'
+              - name: icon
+                label: Icon
+                widget: select
+                default: briefcase
+                options:
+                  - { label: 'Briefcase — experience', value: briefcase }
+                  - { label: 'Mortarboard — education', value: education }
+                  - { label: 'Rosette — distinctions', value: award }
+                  - { label: 'Medal — fellowships', value: medal }
+                  - { label: 'Lectern — teaching', value: teaching }
+                  - { label: 'Open book — training', value: training }
+                  - { label: 'Shield — service', value: service }
+                  - { label: 'People — community', value: users }
+                  - { label: 'Megaphone — outreach', value: megaphone }
+                  - { label: 'Presentation — talks', value: talks }
+                  - { label: 'Poster', value: posters }
+                  - { label: 'Documents — publications', value: pubs }
+                  - { label: 'Book — thesis', value: thesis }
+                  - { label: 'Brackets — code', value: code }
+                  - { label: 'STM tip — instruments', value: stm }
+                  - { label: 'Globe', value: globe }
+                  - { label: 'Star', value: star }
+                  - { label: 'Pencil', value: pencil }
+                  - { label: 'Calendar', value: calendar }
+                  - { label: 'Link', value: link }
+                  - { label: 'Orbital', value: orbital }
+              - { name: title, label: Heading, widget: object, fields: *text }
+              - name: count
+                label: Figure
+                widget: string
+                required: false
+                hint: 'Optional, shown beside the heading — e.g. "265 h" for the teaching total.'
+              - name: entries
+                label: Entries
+                label_singular: Entry
+                widget: list
+                required: false
+                collapsed: true
+                add_to_top: true
+                summary: '{{fields.years}} · {{fields.title.en}}'
+                hint: 'Shown in this order. New entries are added at the top; drag one to move it.'
+                fields:
+                  - name: years
+                    label: Years
+                    widget: string
+                    required: false
+                    hint: 'e.g. "2020 – 2024", or "2025 —" for an ongoing position.'
+                  - name: title
+                    label: Heading
+                    widget: object
+                    hint: 'The bold line: institution, degree or distinction.'
+                    fields: *text
+                  - name: subtitle
+                    label: Subheading
+                    widget: object
+                    required: false
+                    hint: 'The line under it: role, supervisor or institution.'
+                    fields: &prose
+                      - { name: en, label: English, widget: text, required: false }
+                      - { name: fr, label: Français, widget: text, required: false }
+                      - { name: ko, label: 한국어, widget: text, required: false }
+                      - { name: de, label: Deutsch, widget: text, required: false }
+                  - name: desc
+                    label: Description
+                    widget: object
+                    required: false
+                    hint: 'Link with `[text](url)`, e.g. `[poster gallery](talks.html#posters)`.'
+                    fields: *prose
+                  - name: chips
+                    label: Chips
+                    label_singular: Chip
+                    widget: list
+                    required: false
+                    collapsed: true
+                    summary: '{{fields.type}} · {{fields.label.en}}'
+                    fields:
+                      - name: type
+                        label: Style
+                        widget: select
+                        default: topic
+                        options:
+                          - { label: Topic, value: topic }
+                          - { label: 'Award — with a rosette', value: award }
+                      - { name: label, label: Text, widget: object, fields: *text }
+
+  # ------------------------------------------------------------- portraits ---
+  - name: portraits
+    label: Profile pictures
+    files:
+      - name: portraits
+        label: Profile pictures
+        file: data/portraits.json
+        description: >-
+          The round picture on the homepage. With no picture it shows the DJ
+          initials; with one, that picture, standing still; with two or more it
+          fades from one to the next, top to bottom, and then starts over.
+        fields:
+          - name: pictures
+            label: Pictures
+            label_singular: Picture
+            widget: list
+            required: false
+            collapsed: false
+            field:
+              name: image
+              label: Picture
+              widget: image
+              media_folder: '/assets/img/portraits'
+              public_folder: 'assets/img/portraits'
+            hint: >-
+              Square photos of about 600×600 px work best: the circle is never
+              wider than 240 px, so a bigger file only slows the homepage down.
+              Drag to change the order.
+          - name: stay
+            label: Time on screen (seconds)
+            widget: number
+            value_type: float
+            min: 1
+            step: 0.5
+            default: 6
+            hint: 'How long each picture stays before the next one starts fading in.'
+          - name: fade
+            label: Transition (seconds)
+            widget: number
+            value_type: float
+            min: 0
+            step: 0.1
+            default: 1.5
+            hint: 'How long the fade from one picture to the next lasts. 0 switches instantly.'
 
   # ------------------------------------------------------------------ misc ---
   - name: misc

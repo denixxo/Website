@@ -1,0 +1,684 @@
+{
+  "contact": [
+    "denis@jankovic.phd",
+    "denis.jankovic@qns.science"
+  ],
+  "location": [
+    {
+      "en": "Center for Quantum Nanoscience (QNS)",
+      "fr": "Center for Quantum Nanoscience (QNS)",
+      "ko": "양자나노과학연구단 (QNS)",
+      "de": "Center for Quantum Nanoscience (QNS)"
+    },
+    {
+      "en": "Seoul, South Korea",
+      "fr": "Séoul, Corée du Sud",
+      "ko": "대한민국 서울",
+      "de": "Seoul, Südkorea"
+    }
+  ],
+  "languages": [
+    {
+      "name": {
+        "en": "French",
+        "fr": "Français",
+        "ko": "프랑스어",
+        "de": "Französisch"
+      },
+      "dots": 5,
+      "level": {
+        "en": "Native",
+        "fr": "Maternelle",
+        "ko": "모국어",
+        "de": "Muttersprache"
+      }
+    },
+    {
+      "name": {
+        "en": "Serbian",
+        "fr": "Serbe",
+        "ko": "세르비아어",
+        "de": "Serbisch"
+      },
+      "dots": 5,
+      "level": {
+        "en": "Native",
+        "fr": "Maternelle",
+        "ko": "모국어",
+        "de": "Muttersprache"
+      }
+    },
+    {
+      "name": {
+        "en": "English",
+        "fr": "Anglais",
+        "ko": "영어",
+        "de": "Englisch"
+      },
+      "dots": 4,
+      "level": {
+        "en": "C1"
+      }
+    },
+    {
+      "name": {
+        "en": "German",
+        "fr": "Allemand",
+        "ko": "독일어",
+        "de": "Deutsch"
+      },
+      "dots": 3,
+      "level": {
+        "en": "B2"
+      }
+    },
+    {
+      "name": {
+        "en": "Korean",
+        "fr": "Coréen",
+        "ko": "한국어",
+        "de": "Koreanisch"
+      },
+      "dots": 2,
+      "level": {
+        "en": "A2"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "title": {
+        "en": "Scientific computing",
+        "fr": "Calcul scientifique",
+        "ko": "과학 계산",
+        "de": "Wissenschaftliches Rechnen"
+      },
+      "items": [
+        "Python",
+        "QuTiP",
+        "C / C++",
+        "Fortran",
+        "Matlab",
+        "Mathematica",
+        "PyTorch",
+        "HPC · MPI · CUDA"
+      ]
+    },
+    {
+      "title": {
+        "en": "Editing & design",
+        "fr": "Édition & mise en page",
+        "ko": "편집 및 디자인",
+        "de": "Layout & Design"
+      },
+      "items": [
+        "LaTeX",
+        "Office",
+        "Canva",
+        "Blender",
+        "Adobe CC"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "experience",
+      "icon": "briefcase",
+      "title": {
+        "en": "Experience",
+        "fr": "Expérience",
+        "ko": "경력",
+        "de": "Berufserfahrung"
+      },
+      "entries": [
+        {
+          "years": "2025 —",
+          "title": {
+            "en": "Center for Quantum Nanoscience (QNS), IBS & Ewha Womans University"
+          },
+          "subtitle": {
+            "en": "Postdoctoral researcher · Theory of Quantum Spins on Surfaces group (Prof. A. Heinrich, Dr. C. Wolf) · Seoul",
+            "fr": "Chercheur postdoctoral · Groupe de théorie des spins quantiques sur surfaces (Prof. A. Heinrich, Dr C. Wolf) · Séoul",
+            "ko": "박사후연구원 · 표면 양자 스핀 이론 그룹 (Prof. A. Heinrich, Dr. C. Wolf) · 서울",
+            "de": "Postdoktorand · Gruppe für die Theorie von Quantenspins auf Oberflächen (Prof. A. Heinrich, Dr. C. Wolf) · Seoul"
+          },
+          "desc": {
+            "en": "Optimal control of electron- and nuclear-spin qubits on surfaces, in support of ESR-STM experiments; hyperfine modelling of Ho on MgO as a 16-level nuclear–electronic qudit.",
+            "fr": "Contrôle optimal de qubits de spin électronique et nucléaire sur surface, en soutien aux expériences ESR-STM ; modélisation hyperfine de Ho sur MgO comme qudit nucléaire-électronique à 16 niveaux.",
+            "ko": "ESR-STM 실험을 지원하는 표면 위 전자·핵스핀 큐비트의 최적 제어; MgO 위 Ho를 16준위 핵-전자 큐디트로 기술하는 초미세 상호작용 모델링.",
+            "de": "Optimale Steuerung von Elektronen- und Kernspin-Qubits auf Oberflächen zur Unterstützung von ESR-STM-Experimenten; Hyperfein-Modellierung von Ho auf MgO als 16-Niveau-Kern-Elektronen-Qudit."
+          },
+          "chips": [
+            {
+              "type": "topic",
+              "label": {
+                "en": "Quantum information",
+                "fr": "Information quantique",
+                "ko": "양자 정보",
+                "de": "Quanteninformation"
+              }
+            },
+            {
+              "type": "topic",
+              "label": {
+                "en": "Optimal control",
+                "fr": "Contrôle optimal",
+                "ko": "최적 제어",
+                "de": "Optimale Steuerung"
+              }
+            },
+            {
+              "type": "topic",
+              "label": {
+                "en": "PINN"
+              }
+            },
+            {
+              "type": "topic",
+              "label": {
+                "en": "ESR-STM"
+              }
+            }
+          ]
+        },
+        {
+          "years": "2024 – 2024",
+          "title": {
+            "en": "Karlsruhe Institute of Technology (KIT)"
+          },
+          "subtitle": {
+            "en": "Researcher — valorisation of the thesis work (until Dec. 2024), then remote collaboration with the QNS theory group.",
+            "fr": "Chercheur — valorisation des travaux de thèse (jusqu'à déc. 2024), puis collaboration à distance avec le groupe de théorie du QNS.",
+            "ko": "연구원 — 박사 논문 연구의 후속 활용 (2024년 12월까지), 이후 QNS 이론 그룹과의 원격 협력.",
+            "de": "Wissenschaftler — Verwertung der Dissertationsarbeit (bis Dez. 2024), anschließend Fernzusammenarbeit mit der QNS-Theoriegruppe."
+          }
+        },
+        {
+          "years": "2020 – 2024",
+          "title": {
+            "en": "IPCMS (Strasbourg) & INT-KIT (Karlsruhe)"
+          },
+          "subtitle": {
+            "en": "PhD candidate, international cotutelle · supervised by Prof. P.-A. Hervieux (IPCMS) & Prof. M. Ruben (KIT)",
+            "fr": "Doctorant en cotutelle internationale · dirigé par Pr P.-A. Hervieux (IPCMS) & Pr M. Ruben (KIT)",
+            "ko": "박사과정 (국제 공동지도 cotutelle) · 지도교수: Prof. P.-A. Hervieux (IPCMS) & Prof. M. Ruben (KIT)",
+            "de": "Doktorand, binationale Promotion (Cotutelle) · betreut von Prof. P.-A. Hervieux (IPCMS) & Prof. M. Ruben (KIT)"
+          },
+          "desc": {
+            "en": "Hyperfine interactions in lanthanide-organic complexes for quantum information processing: ab initio effective Hamiltonians, electric addressing of nuclear-spin qudits, optimal pulse design.",
+            "fr": "Interactions hyperfines dans les complexes de lanthanides organiques pour le traitement de l'information quantique : hamiltoniens effectifs ab initio, adressage électrique de qudits nucléaires, conception d'impulsions optimales.",
+            "ko": "양자 정보 처리를 위한 란타넘족 유기 착물의 초미세 상호작용: ab initio 유효 해밀토니언, 핵스핀 큐디트의 전기적 어드레싱, 최적 펄스 설계.",
+            "de": "Hyperfeinwechselwirkungen in organischen Lanthanoid-Komplexen für die Quanteninformationsverarbeitung: effektive Ab-initio-Hamiltonoperatoren, elektrische Adressierung von Kernspin-Qudits, optimales Pulsdesign."
+          },
+          "chips": [
+            {
+              "type": "topic",
+              "label": {
+                "en": "Hyperfine",
+                "fr": "Hyperfin",
+                "ko": "초미세",
+                "de": "Hyperfein"
+              }
+            },
+            {
+              "type": "topic",
+              "label": {
+                "en": "Open systems",
+                "fr": "Systèmes ouverts",
+                "ko": "열린 양자계",
+                "de": "Offene Systeme"
+              }
+            },
+            {
+              "type": "topic",
+              "label": {
+                "en": "Ligand field",
+                "fr": "Champ de ligands",
+                "ko": "리간드 장",
+                "de": "Ligandenfeld"
+              }
+            }
+          ]
+        },
+        {
+          "years": "2020 – 2020",
+          "title": {
+            "en": "IPCMS — Ultrafast Optics & Nanophotonics dept.",
+            "fr": "IPCMS — Département d'optique ultrarapide et nanophotonique",
+            "ko": "IPCMS — 초고속 광학 및 나노포토닉스 부서",
+            "de": "IPCMS — Abteilung für Ultraschnelle Optik & Nanophotonik"
+          },
+          "subtitle": {
+            "en": "Master's internship · Prof. P.-A. Hervieux — ligand fields, atomic physics, Racah algebra, hyperfine interaction.",
+            "fr": "Stage de master · Pr P.-A. Hervieux — champs de ligands, physique atomique, algèbre de Racah, interaction hyperfine.",
+            "ko": "석사 인턴십 · Prof. P.-A. Hervieux — 리간드 장, 원자물리학, Racah 대수, 초미세 상호작용.",
+            "de": "Masterpraktikum · Prof. P.-A. Hervieux — Ligandenfelder, Atomphysik, Racah-Algebra, Hyperfeinwechselwirkung."
+          }
+        },
+        {
+          "years": "2019 – 2019",
+          "title": {
+            "en": "University of Basel — Condensed Matter Theory & Quantum Computing"
+          },
+          "subtitle": {
+            "en": "Master's internship · Prof. D. Loss & Prof. M. Rančić — condensed matter, numerical simulation, quantum computing.",
+            "fr": "Stage de master · Pr D. Loss & Pr M. Rančić — matière condensée, simulation numérique, informatique quantique.",
+            "ko": "석사 인턴십 · Prof. D. Loss & Prof. M. Rančić — 응집물질, 수치 시뮬레이션, 양자 컴퓨팅.",
+            "de": "Masterpraktikum · Prof. D. Loss & Prof. M. Rančić — kondensierte Materie, numerische Simulation, Quantencomputing."
+          }
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "icon": "education",
+      "title": {
+        "en": "Education",
+        "fr": "Formation",
+        "ko": "학력",
+        "de": "Ausbildung"
+      },
+      "entries": [
+        {
+          "years": "2020 – 2024",
+          "title": {
+            "en": "Binational PhD in Physics",
+            "fr": "Doctorat binational en physique",
+            "ko": "물리학 국제 공동 박사학위 (cotutelle)",
+            "de": "Binationale Promotion in Physik (Cotutelle)"
+          },
+          "subtitle": {
+            "en": "Université de Strasbourg & Karlsruhe Institute of Technology"
+          },
+          "chips": [
+            {
+              "type": "award",
+              "label": {
+                "en": "Unistra thesis prize 2024",
+                "fr": "Prix de thèse Unistra 2024",
+                "ko": "Unistra 논문상 2024",
+                "de": "Unistra-Dissertationspreis 2024"
+              }
+            },
+            {
+              "type": "award",
+              "label": {
+                "en": "Summa cum laude"
+              }
+            }
+          ]
+        },
+        {
+          "years": "2018 – 2020",
+          "title": {
+            "en": "MSc Physics — Condensed Matter & Nanophysics",
+            "fr": "Master de physique — Matière condensée et nanophysique",
+            "ko": "물리학 석사 — 응집물질 및 나노물리학",
+            "de": "MSc Physik — Kondensierte Materie & Nanophysik"
+          },
+          "subtitle": {
+            "en": "Université de Strasbourg · Magistère de Physique Fondamentale · QMat graduate school — highest honours, first of the year.",
+            "fr": "Université de Strasbourg · Magistère de Physique Fondamentale · École QMat — mention Très Bien, premier de promotion.",
+            "ko": "스트라스부르 대학교 · Magistère de Physique Fondamentale · QMat 대학원 — 최우등 (mention Très Bien), 수석 졸업.",
+            "de": "Université de Strasbourg · Magistère de Physique Fondamentale · QMat Graduate School — mit höchster Auszeichnung, Jahrgangsbester."
+          }
+        },
+        {
+          "years": "2015 – 2018",
+          "title": {
+            "en": "BSc Physics (180+12 ECTS)",
+            "fr": "Licence de physique (180+12 ECTS)",
+            "ko": "물리학 학사 (180+12 ECTS)",
+            "de": "BSc Physik (180+12 ECTS)"
+          },
+          "subtitle": {
+            "en": "Université de Strasbourg · Magistère de Physique Fondamentale — with honours.",
+            "fr": "Université de Strasbourg · Magistère de Physique Fondamentale — mention Bien.",
+            "ko": "스트라스부르 대학교 · Magistère de Physique Fondamentale — 우등 (mention Bien).",
+            "de": "Université de Strasbourg · Magistère de Physique Fondamentale — mit Auszeichnung."
+          }
+        },
+        {
+          "years": "2015 – 2017",
+          "title": {
+            "en": "DEUG Mathematics (120+21 ECTS)",
+            "fr": "DEUG de mathématiques (120+21 ECTS)",
+            "ko": "수학 DEUG (120+21 ECTS)",
+            "de": "DEUG Mathematik (120+21 ECTS)"
+          },
+          "subtitle": {
+            "en": "Université de Strasbourg, alongside CPGE (Lycée Kléber) — with honours.",
+            "fr": "Université de Strasbourg, en parallèle de la CPGE (Lycée Kléber) — mention Bien.",
+            "ko": "스트라스부르 대학교, CPGE (Lycée Kléber) 병행 — 우등 (mention Bien).",
+            "de": "Université de Strasbourg, parallel zur CPGE (Lycée Kléber) — mit Auszeichnung."
+          }
+        }
+      ]
+    },
+    {
+      "id": "distinctions",
+      "icon": "award",
+      "title": {
+        "en": "Distinctions",
+        "fr": "Distinctions",
+        "ko": "수상",
+        "de": "Auszeichnungen"
+      },
+      "entries": [
+        {
+          "years": "2025",
+          "title": {
+            "en": "“Rising Star” invited speaker — ICMM 2025",
+            "fr": "Orateur invité « Rising Star » — ICMM 2025",
+            "ko": "“Rising Star” 초청 연사 — ICMM 2025",
+            "de": "Eingeladener „Rising Star“-Sprecher — ICMM 2025"
+          },
+          "desc": {
+            "en": "International Conference on Molecular Magnetism, Bordeaux.",
+            "fr": "International Conference on Molecular Magnetism, Bordeaux.",
+            "ko": "International Conference on Molecular Magnetism, 보르도.",
+            "de": "International Conference on Molecular Magnetism, Bordeaux."
+          }
+        },
+        {
+          "years": "2024",
+          "title": {
+            "en": "Université de Strasbourg thesis prize",
+            "fr": "Prix de thèse de l'Université de Strasbourg",
+            "ko": "스트라스부르 대학교 논문상",
+            "de": "Dissertationspreis der Université de Strasbourg"
+          },
+          "desc": {
+            "en": "Awarded by the Société des amis des universités de l'académie de Strasbourg (SAUAS).",
+            "fr": "Décerné par la Société des amis des universités de l'académie de Strasbourg (SAUAS).",
+            "ko": "Société des amis des universités de l'académie de Strasbourg (SAUAS) 수여.",
+            "de": "Verliehen von der Société des amis des universités de l'académie de Strasbourg (SAUAS)."
+          }
+        },
+        {
+          "years": "2024",
+          "title": {
+            "en": "Summa cum laude — Karlsruhe Institute of Technology"
+          }
+        },
+        {
+          "years": "2024",
+          "title": {
+            "en": "Lindau Nobel Laureate Meeting alumni",
+            "fr": "Alumni des Rencontres Nobel de Lindau",
+            "ko": "린다우 노벨상 수상자 회의 동문",
+            "de": "Alumnus der Lindauer Nobelpreisträgertagung"
+          },
+          "desc": {
+            "en": "73rd Lindau Meeting (Physics) — one of six French students nominated by Udice.",
+            "fr": "73e Rencontre de Lindau (physique) — l'un des six étudiants français nommés par Udice.",
+            "ko": "제73회 린다우 회의 (물리학) — Udice가 지명한 프랑스 학생 6인 중 한 명.",
+            "de": "73. Lindauer Tagung (Physik) — einer von sechs von Udice nominierten französischen Studierenden."
+          }
+        },
+        {
+          "years": "2020 – 2023",
+          "title": {
+            "en": "Multiple best-poster awards",
+            "fr": "Plusieurs prix du meilleur poster",
+            "ko": "다수의 최우수 포스터 수상",
+            "de": "Mehrere Best-Poster-Preise"
+          },
+          "desc": {
+            "en": "European Summer School in QST 2023 (1st), ED182 PhD Day 2023, Sorbonne computational school 2021 (2nd), KSOP-QMat 2020 — see the [poster gallery](talks.html#posters).",
+            "fr": "European Summer School in QST 2023 (1re place), ED182 PhD Day 2023, école de la Sorbonne 2021 (2e place), KSOP-QMat 2020 — voir la [galerie de posters](talks.html#posters).",
+            "ko": "European Summer School in QST 2023 (1위), ED182 PhD Day 2023, 소르본 전산과학 학교 2021 (2위), KSOP-QMat 2020 — [포스터 갤러리](talks.html#posters) 참조.",
+            "de": "European Summer School in QST 2023 (1. Platz), ED182 PhD Day 2023, Computerschule der Sorbonne 2021 (2. Platz), KSOP-QMat 2020 — siehe die [Postergalerie](talks.html#posters)."
+          }
+        }
+      ]
+    },
+    {
+      "id": "teaching",
+      "icon": "teaching",
+      "title": {
+        "en": "Teaching",
+        "fr": "Enseignement",
+        "ko": "강의",
+        "de": "Lehre"
+      },
+      "count": "265 h",
+      "entries": [
+        {
+          "years": "2024 – 2026",
+          "title": {
+            "en": "QNS, IBS — Seoul"
+          },
+          "desc": {
+            "en": "Graduate courses in English: Introduction to Open Quantum Systems & Quantum Optimal Control; Ligand-Field Theory & Molecular Quantum Systems; Scientific Computing (Python, QuTiP).",
+            "fr": "Cours de niveau master/doctorat en anglais : systèmes quantiques ouverts et contrôle optimal ; théorie du champ de ligands ; calcul scientifique (Python, QuTiP).",
+            "ko": "영어 대학원 강의: 열린 양자계 및 양자 최적 제어 입문; 리간드 장 이론 및 분자 양자계; 과학 계산 (Python, QuTiP).",
+            "de": "Graduiertenkurse auf Englisch: Einführung in offene Quantensysteme & optimale Quantenkontrolle; Ligandenfeldtheorie & molekulare Quantensysteme; Wissenschaftliches Rechnen (Python, QuTiP)."
+          }
+        },
+        {
+          "years": "2021 – 2024",
+          "title": {
+            "en": "UFR de Physique et Ingénierie, Université de Strasbourg"
+          },
+          "desc": {
+            "en": "Experimental physics labs (97 h), oral examinations — “colles” (80 h), tutorials in physics for life sciences (16 h), L1–L2 level.",
+            "fr": "Travaux pratiques de physique expérimentale (97 h), colles (80 h), TD « Champs et interactions » pour les Sciences de la Vie (16 h), niveau L1–L2.",
+            "ko": "실험물리학 실험 실습 (97시간), 구술 평가 — “colles” (80시간), 생명과학 대상 물리학 연습 (16시간), L1–L2 수준.",
+            "de": "Physikalische Praktika (97 h), mündliche Prüfungen (Colles, 80 h), Übungen zur Physik für Lebenswissenschaften (16 h), Niveau L1–L2."
+          }
+        },
+        {
+          "years": "2020 – 2021",
+          "title": {
+            "en": "Magistère de Physique, Université de Strasbourg"
+          },
+          "desc": {
+            "en": "Proposed and coordinated the COVID-19 move online of the Magistère courses (64 h): exam bank, asynchronous material, Moodle platforms, remote support sessions.",
+            "fr": "Proposition et pilotage du passage en ligne des cours du Magistère pendant la COVID-19 (64 h) : banque d'annales, scénarisation asynchrone, plateformes Moodle, séances d'appoint à distance.",
+            "ko": "COVID-19 기간 Magistère 강의의 온라인 전환을 제안하고 총괄 (64시간): 기출문제 은행, 비동기 학습 자료, Moodle 플랫폼, 원격 보충 수업.",
+            "de": "Vorschlag und Koordination der COVID-19-Umstellung der Magistère-Kurse auf Online-Lehre (64 h): Klausurarchiv, asynchrones Material, Moodle-Plattformen, Fernbetreuungssitzungen."
+          }
+        },
+        {
+          "years": "2020 – 2025",
+          "title": {
+            "en": "Supervision",
+            "fr": "Encadrement",
+            "ko": "지도",
+            "de": "Betreuung"
+          },
+          "desc": {
+            "en": "Four interns at IPCMS (two M2, two M1 — one M2 internship led to a first-author preprint), plus informal support of a doctoral project at QNS.",
+            "fr": "Quatre stagiaires à l'IPCMS (deux M2, deux M1 — un stage de M2 a débouché sur une prépublication en premier auteur), et accompagnement informel d'un travail doctoral au QNS.",
+            "ko": "IPCMS에서 인턴 4명 지도 (M2 2명, M1 2명 — 그중 한 M2 인턴십은 제1저자 프리프린트로 이어짐), QNS에서 박사 연구 프로젝트 비공식 지원.",
+            "de": "Vier Praktikanten am IPCMS (zwei M2, zwei M1 — ein M2-Praktikum führte zu einem Erstautor-Preprint), zudem informelle Betreuung eines Promotionsprojekts am QNS."
+          }
+        }
+      ]
+    },
+    {
+      "id": "fellowships",
+      "icon": "medal",
+      "title": {
+        "en": "Fellowships",
+        "fr": "Bourses",
+        "ko": "장학금",
+        "de": "Stipendien"
+      },
+      "entries": [
+        {
+          "years": "2021 – 2024",
+          "title": {
+            "en": "Cotutelle support grant — Franco-German University (UFA/DFH)",
+            "fr": "Bourse de soutien à la cotutelle — Université franco-allemande (UFA)",
+            "ko": "Cotutelle 지원 장학금 — 프랑스-독일 대학 (UFA/DFH)",
+            "de": "Cotutelle-Förderung — Deutsch-Französische Hochschule (UFA/DFH)"
+          }
+        },
+        {
+          "years": "2018 – 2020",
+          "title": {
+            "en": "“Q-Master fellowship” — QMat Interdisciplinary Thematic Institute"
+          }
+        },
+        {
+          "years": "2015 – 2018",
+          "title": {
+            "en": "CROUS merit-based scholarship",
+            "fr": "Bourse au mérite et sur critères sociaux du CROUS",
+            "ko": "CROUS 성적 우수 장학금",
+            "de": "Leistungsstipendium des CROUS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "training",
+      "icon": "training",
+      "title": {
+        "en": "Advanced training",
+        "fr": "Formations",
+        "ko": "전문 교육",
+        "de": "Weiterbildung"
+      },
+      "entries": [
+        {
+          "years": "2022",
+          "title": {
+            "en": "Quantum Information Spring School — École de Physique des Houches"
+          },
+          "desc": {
+            "en": "43 h"
+          }
+        },
+        {
+          "years": "2021 – 2023",
+          "title": {
+            "en": "Technical schools & courses",
+            "fr": "Écoles et cours techniques",
+            "ko": "기술 학교 및 강좌",
+            "de": "Technische Schulen & Kurse"
+          },
+          "desc": {
+            "en": "Parallel computing (21 h, 2023) · Group theory (GROUP34, 21 h, 2022) · 39th École Joliot-Curie (25 h, 2021) — plus over 100 h of transferable-skills training.",
+            "fr": "Calcul parallèle (21 h, 2023) · Théorie des groupes (GROUP34, 21 h, 2022) · 39e École Joliot-Curie (25 h, 2021) — plus de 100 h de formations transversales.",
+            "ko": "병렬 컴퓨팅 (21시간, 2023) · 군론 (GROUP34, 21시간, 2022) · 제39회 École Joliot-Curie (25시간, 2021) — 그 외 100시간 이상의 전이 가능 역량 교육.",
+            "de": "Paralleles Rechnen (21 h, 2023) · Gruppentheorie (GROUP34, 21 h, 2022) · 39. École Joliot-Curie (25 h, 2021) — dazu über 100 h Training überfachlicher Kompetenzen."
+          }
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "icon": "service",
+      "title": {
+        "en": "Scientific service",
+        "fr": "Service scientifique",
+        "ko": "학술 활동",
+        "de": "Wissenschaftliche Dienste"
+      },
+      "entries": [
+        {
+          "years": "2024 —",
+          "title": {
+            "en": "Referee — IOP Publishing",
+            "fr": "Rapporteur — IOP Publishing",
+            "ko": "심사위원 — IOP Publishing",
+            "de": "Gutachter — IOP Publishing"
+          },
+          "desc": {
+            "en": "Journal of Physics: Condensed Matter (2 reports) and Quantum Science and Technology (2 reports).",
+            "fr": "Journal of Physics: Condensed Matter (2 expertises) et Quantum Science and Technology (2 expertises).",
+            "ko": "Journal of Physics: Condensed Matter (심사 보고서 2건) 및 Quantum Science and Technology (심사 보고서 2건).",
+            "de": "Journal of Physics: Condensed Matter (2 Gutachten) und Quantum Science and Technology (2 Gutachten)."
+          }
+        },
+        {
+          "years": "2026",
+          "title": {
+            "en": "Doctoral selection jury",
+            "fr": "Jury de sélection doctorale",
+            "ko": "박사과정 선발 심사위원회",
+            "de": "Auswahlkommission für Promotionsverfahren"
+          },
+          "desc": {
+            "en": "QuanG2 / QuantAlps / QuanTEdu-France spring 2026 doctoral calls in quantum science and technology.",
+            "fr": "Appels doctoraux du printemps 2026 QuanG2 / QuantAlps / QuanTEdu-France en sciences et technologies quantiques.",
+            "ko": "양자 과학기술 분야 QuanG2 / QuantAlps / QuanTEdu-France 2026년 봄 박사과정 공모 심사.",
+            "de": "Frühjahr-2026-Promotionsausschreibungen von QuanG2 / QuantAlps / QuanTEdu-France in Quantenwissenschaft und -technologie."
+          }
+        },
+        {
+          "years": "",
+          "title": {
+            "en": "Member — AM2 (French molecular magnetism association)",
+            "fr": "Membre — AM2 (Association française de magnétisme moléculaire)",
+            "ko": "회원 — AM2 (프랑스 분자 자성 학회)",
+            "de": "Mitglied — AM2 (Französische Gesellschaft für molekularen Magnetismus)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "icon": "users",
+      "title": {
+        "en": "Community & outreach",
+        "fr": "Engagement & rayonnement",
+        "ko": "공동체 활동 및 아웃리치",
+        "de": "Engagement & Öffentlichkeitsarbeit"
+      },
+      "entries": [
+        {
+          "years": "2018 – 2021",
+          "title": {
+            "en": "President — Young Investigators Group (Strasbourg)",
+            "fr": "Président — Young Investigators Group (Strasbourg)",
+            "ko": "회장 — Young Investigators Group (스트라스부르)",
+            "de": "Präsident — Young Investigators Group (Straßburg)"
+          },
+          "desc": {
+            "en": "Quantum and physical sciences association: coordination and event organisation.",
+            "fr": "Association en sciences quantiques et physiques : coordination et organisation d'événements.",
+            "ko": "양자 및 물리 과학 단체: 운영 총괄 및 행사 조직.",
+            "de": "Verein für Quanten- und physikalische Wissenschaften: Koordination und Veranstaltungsorganisation."
+          }
+        },
+        {
+          "years": "2021 – 2024",
+          "title": {
+            "en": "Cohort delegate — International Doctoral Programme (Collège Doctoral Européen)",
+            "fr": "Délégué de promotion — Programme Doctoral International (Collège Doctoral Européen)",
+            "ko": "기수 대표 — 국제 박사 프로그램 (Collège Doctoral Européen)",
+            "de": "Jahrgangsdelegierter — Internationales Promotionsprogramm (Collège Doctoral Européen)"
+          }
+        },
+        {
+          "years": "2018 – 2020",
+          "title": {
+            "en": "Student representative — EUR QMat",
+            "fr": "Représentant étudiant — EUR QMat",
+            "ko": "학생 대표 — EUR QMat",
+            "de": "Studierendenvertreter — EUR QMat"
+          }
+        },
+        {
+          "years": "2021 – 2022",
+          "title": {
+            "en": "Scientific event organisation",
+            "fr": "Organisation d'événements scientifiques",
+            "ko": "학술 행사 조직",
+            "de": "Organisation wissenschaftlicher Veranstaltungen"
+          },
+          "desc": {
+            "en": "Student organiser of Machine Learning for Quantum X 2021 and of the European Spring School in Quantum Science and Technology 2022; currently organising a France-Korea quantum-technology event with the French Embassy in Seoul.",
+            "fr": "Organisateur étudiant de Machine Learning for Quantum X 2021 et de l'European Spring School in Quantum Science and Technology 2022 ; organise actuellement un événement franco-coréen sur les technologies quantiques avec l'Ambassade de France à Séoul.",
+            "ko": "Machine Learning for Quantum X 2021 및 European Spring School in Quantum Science and Technology 2022 학생 조직위원; 현재 주한 프랑스 대사관과 함께 프랑스-한국 양자기술 행사를 조직하고 있습니다.",
+            "de": "Studentischer Organisator von Machine Learning for Quantum X 2021 und der European Spring School in Quantum Science and Technology 2022; derzeit Organisation einer französisch-koreanischen Quantentechnologie-Veranstaltung mit der Französischen Botschaft in Seoul."
+          }
+        }
+      ]
+    }
+  ]
+}

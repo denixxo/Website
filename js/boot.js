@@ -5,8 +5,7 @@
 //           data-content="presentations,posters"
 //           data-scripts="js/main.js,js/reveal.js,js/talks.js"></script>
 //
-// Content lives in data/<name>.json — each file holds { "<name>": [ ... ] } —
-// and is edited through /admin (Decap CMS).
+// Content lives in data/<name>.json and is edited through /admin (Decap CMS).
 // Because the JSON is fetched rather than inlined, the pages that use it must be
 // served over http(s) — see DEPLOY.md ("Local preview"). A dataset that fails to
 // load becomes an empty list, so the page still renders its chrome.
@@ -29,7 +28,8 @@
       })
       // A list file wraps its array in a named key, because that is what a
       // Decap file collection maps onto: { "<name>": [ ... ] }. A file whose
-      // fields are the content itself (data/site.json) is used as-is.
+      // fields are the content itself (site.json, cv.json, portraits.json) is
+      // used as-is — so such a file must never have a key named after itself.
       .then(function (json) {
         SITE[name] = Array.isArray(json) ? json
           : json && Object.prototype.hasOwnProperty.call(json, name) ? json[name]

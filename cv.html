@@ -353,311 +353,42 @@
       </div>
     </div>
 
+    <!-- The CV itself lives in data/cv.json — edited in /admin under CV — and
+         js/cv.js renders it into the two containers below. -->
     <div class="cv-layout">
       <!-- ======================= SIDEBAR ======================= -->
-      <aside class="cv-sidebar load-rise" style="--load-delay:200ms">
-        <div class="cv-side-block">
+      <aside class="cv-sidebar load-rise" style="--load-delay:200ms" data-cv-sidebar>
+        <div class="cv-side-block" data-cv-block="contact" hidden>
           <h3><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span lang="en">Contact</span><span lang="fr">Contact</span><span lang="ko">연락처</span><span lang="de">Kontakt</span></h3>
-          <ul>
-            <li><a href="mailto:denis@jankovic.phd">denis@jankovic.phd</a></li>
-            <li><a href="mailto:denis.jankovic@qns.science">denis.jankovic@qns.science</a></li>
-          </ul>
+          <ul></ul>
         </div>
-        <div class="cv-side-block">
+        <div class="cv-side-block" data-cv-block="location" hidden>
           <h3><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span lang="en">Location</span><span lang="fr">Localisation</span><span lang="ko">위치</span><span lang="de">Standort</span></h3>
-          <ul>
-            <li><span lang="en">Center for Quantum Nanoscience (QNS)</span><span lang="fr">Center for Quantum Nanoscience (QNS)</span><span lang="ko">양자나노과학연구단 (QNS)</span><span lang="de">Center for Quantum Nanoscience (QNS)</span></li>
-            <li><span lang="en">Seoul, South Korea</span><span lang="fr">Séoul, Corée du Sud</span><span lang="ko">대한민국 서울</span><span lang="de">Seoul, Südkorea</span></li>
-          </ul>
+          <ul></ul>
         </div>
-        <div class="cv-side-block">
+        <div class="cv-side-block" data-cv-block="languages" hidden>
           <h3><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span lang="en">Languages</span><span lang="fr">Langues</span><span lang="ko">언어</span><span lang="de">Sprachen</span></h3>
-          <ul>
-            <li class="lang-meter"><span class="label"><span lang="en">French</span><span lang="fr">Français</span><span lang="ko">프랑스어</span><span lang="de">Französisch</span></span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span><span class="level"><span lang="en">Native</span><span lang="fr">Maternelle</span><span lang="ko">모국어</span><span lang="de">Muttersprache</span></span></li>
-            <li class="lang-meter"><span class="label"><span lang="en">Serbian</span><span lang="fr">Serbe</span><span lang="ko">세르비아어</span><span lang="de">Serbisch</span></span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span><span class="level"><span lang="en">Native</span><span lang="fr">Maternelle</span><span lang="ko">모국어</span><span lang="de">Muttersprache</span></span></li>
-            <li class="lang-meter"><span class="label"><span lang="en">English</span><span lang="fr">Anglais</span><span lang="ko">영어</span><span lang="de">Englisch</span></span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span><span class="level">C1</span></li>
-            <li class="lang-meter"><span class="label"><span lang="en">German</span><span lang="fr">Allemand</span><span lang="ko">독일어</span><span lang="de">Deutsch</span></span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span><span class="level">B2</span></li>
-            <li class="lang-meter"><span class="label"><span lang="en">Korean</span><span lang="fr">Coréen</span><span lang="ko">한국어</span><span lang="de">Koreanisch</span></span><span class="dots"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><span class="level">A2</span></li>
-          </ul>
+          <ul></ul>
         </div>
-        <div class="cv-side-block">
-          <h3><svg class="icon" aria-hidden="true"><use href="#i-skills"/></svg><span lang="en">Scientific computing</span><span lang="fr">Calcul scientifique</span><span lang="ko">과학 계산</span><span lang="de">Wissenschaftliches Rechnen</span></h3>
-          <div class="chip-cluster">
-            <span class="chip chip--topic">Python</span><span class="chip chip--topic">QuTiP</span>
-            <span class="chip chip--topic">C / C++</span><span class="chip chip--topic">Fortran</span>
-            <span class="chip chip--topic">Matlab</span><span class="chip chip--topic">Mathematica</span>
-            <span class="chip chip--topic">PyTorch</span><span class="chip chip--topic">HPC · MPI · CUDA</span>
-          </div>
-        </div>
-        <div class="cv-side-block">
-          <h3><svg class="icon" aria-hidden="true"><use href="#i-skills"/></svg><span lang="en">Editing &amp; design</span><span lang="fr">Édition &amp; mise en page</span><span lang="ko">편집 및 디자인</span><span lang="de">Layout &amp; Design</span></h3>
-          <div class="chip-cluster">
-            <span class="chip chip--topic">LaTeX</span><span class="chip chip--topic">Office</span>
-            <span class="chip chip--topic">Canva</span><span class="chip chip--topic">Blender</span>
-            <span class="chip chip--topic">Adobe CC</span>
-          </div>
-        </div>
+        <!-- skill groups are appended here -->
       </aside>
 
       <!-- ========================= MAIN ========================= -->
-      <div class="cv-main">
-        <!-- Experience -->
-        <section class="cv-section" id="experience">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
-            <h2><span lang="en">Experience</span><span lang="fr">Expérience</span><span lang="ko">경력</span><span lang="de">Berufserfahrung</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2025 —</span>
-                <span class="tl-entry__org">Center for Quantum Nanoscience (QNS), IBS &amp; Ewha Womans University</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Postdoctoral researcher · Theory of Quantum Spins on Surfaces group (Prof. A. Heinrich, Dr. C. Wolf) · Seoul</span><span lang="fr">Chercheur postdoctoral · Groupe de théorie des spins quantiques sur surfaces (Prof. A. Heinrich, Dr C. Wolf) · Séoul</span><span lang="ko">박사후연구원 · 표면 양자 스핀 이론 그룹 (Prof. A. Heinrich, Dr. C. Wolf) · 서울</span><span lang="de">Postdoktorand · Gruppe für die Theorie von Quantenspins auf Oberflächen (Prof. A. Heinrich, Dr. C. Wolf) · Seoul</span></p>
-                <p class="tl-entry__desc"><span lang="en">Optimal control of electron- and nuclear-spin qubits on surfaces, in support of ESR-STM experiments; hyperfine modelling of Ho on MgO as a 16-level nuclear–electronic qudit.</span><span lang="fr">Contrôle optimal de qubits de spin électronique et nucléaire sur surface, en soutien aux expériences ESR-STM ; modélisation hyperfine de Ho sur MgO comme qudit nucléaire-électronique à 16 niveaux.</span><span lang="ko">ESR-STM 실험을 지원하는 표면 위 전자·핵스핀 큐비트의 최적 제어; MgO 위 Ho를 16준위 핵-전자 큐디트로 기술하는 초미세 상호작용 모델링.</span><span lang="de">Optimale Steuerung von Elektronen- und Kernspin-Qubits auf Oberflächen zur Unterstützung von ESR-STM-Experimenten; Hyperfein-Modellierung von Ho auf MgO als 16-Niveau-Kern-Elektronen-Qudit.</span></p>
-                <div class="tl-entry__chips"><span class="chip chip--topic"><span lang="en">Quantum information</span><span lang="fr">Information quantique</span><span lang="ko">양자 정보</span><span lang="de">Quanteninformation</span></span><span class="chip chip--topic"><span lang="en">Optimal control</span><span lang="fr">Contrôle optimal</span><span lang="ko">최적 제어</span><span lang="de">Optimale Steuerung</span></span><span class="chip chip--topic">PINN</span><span class="chip chip--topic">ESR-STM</span></div>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024 – 2024</span>
-                <span class="tl-entry__org">Karlsruhe Institute of Technology (KIT)</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Researcher — valorisation of the thesis work (until Dec. 2024), then remote collaboration with the QNS theory group.</span><span lang="fr">Chercheur — valorisation des travaux de thèse (jusqu'à déc. 2024), puis collaboration à distance avec le groupe de théorie du QNS.</span><span lang="ko">연구원 — 박사 논문 연구의 후속 활용 (2024년 12월까지), 이후 QNS 이론 그룹과의 원격 협력.</span><span lang="de">Wissenschaftler — Verwertung der Dissertationsarbeit (bis Dez. 2024), anschließend Fernzusammenarbeit mit der QNS-Theoriegruppe.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2024</span>
-                <span class="tl-entry__org">IPCMS (Strasbourg) &amp; INT-KIT (Karlsruhe)</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">PhD candidate, international cotutelle · supervised by Prof. P.-A. Hervieux (IPCMS) &amp; Prof. M. Ruben (KIT)</span><span lang="fr">Doctorant en cotutelle internationale · dirigé par Pr P.-A. Hervieux (IPCMS) &amp; Pr M. Ruben (KIT)</span><span lang="ko">박사과정 (국제 공동지도 cotutelle) · 지도교수: Prof. P.-A. Hervieux (IPCMS) &amp; Prof. M. Ruben (KIT)</span><span lang="de">Doktorand, binationale Promotion (Cotutelle) · betreut von Prof. P.-A. Hervieux (IPCMS) &amp; Prof. M. Ruben (KIT)</span></p>
-                <p class="tl-entry__desc"><span lang="en">Hyperfine interactions in lanthanide-organic complexes for quantum information processing: ab initio effective Hamiltonians, electric addressing of nuclear-spin qudits, optimal pulse design.</span><span lang="fr">Interactions hyperfines dans les complexes de lanthanides organiques pour le traitement de l'information quantique : hamiltoniens effectifs ab initio, adressage électrique de qudits nucléaires, conception d'impulsions optimales.</span><span lang="ko">양자 정보 처리를 위한 란타넘족 유기 착물의 초미세 상호작용: ab initio 유효 해밀토니언, 핵스핀 큐디트의 전기적 어드레싱, 최적 펄스 설계.</span><span lang="de">Hyperfeinwechselwirkungen in organischen Lanthanoid-Komplexen für die Quanteninformationsverarbeitung: effektive Ab-initio-Hamiltonoperatoren, elektrische Adressierung von Kernspin-Qudits, optimales Pulsdesign.</span></p>
-                <div class="tl-entry__chips"><span class="chip chip--topic"><span lang="en">Hyperfine</span><span lang="fr">Hyperfin</span><span lang="ko">초미세</span><span lang="de">Hyperfein</span></span><span class="chip chip--topic"><span lang="en">Open systems</span><span lang="fr">Systèmes ouverts</span><span lang="ko">열린 양자계</span><span lang="de">Offene Systeme</span></span><span class="chip chip--topic"><span lang="en">Ligand field</span><span lang="fr">Champ de ligands</span><span lang="ko">리간드 장</span><span lang="de">Ligandenfeld</span></span></div>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2020</span>
-                <span class="tl-entry__org">IPCMS — <span lang="en">Ultrafast Optics &amp; Nanophotonics dept.</span><span lang="fr">Département d'optique ultrarapide et nanophotonique</span><span lang="ko">초고속 광학 및 나노포토닉스 부서</span><span lang="de">Abteilung für Ultraschnelle Optik &amp; Nanophotonik</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Master's internship · Prof. P.-A. Hervieux — ligand fields, atomic physics, Racah algebra, hyperfine interaction.</span><span lang="fr">Stage de master · Pr P.-A. Hervieux — champs de ligands, physique atomique, algèbre de Racah, interaction hyperfine.</span><span lang="ko">석사 인턴십 · Prof. P.-A. Hervieux — 리간드 장, 원자물리학, Racah 대수, 초미세 상호작용.</span><span lang="de">Masterpraktikum · Prof. P.-A. Hervieux — Ligandenfelder, Atomphysik, Racah-Algebra, Hyperfeinwechselwirkung.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2019 – 2019</span>
-                <span class="tl-entry__org">University of Basel — Condensed Matter Theory &amp; Quantum Computing</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Master's internship · Prof. D. Loss &amp; Prof. M. Rančić — condensed matter, numerical simulation, quantum computing.</span><span lang="fr">Stage de master · Pr D. Loss &amp; Pr M. Rančić — matière condensée, simulation numérique, informatique quantique.</span><span lang="ko">석사 인턴십 · Prof. D. Loss &amp; Prof. M. Rančić — 응집물질, 수치 시뮬레이션, 양자 컴퓨팅.</span><span lang="de">Masterpraktikum · Prof. D. Loss &amp; Prof. M. Rančić — kondensierte Materie, numerische Simulation, Quantencomputing.</span></p>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Education -->
-        <section class="cv-section" id="education">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-education"/></svg>
-            <h2><span lang="en">Education</span><span lang="fr">Formation</span><span lang="ko">학력</span><span lang="de">Ausbildung</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2024</span>
-                <span class="tl-entry__org"><span lang="en">Binational PhD in Physics</span><span lang="fr">Doctorat binational en physique</span><span lang="ko">물리학 국제 공동 박사학위 (cotutelle)</span><span lang="de">Binationale Promotion in Physik (Cotutelle)</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role">Université de Strasbourg &amp; Karlsruhe Institute of Technology</p>
-                <div class="tl-entry__chips">
-                  <span class="chip chip--award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg><span lang="en">Unistra thesis prize 2024</span><span lang="fr">Prix de thèse Unistra 2024</span><span lang="ko">Unistra 논문상 2024</span><span lang="de">Unistra-Dissertationspreis 2024</span></span>
-                  <span class="chip chip--award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>Summa cum laude</span>
-                </div>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2018 – 2020</span>
-                <span class="tl-entry__org"><span lang="en">MSc Physics — Condensed Matter &amp; Nanophysics</span><span lang="fr">Master de physique — Matière condensée et nanophysique</span><span lang="ko">물리학 석사 — 응집물질 및 나노물리학</span><span lang="de">MSc Physik — Kondensierte Materie &amp; Nanophysik</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Université de Strasbourg · Magistère de Physique Fondamentale · QMat graduate school — highest honours, first of the year.</span><span lang="fr">Université de Strasbourg · Magistère de Physique Fondamentale · École QMat — mention Très Bien, premier de promotion.</span><span lang="ko">스트라스부르 대학교 · Magistère de Physique Fondamentale · QMat 대학원 — 최우등 (mention Très Bien), 수석 졸업.</span><span lang="de">Université de Strasbourg · Magistère de Physique Fondamentale · QMat Graduate School — mit höchster Auszeichnung, Jahrgangsbester.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2015 – 2018</span>
-                <span class="tl-entry__org"><span lang="en">BSc Physics (180+12 ECTS)</span><span lang="fr">Licence de physique (180+12 ECTS)</span><span lang="ko">물리학 학사 (180+12 ECTS)</span><span lang="de">BSc Physik (180+12 ECTS)</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Université de Strasbourg · Magistère de Physique Fondamentale — with honours.</span><span lang="fr">Université de Strasbourg · Magistère de Physique Fondamentale — mention Bien.</span><span lang="ko">스트라스부르 대학교 · Magistère de Physique Fondamentale — 우등 (mention Bien).</span><span lang="de">Université de Strasbourg · Magistère de Physique Fondamentale — mit Auszeichnung.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2015 – 2017</span>
-                <span class="tl-entry__org"><span lang="en">DEUG Mathematics (120+21 ECTS)</span><span lang="fr">DEUG de mathématiques (120+21 ECTS)</span><span lang="ko">수학 DEUG (120+21 ECTS)</span><span lang="de">DEUG Mathematik (120+21 ECTS)</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__role"><span lang="en">Université de Strasbourg, alongside CPGE (Lycée Kléber) — with honours.</span><span lang="fr">Université de Strasbourg, en parallèle de la CPGE (Lycée Kléber) — mention Bien.</span><span lang="ko">스트라스부르 대학교, CPGE (Lycée Kléber) 병행 — 우등 (mention Bien).</span><span lang="de">Université de Strasbourg, parallel zur CPGE (Lycée Kléber) — mit Auszeichnung.</span></p>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Distinctions -->
-        <section class="cv-section" id="distinctions">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>
-            <h2><span lang="en">Distinctions</span><span lang="fr">Distinctions</span><span lang="ko">수상</span><span lang="de">Auszeichnungen</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2025</span>
-                <span class="tl-entry__org"><span lang="en">“Rising Star” invited speaker — ICMM 2025</span><span lang="fr">Orateur invité « Rising Star » — ICMM 2025</span><span lang="ko">“Rising Star” 초청 연사 — ICMM 2025</span><span lang="de">Eingeladener „Rising Star“-Sprecher — ICMM 2025</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">International Conference on Molecular Magnetism, Bordeaux.</span><span lang="fr">International Conference on Molecular Magnetism, Bordeaux.</span><span lang="ko">International Conference on Molecular Magnetism, 보르도.</span><span lang="de">International Conference on Molecular Magnetism, Bordeaux.</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024</span>
-                <span class="tl-entry__org"><span lang="en">Université de Strasbourg thesis prize</span><span lang="fr">Prix de thèse de l'Université de Strasbourg</span><span lang="ko">스트라스부르 대학교 논문상</span><span lang="de">Dissertationspreis der Université de Strasbourg</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">Awarded by the Société des amis des universités de l'académie de Strasbourg (SAUAS).</span><span lang="fr">Décerné par la Société des amis des universités de l'académie de Strasbourg (SAUAS).</span><span lang="ko">Société des amis des universités de l'académie de Strasbourg (SAUAS) 수여.</span><span lang="de">Verliehen von der Société des amis des universités de l'académie de Strasbourg (SAUAS).</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024</span>
-                <span class="tl-entry__org">Summa cum laude — Karlsruhe Institute of Technology</span></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024</span>
-                <span class="tl-entry__org"><span lang="en">Lindau Nobel Laureate Meeting alumni</span><span lang="fr">Alumni des Rencontres Nobel de Lindau</span><span lang="ko">린다우 노벨상 수상자 회의 동문</span><span lang="de">Alumnus der Lindauer Nobelpreisträgertagung</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">73rd Lindau Meeting (Physics) — one of six French students nominated by Udice.</span><span lang="fr">73e Rencontre de Lindau (physique) — l'un des six étudiants français nommés par Udice.</span><span lang="ko">제73회 린다우 회의 (물리학) — Udice가 지명한 프랑스 학생 6인 중 한 명.</span><span lang="de">73. Lindauer Tagung (Physik) — einer von sechs von Udice nominierten französischen Studierenden.</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2023</span>
-                <span class="tl-entry__org"><span lang="en">Multiple best-poster awards</span><span lang="fr">Plusieurs prix du meilleur poster</span><span lang="ko">다수의 최우수 포스터 수상</span><span lang="de">Mehrere Best-Poster-Preise</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">European Summer School in QST 2023 (1st), ED182 PhD Day 2023, Sorbonne computational school 2021 (2nd), KSOP-QMat 2020 — see the <a href="talks.html#posters">poster gallery</a>.</span><span lang="fr">European Summer School in QST 2023 (1re place), ED182 PhD Day 2023, école de la Sorbonne 2021 (2e place), KSOP-QMat 2020 — voir la <a href="talks.html#posters">galerie de posters</a>.</span><span lang="ko">European Summer School in QST 2023 (1위), ED182 PhD Day 2023, 소르본 전산과학 학교 2021 (2위), KSOP-QMat 2020 — <a href="talks.html#posters">포스터 갤러리</a> 참조.</span><span lang="de">European Summer School in QST 2023 (1. Platz), ED182 PhD Day 2023, Computerschule der Sorbonne 2021 (2. Platz), KSOP-QMat 2020 — siehe die <a href="talks.html#posters">Postergalerie</a>.</span></p></div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Teaching -->
-        <section class="cv-section" id="teaching">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-teaching"/></svg>
-            <h2><span lang="en">Teaching</span><span lang="fr">Enseignement</span><span lang="ko">강의</span><span lang="de">Lehre</span></h2>
-            <span class="count">265 h</span>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024 – 2026</span>
-                <span class="tl-entry__org">QNS, IBS — Seoul</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__desc"><span lang="en">Graduate courses in English: Introduction to Open Quantum Systems &amp; Quantum Optimal Control; Ligand-Field Theory &amp; Molecular Quantum Systems; Scientific Computing (Python, QuTiP).</span><span lang="fr">Cours de niveau master/doctorat en anglais : systèmes quantiques ouverts et contrôle optimal ; théorie du champ de ligands ; calcul scientifique (Python, QuTiP).</span><span lang="ko">영어 대학원 강의: 열린 양자계 및 양자 최적 제어 입문; 리간드 장 이론 및 분자 양자계; 과학 계산 (Python, QuTiP).</span><span lang="de">Graduiertenkurse auf Englisch: Einführung in offene Quantensysteme &amp; optimale Quantenkontrolle; Ligandenfeldtheorie &amp; molekulare Quantensysteme; Wissenschaftliches Rechnen (Python, QuTiP).</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2021 – 2024</span>
-                <span class="tl-entry__org">UFR de Physique et Ingénierie, Université de Strasbourg</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__desc"><span lang="en">Experimental physics labs (97 h), oral examinations — “colles” (80 h), tutorials in physics for life sciences (16 h), L1–L2 level.</span><span lang="fr">Travaux pratiques de physique expérimentale (97 h), colles (80 h), TD « Champs et interactions » pour les Sciences de la Vie (16 h), niveau L1–L2.</span><span lang="ko">실험물리학 실험 실습 (97시간), 구술 평가 — “colles” (80시간), 생명과학 대상 물리학 연습 (16시간), L1–L2 수준.</span><span lang="de">Physikalische Praktika (97 h), mündliche Prüfungen (Colles, 80 h), Übungen zur Physik für Lebenswissenschaften (16 h), Niveau L1–L2.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2021</span>
-                <span class="tl-entry__org">Magistère de Physique, Université de Strasbourg</span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__desc"><span lang="en">Proposed and coordinated the COVID-19 move online of the Magistère courses (64 h): exam bank, asynchronous material, Moodle platforms, remote support sessions.</span><span lang="fr">Proposition et pilotage du passage en ligne des cours du Magistère pendant la COVID-19 (64 h) : banque d'annales, scénarisation asynchrone, plateformes Moodle, séances d'appoint à distance.</span><span lang="ko">COVID-19 기간 Magistère 강의의 온라인 전환을 제안하고 총괄 (64시간): 기출문제 은행, 비동기 학습 자료, Moodle 플랫폼, 원격 보충 수업.</span><span lang="de">Vorschlag und Koordination der COVID-19-Umstellung der Magistère-Kurse auf Online-Lehre (64 h): Klausurarchiv, asynchrones Material, Moodle-Plattformen, Fernbetreuungssitzungen.</span></p>
-              </div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2020 – 2025</span>
-                <span class="tl-entry__org"><span lang="en">Supervision</span><span lang="fr">Encadrement</span><span lang="ko">지도</span><span lang="de">Betreuung</span></span></div>
-              <div class="tl-entry__body">
-                <p class="tl-entry__desc"><span lang="en">Four interns at IPCMS (two M2, two M1 — one M2 internship led to a first-author preprint), plus informal support of a doctoral project at QNS.</span><span lang="fr">Quatre stagiaires à l'IPCMS (deux M2, deux M1 — un stage de M2 a débouché sur une prépublication en premier auteur), et accompagnement informel d'un travail doctoral au QNS.</span><span lang="ko">IPCMS에서 인턴 4명 지도 (M2 2명, M1 2명 — 그중 한 M2 인턴십은 제1저자 프리프린트로 이어짐), QNS에서 박사 연구 프로젝트 비공식 지원.</span><span lang="de">Vier Praktikanten am IPCMS (zwei M2, zwei M1 — ein M2-Praktikum führte zu einem Erstautor-Preprint), zudem informelle Betreuung eines Promotionsprojekts am QNS.</span></p>
-              </div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Fellowships -->
-        <section class="cv-section" id="fellowships">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-medal"/></svg>
-            <h2><span lang="en">Fellowships</span><span lang="fr">Bourses</span><span lang="ko">장학금</span><span lang="de">Stipendien</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2021 – 2024</span>
-                <span class="tl-entry__org"><span lang="en">Cotutelle support grant — Franco-German University (UFA/DFH)</span><span lang="fr">Bourse de soutien à la cotutelle — Université franco-allemande (UFA)</span><span lang="ko">Cotutelle 지원 장학금 — 프랑스-독일 대학 (UFA/DFH)</span><span lang="de">Cotutelle-Förderung — Deutsch-Französische Hochschule (UFA/DFH)</span></span></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2018 – 2020</span>
-                <span class="tl-entry__org">“Q-Master fellowship” — QMat Interdisciplinary Thematic Institute</span></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2015 – 2018</span>
-                <span class="tl-entry__org"><span lang="en">CROUS merit-based scholarship</span><span lang="fr">Bourse au mérite et sur critères sociaux du CROUS</span><span lang="ko">CROUS 성적 우수 장학금</span><span lang="de">Leistungsstipendium des CROUS</span></span></div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Training -->
-        <section class="cv-section" id="training">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-training"/></svg>
-            <h2><span lang="en">Advanced training</span><span lang="fr">Formations</span><span lang="ko">전문 교육</span><span lang="de">Weiterbildung</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2022</span>
-                <span class="tl-entry__org">Quantum Information Spring School — École de Physique des Houches</span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc">43 h</p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2021 – 2023</span>
-                <span class="tl-entry__org"><span lang="en">Technical schools &amp; courses</span><span lang="fr">Écoles et cours techniques</span><span lang="ko">기술 학교 및 강좌</span><span lang="de">Technische Schulen &amp; Kurse</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">Parallel computing (21 h, 2023) · Group theory (GROUP34, 21 h, 2022) · 39th École Joliot-Curie (25 h, 2021) — plus over 100 h of transferable-skills training.</span><span lang="fr">Calcul parallèle (21 h, 2023) · Théorie des groupes (GROUP34, 21 h, 2022) · 39e École Joliot-Curie (25 h, 2021) — plus de 100 h de formations transversales.</span><span lang="ko">병렬 컴퓨팅 (21시간, 2023) · 군론 (GROUP34, 21시간, 2022) · 제39회 École Joliot-Curie (25시간, 2021) — 그 외 100시간 이상의 전이 가능 역량 교육.</span><span lang="de">Paralleles Rechnen (21 h, 2023) · Gruppentheorie (GROUP34, 21 h, 2022) · 39. École Joliot-Curie (25 h, 2021) — dazu über 100 h Training überfachlicher Kompetenzen.</span></p></div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Scientific service -->
-        <section class="cv-section" id="service">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-service"/></svg>
-            <h2><span lang="en">Scientific service</span><span lang="fr">Service scientifique</span><span lang="ko">학술 활동</span><span lang="de">Wissenschaftliche Dienste</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2024 —</span>
-                <span class="tl-entry__org"><span lang="en">Referee — IOP Publishing</span><span lang="fr">Rapporteur — IOP Publishing</span><span lang="ko">심사위원 — IOP Publishing</span><span lang="de">Gutachter — IOP Publishing</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">Journal of Physics: Condensed Matter (2 reports) and Quantum Science and Technology (2 reports).</span><span lang="fr">Journal of Physics: Condensed Matter (2 expertises) et Quantum Science and Technology (2 expertises).</span><span lang="ko">Journal of Physics: Condensed Matter (심사 보고서 2건) 및 Quantum Science and Technology (심사 보고서 2건).</span><span lang="de">Journal of Physics: Condensed Matter (2 Gutachten) und Quantum Science and Technology (2 Gutachten).</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2026</span>
-                <span class="tl-entry__org"><span lang="en">Doctoral selection jury</span><span lang="fr">Jury de sélection doctorale</span><span lang="ko">박사과정 선발 심사위원회</span><span lang="de">Auswahlkommission für Promotionsverfahren</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">QuanG2 / QuantAlps / QuanTEdu-France spring 2026 doctoral calls in quantum science and technology.</span><span lang="fr">Appels doctoraux du printemps 2026 QuanG2 / QuantAlps / QuanTEdu-France en sciences et technologies quantiques.</span><span lang="ko">양자 과학기술 분야 QuanG2 / QuantAlps / QuanTEdu-France 2026년 봄 박사과정 공모 심사.</span><span lang="de">Frühjahr-2026-Promotionsausschreibungen von QuanG2 / QuantAlps / QuanTEdu-France in Quantenwissenschaft und -technologie.</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years"></span>
-                <span class="tl-entry__org"><span lang="en">Member — AM2 (French molecular magnetism association)</span><span lang="fr">Membre — AM2 (Association française de magnétisme moléculaire)</span><span lang="ko">회원 — AM2 (프랑스 분자 자성 학회)</span><span lang="de">Mitglied — AM2 (Französische Gesellschaft für molekularen Magnetismus)</span></span></div>
-            </li>
-          </ol>
-        </section>
-
-        <!-- Community & outreach -->
-        <section class="cv-section" id="community">
-          <div class="section-head" data-reveal>
-            <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
-            <h2><span lang="en">Community &amp; outreach</span><span lang="fr">Engagement &amp; rayonnement</span><span lang="ko">공동체 활동 및 아웃리치</span><span lang="de">Engagement &amp; Öffentlichkeitsarbeit</span></h2>
-          </div>
-          <ol class="timeline" data-reveal-group>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2018 – 2021</span>
-                <span class="tl-entry__org"><span lang="en">President — Young Investigators Group (Strasbourg)</span><span lang="fr">Président — Young Investigators Group (Strasbourg)</span><span lang="ko">회장 — Young Investigators Group (스트라스부르)</span><span lang="de">Präsident — Young Investigators Group (Straßburg)</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">Quantum and physical sciences association: coordination and event organisation.</span><span lang="fr">Association en sciences quantiques et physiques : coordination et organisation d'événements.</span><span lang="ko">양자 및 물리 과학 단체: 운영 총괄 및 행사 조직.</span><span lang="de">Verein für Quanten- und physikalische Wissenschaften: Koordination und Veranstaltungsorganisation.</span></p></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2021 – 2024</span>
-                <span class="tl-entry__org"><span lang="en">Cohort delegate — International Doctoral Programme (Collège Doctoral Européen)</span><span lang="fr">Délégué de promotion — Programme Doctoral International (Collège Doctoral Européen)</span><span lang="ko">기수 대표 — 국제 박사 프로그램 (Collège Doctoral Européen)</span><span lang="de">Jahrgangsdelegierter — Internationales Promotionsprogramm (Collège Doctoral Européen)</span></span></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2018 – 2020</span>
-                <span class="tl-entry__org"><span lang="en">Student representative — EUR QMat</span><span lang="fr">Représentant étudiant — EUR QMat</span><span lang="ko">학생 대표 — EUR QMat</span><span lang="de">Studierendenvertreter — EUR QMat</span></span></div>
-            </li>
-            <li class="tl-entry" data-reveal>
-              <div class="tl-entry__head"><span class="tl-entry__years">2021 – 2022</span>
-                <span class="tl-entry__org"><span lang="en">Scientific event organisation</span><span lang="fr">Organisation d'événements scientifiques</span><span lang="ko">학술 행사 조직</span><span lang="de">Organisation wissenschaftlicher Veranstaltungen</span></span></div>
-              <div class="tl-entry__body"><p class="tl-entry__desc"><span lang="en">Student organiser of Machine Learning for Quantum X 2021 and of the European Spring School in Quantum Science and Technology 2022; currently organising a France-Korea quantum-technology event with the French Embassy in Seoul.</span><span lang="fr">Organisateur étudiant de Machine Learning for Quantum X 2021 et de l'European Spring School in Quantum Science and Technology 2022 ; organise actuellement un événement franco-coréen sur les technologies quantiques avec l'Ambassade de France à Séoul.</span><span lang="ko">Machine Learning for Quantum X 2021 및 European Spring School in Quantum Science and Technology 2022 학생 조직위원; 현재 주한 프랑스 대사관과 함께 프랑스-한국 양자기술 행사를 조직하고 있습니다.</span><span lang="de">Studentischer Organisator von Machine Learning for Quantum X 2021 und der European Spring School in Quantum Science and Technology 2022; derzeit Organisation einer französisch-koreanischen Quantentechnologie-Veranstaltung mit der Französischen Botschaft in Seoul.</span></p></div>
-            </li>
-          </ol>
-        </section>
+      <div class="cv-main" data-cv-main>
+        <noscript>
+          <p><span lang="en">The CV needs JavaScript. Meanwhile, find the essentials on
+            <a href="https://orcid.org/0000-0002-9550-6412">ORCID</a> or
+            <a href="https://www.linkedin.com/in/denis-jankovic/">LinkedIn</a>.</span>
+          <span lang="fr">Le CV nécessite JavaScript. En attendant, l'essentiel se trouve sur
+            <a href="https://orcid.org/0000-0002-9550-6412">ORCID</a> ou
+            <a href="https://www.linkedin.com/in/denis-jankovic/">LinkedIn</a>.</span>
+          <span lang="ko">CV를 보려면 JavaScript가 필요합니다. 그동안
+            <a href="https://orcid.org/0000-0002-9550-6412">ORCID</a> 또는
+            <a href="https://www.linkedin.com/in/denis-jankovic/">LinkedIn</a>에서 주요 내용을 확인하실 수 있습니다.</span>
+          <span lang="de">Der CV benötigt JavaScript. Das Wichtigste findet sich auch auf
+            <a href="https://orcid.org/0000-0002-9550-6412">ORCID</a> oder
+            <a href="https://www.linkedin.com/in/denis-jankovic/">LinkedIn</a>.</span></p>
+        </noscript>
       </div>
     </div>
   </div>
@@ -719,6 +450,6 @@
 <!-- /@partial:footer -->
 
 <script src="data/i18n.js"></script>
-<script src="js/boot.js" data-content="site" data-scripts="js/main.js,js/reveal.js,js/cv.js"></script>
+<script src="js/boot.js" data-content="site,cv" data-scripts="js/main.js,js/reveal.js,js/cv.js"></script>
 </body>
 </html>

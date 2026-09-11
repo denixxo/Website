@@ -24,17 +24,19 @@ made in the content manager is such a push.
 ```
 python -m http.server 8321
 ```
-then open http://localhost:8321. A web server is now required for
+then open http://localhost:8321. A web server is now required for `cv.html`,
 `publications.html`, `talks.html` and `lectures.html`: they fetch their content
 from `data/*.json`, and `file://` blocks that. The other pages still open
-directly via `file://`, minus the embedded thesis viewer and the automatic
-hiding of buttons for missing files.
+directly via `file://`, minus the embedded thesis viewer, the automatic hiding
+of buttons for missing files, and the homepage pictures (the initials show
+instead).
 
 ## Adding content
 
 Content lives in `data/*.json` and is edited through **Decap CMS** at
 `/admin/` — see "Content manager" below. The files can also be edited by hand;
-each one holds a single named list, e.g. `{ "posters": [ … ] }`.
+each of the four lists below holds a single named list, e.g.
+`{ "posters": [ … ] }`.
 
 | What | File | PDF goes in | Thumbnail goes in |
 |---|---|---|---|
@@ -71,8 +73,23 @@ Either drop the files under the conventional name above, or record any path you
 like in **Misc → CV PDFs** in the CMS — a recorded path wins over the
 convention.
 
-**Portrait** — save as `assets/img/portrait.jpg`; it replaces the initials
-placeholder automatically, and the initials return if the file is missing.
+**CV page** — the text of `cv.html` lives in `data/cv.json` and is edited under
+**CV** in the CMS: the sidebar (contact, location, languages, skill groups) and
+the timeline sections, each shown in the order listed. Every text is an
+`{ en, fr, ko, de }` object; English is required, and a language left empty
+shows the English text, so names and acronyms need only the English box. Links
+inside a subheading or description are written `[text](url)`. The CMS preview
+reads the CV one language at a time and underlines any text that is translated
+into other languages but not the one being read.
+
+**Profile pictures** — the round picture on the homepage is edited under
+**Profile pictures** (`data/portraits.json`); uploads go to
+`assets/img/portraits/`. With no picture the DJ initials show; one picture
+stands still; two or more fade from one to the next in list order and then
+start over. *Time on screen* is how long each picture stays, *Transition* how
+long each fade lasts. Visitors whose system asks for reduced motion get the
+first picture only. Keep the files small: the circle is at most 240 px wide, so
+a square of about 600×600 px is plenty.
 
 **Editing shared chrome** (nav / footer / icon sprite / boot snippet): edit the
 file in `tools/partials/`, then run `python tools/sync_partials.py` to stamp it
@@ -126,9 +143,12 @@ the Netlify host. Set `window.IDENTITY_API` at the top of `admin/index.html` to
 |---|---|
 | `admin/index.html` | Loads the CMS and the Identity widget |
 | `admin/config.yml` | Collections, fields and per-field upload folders |
-| `admin/preview.js` | The Files panel: expected filename per entry, and mismatch warnings |
+| `admin/preview.js` | The panels beside each form: expected filenames and mismatch warnings, the CV in each language, the homepage pictures running |
 | `data/site.json` | CV PDF paths, edited under Misc |
-| `js/cv.js` | Chooses the CV for the current language, falling back to English |
+| `data/cv.json` | The CV page itself, edited under CV |
+| `data/portraits.json` | Homepage pictures and their timing, edited under Profile pictures |
+| `js/cv.js` | Renders the CV page; picks the CV PDF for the current language, falling back to English |
+| `js/portrait.js` | Shows the homepage pictures and fades from one to the next |
 | `js/boot.js` | Fetches `data/*.json`, then runs the page scripts in order |
 | `netlify.toml` | Publish settings + `noindex` for the Netlify copy |
 
@@ -149,12 +169,12 @@ Every uploaded file is named after its entry's `id`:
 Course material is `assets/lectures/<id>` plus `-slides.pdf`, `-notebooks.zip`,
 `-handout.pdf` or `-tutorial.pdf`.
 
-Four files are referenced straight from the HTML and so must keep their exact
-names — `assets/img/portrait.jpg`, `assets/img/og-card.png`, `favicon.svg` and
+Three files are referenced straight from the HTML and so must keep their exact
+names — `assets/img/og-card.png`, `favicon.svg` and
 `assets/pdf/thesis/thesis-jankovic-2024.pdf`. Upload them through **Media**,
 named as listed. They cannot be chosen in a form: the favicon and the social
 card are read by crawlers that never run the page scripts. The **Misc** panel
-lists all four and marks which are in place.
+lists all three and marks which are in place.
 
 The **Files** panel beside each list in the CMS states the expected name for
 every entry and marks it ✓ when the stored path matches, `!` when it does not,
@@ -167,4 +187,7 @@ enforces the convention — a path that drifts simply stops rendering its button
 
 Content is written inline in four languages (`en`, `fr`, `ko`, `de`) as sibling
 `<span lang="…">` elements; CSS shows only the active one. To edit text, edit
-all four spans. UI labels rendered by JavaScript live in `data/i18n.js`.
+all four spans. UI labels rendered by JavaScript live in `data/i18n.js`. Text
+that comes from `data/*.json` — the whole CV, and the notes, awards and
+descriptions in the lists — is stored as `{ en, fr, ko, de }` objects instead
+and edited in the CMS.

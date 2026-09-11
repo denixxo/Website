@@ -412,13 +412,12 @@
         </g>
         <circle class="orbital__nucleus" cx="300" cy="300" r="8" stroke="none"/>
       </svg>
-      <!-- Portrait: drop a square photo at assets/img/portrait.jpg and it takes
-           over automatically. Until the file exists — or if it fails to load —
-           the initials stay. Nothing else to edit. -->
+      <!-- Portrait: the pictures and their timing come from data/portraits.json
+           (Profile pictures in /admin); js/portrait.js shows them — one stands
+           still, two or more fade from one to the next. With none, or until the
+           first one loads, the initials stay. -->
       <div class="hero__portrait hero__portrait--initials" data-portrait>
         <span>DJ</span>
-        <img src="assets/img/portrait.jpg" alt="Denis Janković" hidden
-             onload="var b=this.closest('[data-portrait]');b.classList.remove('hero__portrait--initials');b.querySelector('span').remove();this.hidden=false">
       </div>
     </div>
   </section>
@@ -549,6 +548,8 @@
 <script src="data/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/reveal.js"></script>
+<!-- Only the portrait waits for content, so only it goes through boot.js. -->
+<script src="js/boot.js" data-content="portraits" data-scripts="js/portrait.js"></script>
 <!-- Netlify Identity — only fetched when the URL carries an invite or password
      recovery token, so ordinary visitors never pay for it. Accepting an invite
      lands here; this hands the editor on to the content manager afterwards. -->
