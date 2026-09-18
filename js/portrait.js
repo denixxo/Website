@@ -2,15 +2,16 @@
 //
 // Pictures and timing come from data/portraits.json (Profile pictures in
 // /admin). With no picture the DJ initials stay; a single picture is simply
-// shown; two or more take turns — each stays `stay` seconds, then the next
-// fades in over `fade` seconds, and after the last the list starts over. The
-// incoming picture fades in on top of the outgoing one, which is hidden only
-// once covered, so the circle never dims halfway through a fade.
+// shown; two or more take turns — one is drawn at random to open with, then
+// each stays `stay` seconds before the next fades in over `fade` seconds,
+// carrying on down the list and wrapping around to the top. The incoming
+// picture fades in on top of the outgoing one, which is hidden only once
+// covered, so the circle never dims halfway through a fade.
 //
 // Only the first picture is fetched up front; each later one is fetched while
 // the one before it is on screen. A picture that fails to load is skipped, and
 // if none loads the initials stay. Visitors whose system asks for reduced
-// motion get the first picture, standing still.
+// motion get a single picture, standing still.
 (function () {
   "use strict";
   var SITE = window.SITE || {};
@@ -31,6 +32,15 @@
     .filter(Boolean)
     .map(function (src) { return { src: src }; });
   if (!queue.length) return;
+
+  // Open on a picture drawn at random rather than always the first one, so a
+  // visitor is not met by the same face every time. Rotating the list leaves
+  // the running order untouched — only the starting point moves — so the turns
+  // afterwards still read top to bottom and wrap around.
+  if (queue.length > 1) {
+    var start = Math.floor(Math.random() * queue.length);
+    queue = queue.slice(start).concat(queue.slice(0, start));
+  }
 
   var still = queue.length === 1 || (SITE.reducedMotion && SITE.reducedMotion());
   box.style.setProperty("--portrait-fade", fade + "s");

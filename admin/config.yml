@@ -546,7 +546,8 @@ collections:
         description: >-
           The round picture on the homepage. With no picture it shows the DJ
           initials; with one, that picture, standing still; with two or more it
-          fades from one to the next, top to bottom, and then starts over.
+          opens on one drawn at random, then fades from one to the next down the
+          list and wraps back round to the top.
         fields:
           - name: pictures
             label: Pictures
