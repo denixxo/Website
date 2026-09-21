@@ -91,6 +91,16 @@ long each fade lasts. Visitors whose system asks for reduced motion get the
 first picture only. Keep the files small: the circle is at most 240 px wide, so
 a square of about 600×600 px is plenty.
 
+**Business card** — the card that turns over below the hero is two pictures,
+`assets/img/card/business-card-en.png` (front) and `business-card-ko.png`
+(back), each 1420×768 px. They are not scans: they were rendered from
+`Business Card.html` in the *QNS Design System* bundle (headless Edge at 4×
+device scale, one side per page). To change the card, edit that HTML and render
+it again the same way, then replace the two files — nothing else to touch. The
+spin itself is `js/card.js`; the number of turns and the lean are the two
+constants at its top. A link to `jankovic.phd/#card` opens the page with the
+card centred and face on.
+
 **Editing shared chrome** (nav / footer / icon sprite / boot snippet): edit the
 file in `tools/partials/`, then run `python tools/sync_partials.py` to stamp it
 into every page.
@@ -191,3 +201,8 @@ all four spans. UI labels rendered by JavaScript live in `data/i18n.js`. Text
 that comes from `data/*.json` — the whole CV, and the notes, awards and
 descriptions in the lists — is stored as `{ en, fr, ko, de }` objects instead
 and edited in the CMS.
+
+**Links in a given language** — `?lang=fr` (`en`, `fr`, `ko`, `de`; `kr` is
+taken as `ko`) opens any page in that language and remembers it, exactly as the
+toggle would; the parameter is then dropped from the address so a later toggle
+survives a reload. It combines with anchors: `jankovic.phd/?lang=ko#card`.

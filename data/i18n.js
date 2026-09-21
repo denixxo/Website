@@ -4,6 +4,7 @@
 window.SITE = window.SITE || {};
 window.SITE.i18n = {
   en: {
+    businessCard: "Business card",
     langToggle: "Language",
     themeToggle: "Switch between dark and light theme",
     backToTop: "Back to top",
@@ -55,6 +56,7 @@ window.SITE.i18n = {
     download: "Download"
   },
   fr: {
+    businessCard: "Carte de visite",
     langToggle: "Langue",
     themeToggle: "Basculer entre thème sombre et clair",
     backToTop: "Retour en haut",
@@ -106,6 +108,7 @@ window.SITE.i18n = {
     download: "Télécharger"
   },
   ko: {
+    businessCard: "명함",
     langToggle: "언어",
     themeToggle: "다크/라이트 테마 전환",
     backToTop: "맨 위로",
@@ -157,6 +160,7 @@ window.SITE.i18n = {
     download: "다운로드"
   },
   de: {
+    businessCard: "Visitenkarte",
     langToggle: "Sprache",
     themeToggle: "Zwischen dunklem und hellem Design wechseln",
     backToTop: "Nach oben",

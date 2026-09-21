@@ -3,13 +3,34 @@
 (function () {
   var d = document.documentElement;
   d.classList.remove("no-js"); d.classList.add("js");
+  var LANGS = ["en", "fr", "ko", "de"];
+  // ?lang=fr opens the page in that language (en, fr, ko, de; kr is taken as
+  // ko) and remembers it like the toggle would. The parameter is then dropped
+  // from the address, so a later toggle is not undone by a reload.
+  var fromUrl = null;
+  try {
+    var url = new URL(location.href);
+    var v = url.searchParams.get("lang");
+    if (v !== null) {
+      v = v.toLowerCase().slice(0, 2);
+      if (v === "kr") v = "ko";
+      if (LANGS.indexOf(v) !== -1) fromUrl = v;
+      url.searchParams.delete("lang");
+      history.replaceState(history.state, "", url.pathname + url.search + url.hash);
+    }
+  } catch (e) { /* no URL API or history — the address is left as it is */ }
   try {
     d.dataset.theme = localStorage.getItem("dj-theme") || "dark";
-    var l = localStorage.getItem("dj-lang");
-    if (["en", "fr", "ko", "de"].indexOf(l) === -1) l = "en";
+    var l = fromUrl || localStorage.getItem("dj-lang");
+    if (LANGS.indexOf(l) === -1) l = "en";
+    if (fromUrl) localStorage.setItem("dj-lang", l);
     d.dataset.lang = l;
     d.lang = l;
-  } catch (e) { /* storage unavailable (private mode, file://) — keep defaults */ }
+  } catch (e) {
+    // storage unavailable (private mode, file://) — keep defaults, but a
+    // language named in the address still applies
+    if (fromUrl) { d.dataset.lang = fromUrl; d.lang = fromUrl; }
+  }
 })();
 </script>
 <!-- /@partial:boot -->
