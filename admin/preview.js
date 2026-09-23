@@ -131,10 +131,11 @@
     var stored = (entry[slot.field] || "").trim();
     var expected = id ? slot.dir + id + slot.suffix : null;
     // Some slots accept other extensions too (e.g. .png or .jpg thumbnails); a stored
-    // path using one of those counts as matching the rule.
-    var accepted = id ? [expected].concat((slot.alt || []).map(function (ext) {
-      return slot.dir + id + ext;
-    })) : [];
+    // path using one of those counts as matching the rule. Extensions are
+    // compared case-blind, since cameras and screenshot tools write .PNG/.JPG.
+    var accepted = id ? [slot.suffix].concat(slot.alt || []).map(function (ext) {
+      return (slot.dir + id + ext).toLowerCase();
+    }) : [];
 
     var exemption = stored && spec.exempt ? spec.exempt(entry, slot) : null;
 
@@ -148,7 +149,7 @@
         h("code", null, stored),
         h("span", { className: "was" }, exemption)
       );
-    } else if (expected && accepted.indexOf(stored) !== -1) {
+    } else if (expected && accepted.indexOf(stored.toLowerCase()) !== -1) {
       state = "ok"; mark = "✓";
       body = h("code", null, stored);
     } else {
