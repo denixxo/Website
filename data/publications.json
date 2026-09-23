@@ -60,7 +60,7 @@
       "journal": "SIAM Journal on Scientific Computing 48, 1",
       "doi": "10.1137/24M1690795",
       "arxiv": "2408.13601",
-      "pdf": "assets/pdf/publications/2026-siam-lindblad-integrators.pdf",
+      "pdf": "https://arxiv.org/pdf/2408.13601",
       "thumbnail": "assets/img/pubs/2026-siam-lindblad-integrators.webp",
       "selected": false,
       "topics": [
