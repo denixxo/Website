@@ -110,7 +110,7 @@ collections:
                 required: false
                 media_folder: '/assets/img/pubs'
                 public_folder: 'assets/img/pubs'
-                hint: '900×429 WebP or PNG. tools/make_thumbnails.py generates WebP ones from the PDF.'
+                hint: '900×429 WebP, PNG or JPG. tools/make_thumbnails.py generates WebP ones from the PDF.'
               - name: selected
                 label: Feature on the homepage
                 widget: boolean
@@ -210,7 +210,7 @@ collections:
                 required: false
                 media_folder: '/assets/img/talks'
                 public_folder: 'assets/img/talks'
-                hint: '16:9, 400×225 WebP.'
+                hint: '16:9, 400×225 WebP, PNG or JPG.'
 
   # --------------------------------------------------------------- posters ---
   - name: posters

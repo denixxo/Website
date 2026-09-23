@@ -27,7 +27,7 @@
       idExample: "2024-npjqi-noisy-qudit",
       slots: [
         { field: "pdf", label: "PDF", dir: "assets/pdf/publications/", suffix: ".pdf" },
-        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/pubs/", suffix: ".webp", alt: [".png"] }
+        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/pubs/", suffix: ".webp", alt: [".png", ".jpg", ".jpeg"] }
       ],
       // thesis.html links the same PDF, so it lives under assets/pdf/thesis/
       // rather than with the papers. Deliberate, not a mistake.
@@ -43,7 +43,7 @@
       idExample: "2025-icmm-rising-star",
       slots: [
         { field: "pdf", label: "Slide deck", dir: "assets/pdf/presentations/", suffix: ".pdf" },
-        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/talks/", suffix: ".webp" }
+        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/talks/", suffix: ".webp", alt: [".png", ".jpg", ".jpeg"] }
       ]
     },
     posters: {
@@ -52,7 +52,7 @@
       idExample: "2023-poster-noisy-qudit",
       slots: [
         { field: "pdf", label: "PDF", dir: "assets/pdf/posters/", suffix: ".pdf" },
-        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/posters/", suffix: ".webp" }
+        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/posters/", suffix: ".webp", alt: [".png", ".jpg", ".jpeg"] }
       ]
     },
     lectures: {
@@ -130,7 +130,7 @@
     var id = (entry.id || "").trim();
     var stored = (entry[slot.field] || "").trim();
     var expected = id ? slot.dir + id + slot.suffix : null;
-    // Some slots accept other extensions too (e.g. .png thumbnails); a stored
+    // Some slots accept other extensions too (e.g. .png or .jpg thumbnails); a stored
     // path using one of those counts as matching the rule.
     var accepted = id ? [expected].concat((slot.alt || []).map(function (ext) {
       return slot.dir + id + ext;
