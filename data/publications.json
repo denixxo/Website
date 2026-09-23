@@ -58,7 +58,7 @@
       "authors": "H. Chen, A. Borzì, D. Janković, J.-G. Hartmann, P.-A. Hervieux",
       "title": "Full- and low-rank exponential Euler integrators for the Lindblad equation",
       "journal": "SIAM Journal on Scientific Computing 48, 1",
-      "doi": null,
+      "doi": "10.1137/24M1690795",
       "arxiv": "2408.13601",
       "pdf": "assets/pdf/publications/2026-siam-lindblad-integrators.pdf",
       "thumbnail": "assets/img/pubs/2026-siam-lindblad-integrators.webp",
@@ -106,9 +106,9 @@
       "authors": "D. Janković, R. Pasquier, J.-G. Hartmann, P.-A. Hervieux",
       "title": "Elucidating the physical and mathematical properties of the Prouhet–Thue–Morse sequence in quantum computing",
       "journal": "Annalen der Physik 538, e00630",
-      "doi": null,
+      "doi": "10.1002/andp.202500630",
       "arxiv": null,
-      "pdf": "assets/pdf/publications/2026-andp-thue-morse.pdf",
+      "pdf": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/andp.202500630?download=true",
       "thumbnail": "assets/img/pubs/2026-andp-thue-morse.webp",
       "selected": false,
       "topics": [
@@ -130,7 +130,7 @@
       "journal": "Journal of Physics: Condensed Matter 38, 243003",
       "doi": "10.1088/1361-648X/ae76a6",
       "arxiv": "2606.27830",
-      "pdf": "assets/pdf/publications/2026-jpcm-esr-stm-review.pdf",
+      "pdf": "https://iopscience.iop.org/article/10.1088/1361-648X/ae76a6/pdf",
       "thumbnail": "assets/img/pubs/2026-jpcm-esr-stm-review.webp",
       "selected": false,
       "topics": [
@@ -152,7 +152,7 @@
       "journal": null,
       "doi": null,
       "arxiv": "2505.21203",
-      "pdf": "assets/pdf/publications/2025-arxiv-magicarp.pdf",
+      "pdf": "https://arxiv.org/pdf/2505.21203",
       "thumbnail": "assets/img/pubs/2025-arxiv-magicarp.webp",
       "selected": false,
       "topics": [
@@ -174,7 +174,7 @@
       "journal": null,
       "doi": null,
       "arxiv": "2602.18144",
-      "pdf": "assets/pdf/publications/2026-arxiv-hyperfine-nucleus.pdf",
+      "pdf": "https://arxiv.org/pdf/2602.18144",
       "thumbnail": "assets/img/pubs/2026-arxiv-hyperfine-nucleus.webp",
       "selected": false,
       "topics": [
@@ -196,7 +196,7 @@
       "journal": null,
       "doi": null,
       "arxiv": "2603.21689",
-      "pdf": "assets/pdf/publications/2026-arxiv-shooting-qudits.pdf",
+      "pdf": "https://arxiv.org/pdf/2603.21689",
       "thumbnail": "assets/img/pubs/2026-arxiv-shooting-qudits.webp",
       "selected": false,
       "topics": [
@@ -218,7 +218,7 @@
       "journal": null,
       "doi": null,
       "arxiv": "2606.22212",
-      "pdf": "assets/pdf/publications/2026-arxiv-drift-aware-qsl.pdf",
+      "pdf": "https://arxiv.org/pdf/2606.22212",
       "thumbnail": "assets/img/pubs/2026-arxiv-drift-aware-qsl.webp",
       "selected": true,
       "topics": [
