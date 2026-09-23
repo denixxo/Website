@@ -149,7 +149,8 @@
         h("code", null, stored),
         h("span", { className: "was" }, exemption)
       );
-    } else if (expected && accepted.indexOf(stored.toLowerCase()) !== -1) {
+    } else if (/^https?:\/\//.test(stored) ||
+               (expected && accepted.indexOf(stored.toLowerCase()) !== -1)) {
       state = "ok"; mark = "✓";
       body = h("code", null, stored);
     } else {

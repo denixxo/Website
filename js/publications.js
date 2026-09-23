@@ -74,7 +74,11 @@
         '<svg class="icon" aria-hidden="true"><use href="#i-arxiv"/></svg>arXiv</a>');
     }
     if (p.pdf) {
-      out.push('<a class="btn btn--ghost" href="' + esc(p.pdf) + '" download data-file="' + esc(p.pdf) + '">' +
+      // A local file is downloaded, and its button dropped if the file is
+      // missing; a link to the journal's own PDF is just followed.
+      var local = !/^https?:\/\//.test(p.pdf);
+      out.push('<a class="btn btn--ghost" href="' + esc(p.pdf) + '"' +
+        (local ? ' download data-file="' + esc(p.pdf) + '"' : "") + '>' +
         '<svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>PDF</a>');
     }
     if (p.bibtex) {

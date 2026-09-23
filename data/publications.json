@@ -10,7 +10,7 @@
       "journal": "npj Quantum Information 10, 59",
       "doi": "10.1038/s41534-024-00829-6",
       "arxiv": null,
-      "pdf": "assets/pdf/publications/2024-npjqi-noisy-qudit.pdf",
+      "pdf": "https://www.nature.com/articles/s41534-024-00829-6.pdf",
       "thumbnail": "assets/img/pubs/2024-npjqi-noisy-qudit.webp",
       "selected": true,
       "topics": [
@@ -35,7 +35,7 @@
       "journal": "Quantum 9, 1690",
       "doi": "10.22331/q-2025-04-07-1690",
       "arxiv": null,
-      "pdf": "assets/pdf/publications/2025-quantum-nonlinearity.pdf",
+      "pdf": "https://quantum-journal.org/papers/q-2025-04-07-1690/pdf/",
       "thumbnail": "assets/img/pubs/2025-quantum-nonlinearity.webp",
       "selected": true,
       "topics": [
@@ -82,7 +82,7 @@
       "journal": "npj Quantum Information 12, 69",
       "doi": "10.1038/s41534-026-01214-1",
       "arxiv": "2509.18737",
-      "pdf": "assets/pdf/publications/2026-npjqi-surface-qubits.pdf",
+      "pdf": "https://www.nature.com/articles/s41534-026-01214-1.pdf",
       "thumbnail": "assets/img/pubs/2026-npjqi-surface-qubits.webp",
       "selected": true,
       "topics": [
