@@ -110,7 +110,7 @@ collections:
                 required: false
                 media_folder: '/assets/img/pubs'
                 public_folder: 'assets/img/pubs'
-                hint: '900×429 WebP. tools/make_thumbnails.py generates these from the PDF.'
+                hint: '900×429 WebP or PNG. tools/make_thumbnails.py generates WebP ones from the PDF.'
               - name: selected
                 label: Feature on the homepage
                 widget: boolean

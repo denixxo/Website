@@ -27,7 +27,7 @@
       idExample: "2024-npjqi-noisy-qudit",
       slots: [
         { field: "pdf", label: "PDF", dir: "assets/pdf/publications/", suffix: ".pdf" },
-        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/pubs/", suffix: ".webp" }
+        { field: "thumbnail", label: "Thumbnail", dir: "assets/img/pubs/", suffix: ".webp", alt: [".png"] }
       ],
       // thesis.html links the same PDF, so it lives under assets/pdf/thesis/
       // rather than with the papers. Deliberate, not a mistake.
@@ -130,6 +130,11 @@
     var id = (entry.id || "").trim();
     var stored = (entry[slot.field] || "").trim();
     var expected = id ? slot.dir + id + slot.suffix : null;
+    // Some slots accept other extensions too (e.g. .png thumbnails); a stored
+    // path using one of those counts as matching the rule.
+    var accepted = id ? [expected].concat((slot.alt || []).map(function (ext) {
+      return slot.dir + id + ext;
+    })) : [];
 
     var exemption = stored && spec.exempt ? spec.exempt(entry, slot) : null;
 
@@ -143,7 +148,7 @@
         h("code", null, stored),
         h("span", { className: "was" }, exemption)
       );
-    } else if (expected && stored === expected) {
+    } else if (expected && accepted.indexOf(stored) !== -1) {
       state = "ok"; mark = "✓";
       body = h("code", null, stored);
     } else {

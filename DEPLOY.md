@@ -172,7 +172,7 @@ Every uploaded file is named after its entry's `id`:
 
 | Collection | PDF | Thumbnail |
 |---|---|---|
-| Publications | `assets/pdf/publications/<id>.pdf` | `assets/img/pubs/<id>.webp` |
+| Publications | `assets/pdf/publications/<id>.pdf` | `assets/img/pubs/<id>.webp` (or `.png`) |
 | Talks | `assets/pdf/presentations/<id>.pdf` | `assets/img/talks/<id>.webp` |
 | Posters | `assets/pdf/posters/<id>.pdf` | `assets/img/posters/<id>.webp` |
 
