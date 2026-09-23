@@ -165,7 +165,12 @@
 .filter-bar__clear[hidden] { display: none; }
 @media (max-width: 639px) {
   .filter-bar { position: static; }
-  .filter-bar fieldset { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  /* A fieldset is as wide as its content by default (min-width: min-content),
+     which would stop the row from scrolling; the fade hints there is more. */
+  .filter-bar fieldset { min-width: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none;
+    padding-bottom: 2px; padding-right: 24px;
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 24px), transparent); }
   .filter-bar fieldset::-webkit-scrollbar { display: none; }
 }
 
@@ -174,7 +179,9 @@
 @media (max-width: 959px) { .pub-grid { grid-template-columns: 1fr; } }
 
 .pubs-all { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.6s var(--ease-in-out); }
-.pubs-all > .pubs-all-inner { overflow: hidden; min-height: 0; }
+/* clip, not hidden: hidden would make this box the sticky filter bar's scroll
+   container, so the bar would neither stick to the page nor sit in its place. */
+.pubs-all > .pubs-all-inner { overflow: hidden; overflow: clip; min-height: 0; }
 .pubs-all.is-open { grid-template-rows: 1fr; }
 .pubs-all-inner > * { padding-top: var(--space-6); }
 html.no-js .pubs-all { grid-template-rows: 1fr; } /* content available without JS */
