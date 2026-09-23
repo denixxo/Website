@@ -63,6 +63,10 @@
 
   // ---- The spin ----
   if (SITE.reducedMotion && SITE.reducedMotion()) return;
+  // Same test as the @supports block in pages.css: where the browser cannot
+  // do the 3D box, the CSS shows the front face flat and there is nothing to turn.
+  if (!(window.CSS && CSS.supports && CSS.supports("transform-style", "preserve-3d") &&
+        CSS.supports("aspect-ratio", "1") && CSS.supports("inset", "0"))) return;
 
   var TURNS = 2; // full turns while the card crosses the viewport
   var TILT = 12; // total lean, in degrees, from the bottom of the screen to the top
