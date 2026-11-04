@@ -5,6 +5,7 @@ window.SITE = window.SITE || {};
 window.SITE.i18n = {
   en: {
     businessCard: "Business card",
+    journeyMap: "Map of my journey: Strasbourg, Karlsruhe, then Seoul",
     langToggle: "Language",
     themeToggle: "Switch between dark and light theme",
     backToTop: "Back to top",
@@ -57,6 +58,7 @@ window.SITE.i18n = {
   },
   fr: {
     businessCard: "Carte de visite",
+    journeyMap: "Carte de mon parcours : Strasbourg, Karlsruhe, puis Séoul",
     langToggle: "Langue",
     themeToggle: "Basculer entre thème sombre et clair",
     backToTop: "Retour en haut",
@@ -109,6 +111,7 @@ window.SITE.i18n = {
   },
   ko: {
     businessCard: "명함",
+    journeyMap: "나의 여정 지도: 스트라스부르, 카를스루에, 그리고 서울",
     langToggle: "언어",
     themeToggle: "다크/라이트 테마 전환",
     backToTop: "맨 위로",
@@ -161,6 +164,7 @@ window.SITE.i18n = {
   },
   de: {
     businessCard: "Visitenkarte",
+    journeyMap: "Karte meines Wegs: Straßburg, Karlsruhe, dann Seoul",
     langToggle: "Sprache",
     themeToggle: "Zwischen dunklem und hellem Design wechseln",
     backToTop: "Nach oben",

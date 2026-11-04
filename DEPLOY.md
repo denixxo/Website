@@ -103,6 +103,17 @@ spin itself is `js/card.js`; the number of turns and the lean are the two
 constants at its top. A link to `jankovic.phd/#card` opens the page with the
 card centred and face on.
 
+**Journey map** — the animated map in the About section (Strasbourg,
+Karlsruhe, Basel, then the flight to Seoul) is an inline SVG written by
+`tools/make_journey.py`, which takes three Natural Earth GeoJSON files — the
+1:110m land for the world, and the 1:10m borders and rivers for the Rhine
+inset (public domain, links in the script's docstring; not kept in the repo) —
+and rewrites the figure between the `JOURNEY` markers in `index.html`. Stops,
+labels, the hover notes, country names, the plane and the dog are defined in
+that script; the animation is the
+"Journey map" block in `css/pages.css`, where each piece's start time is its
+`--d`. The figure's aria-label is `journeyMap` in `data/i18n.js`.
+
 **Editing shared chrome** (nav / footer / icon sprite / boot snippet): edit the
 file in `tools/partials/`, then run `python tools/sync_partials.py` to stamp it
 into every page.
