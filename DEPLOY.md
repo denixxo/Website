@@ -96,7 +96,9 @@ a square of about 600×600 px is plenty.
 (back), each 1420×768 px. They are not scans: they were rendered from
 `Business Card.html` in the *QNS Design System* bundle (headless Edge at 4×
 device scale, one side per page). To change the card, edit that HTML and render
-it again the same way, then replace the two files — nothing else to touch. The
+it again the same way, then upload the two pictures under *Business card* in
+`/admin` (which writes `data/card.json`; `js/card-faces.js` swaps them in over
+the originals kept in `index.html` as the no-JS fallback). The
 spin itself is `js/card.js`; the number of turns and the lean are the two
 constants at its top. A link to `jankovic.phd/#card` opens the page with the
 card centred and face on.

@@ -7,7 +7,7 @@
 #
 # A Decap file collection maps a file's top-level keys to fields. The four list
 # files therefore each hold a single named list, e.g. { "posters": [ ... ] };
-# site.json, cv.json and portraits.json are plain objects whose keys are the
+# site.json, cv.json, portraits.json and card.json are plain objects whose keys are the
 # fields themselves. js/boot.js fetches these files and hands them to the page
 # scripts as window.SITE.*.
 
@@ -581,6 +581,45 @@ collections:
             step: 0.1
             default: 1.5
             hint: 'How long the fade from one picture to the next lasts. 0 switches instantly.'
+
+  # ------------------------------------------------------------------ card ---
+  - name: card
+    label: Business card
+    files:
+      - name: card
+        label: Business card
+        file: data/card.json
+        description: >-
+          The card that turns over below the hero on the homepage. The front is
+          what faces visitors reading in English, French or German; the back
+          faces them in Korean. A picture left empty keeps the original one.
+        fields:
+          - name: front
+            label: Front picture
+            widget: image
+            required: false
+            media_folder: '/assets/img/card'
+            public_folder: 'assets/img/card'
+            hint: >-
+              1420×768 px (the card's 355:192 shape) PNG, WebP or JPG. A
+              picture of another shape is cropped to fit, not stretched.
+          - name: front_alt
+            label: Front description
+            widget: text
+            required: false
+            hint: 'Read aloud by screen readers in place of the picture — write out what the card says. Update it whenever you change the picture.'
+          - name: back
+            label: Back picture
+            widget: image
+            required: false
+            media_folder: '/assets/img/card'
+            public_folder: 'assets/img/card'
+            hint: 'Same size and shape as the front.'
+          - name: back_alt
+            label: Back description
+            widget: text
+            required: false
+            hint: 'What the back says, for screen readers.'
 
   # ------------------------------------------------------------------ misc ---
   - name: misc

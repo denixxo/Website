@@ -78,7 +78,8 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
     transform: rotateX(var(--card-tilt)) rotateY(var(--card-turn)); will-change: transform; }
   .card3d__face { position: absolute; inset: 0;
     backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-  .card3d__face img { height: 100%; }
+  /* cover: a picture of another shape is cropped to the card, not stretched. */
+  .card3d__face img { height: 100%; object-fit: cover; }
   /* Lighting: a highlight that slides across the face as the card turns. */
   .card3d__face::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
     background: linear-gradient(100deg, rgb(0 0 0 / 0.07) 0%, transparent 38%, rgb(255 255 255 / 0.35) 50%,

@@ -28,7 +28,7 @@
       })
       // A list file wraps its array in a named key, because that is what a
       // Decap file collection maps onto: { "<name>": [ ... ] }. A file whose
-      // fields are the content itself (site.json, cv.json, portraits.json) is
+      // fields are the content itself (site.json, cv.json, portraits.json, card.json) is
       // used as-is — so such a file must never have a key named after itself.
       .then(function (json) {
         SITE[name] = Array.isArray(json) ? json

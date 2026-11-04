@@ -447,7 +447,8 @@
   <!-- ======================== BUSINESS CARD ======================== -->
   <!-- Turns over as it scrolls through the viewport: js/card.js sets the angle
        from the scroll position, and opens a link to #card with the card centred
-       and face on. The two faces are assets/img/card/*.png,
+       and face on. The pictures below are the fallback; js/card-faces.js swaps
+       in the ones named in data/card.json (Business card in /admin). They were
        rendered from the QNS design-system business card (see DEPLOY.md,
        "Business card"). -->
   <section class="card-stage container" id="card" data-card-stage data-i18n-aria-label="businessCard" aria-label="Business card">
@@ -589,8 +590,9 @@
 <script src="js/main.js"></script>
 <script src="js/reveal.js"></script>
 <script src="js/card.js?v=2"></script>
-<!-- Only the portrait waits for content, so only it goes through boot.js. -->
-<script src="js/boot.js" data-content="portraits" data-scripts="js/portrait.js"></script>
+<!-- Only the portrait and the card faces wait for content, so only they go
+     through boot.js. The card spins from js/card.js above either way. -->
+<script src="js/boot.js" data-content="portraits,card" data-scripts="js/portrait.js,js/card-faces.js"></script>
 <!-- Netlify Identity — only fetched when the URL carries an invite or password
      recovery token, so ordinary visitors never pay for it. Accepting an invite
      lands here; this hands the editor on to the content manager afterwards. -->
