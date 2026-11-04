@@ -105,9 +105,9 @@ card centred and face on.
 
 **Journey map** — the animated map in the About section (Strasbourg,
 Karlsruhe, Basel, then the flight to Seoul) is an inline SVG written by
-`tools/make_journey.py`, which takes three Natural Earth GeoJSON files — the
-1:110m land for the world, and the 1:10m borders and rivers for the Rhine
-inset (public domain, links in the script's docstring; not kept in the repo) —
+`tools/make_journey.py`, which takes four Natural Earth GeoJSON files — the
+1:110m land for the world, and the 1:10m borders, rivers and lakes for the
+Rhine inset (public domain, links in the script's docstring; not kept in the repo) —
 and rewrites the figure between the `JOURNEY` markers in `index.html`. Stops,
 labels, the hover notes, country names, the plane and the dog are defined in
 that script; the animation is the

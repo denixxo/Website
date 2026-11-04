@@ -169,10 +169,13 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
 .j-city { cursor: default; }
 .journey__cap { fill: none; stroke: var(--accent-primary); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .journey__inset-bg { fill: var(--surface-card); stroke: var(--border-strong); stroke-width: 1.5; }
+.journey__lake { fill: var(--qns-blue); opacity: 0.45; }
 .journey__borders { fill: none; stroke: var(--border-strong); stroke-width: 1; stroke-dasharray: 3 3; opacity: 0.8; }
 .journey__rhine { fill: none; stroke: var(--qns-blue); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; opacity: 0.6; }
 .journey__country { font: 500 11px var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; fill: var(--text-muted); opacity: 0.6; }
 .journey__hop { fill: none; stroke: var(--text-muted); stroke-width: 1.5; stroke-dasharray: 1; }
+/* The Lindau trip is drawn, then fades before the flight leaves; it ends hidden. */
+.journey__hop--lindau { opacity: 0; }
 .journey__link { stroke: var(--accent-interactive); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; }
 .journey__label { font: 600 17px var(--font-display); fill: var(--text-body); }
 .journey__label--minor { font-weight: 500; fill: var(--text-muted); }
@@ -215,6 +218,7 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
 .journey__stage:has(.j-city--strasbourg:hover) .j-tip--strasbourg,
 .journey__stage:has(.j-city--karlsruhe:hover) .j-tip--karlsruhe,
 .journey__stage:has(.j-city--basel:hover) .j-tip--basel,
+.journey__stage:has(.j-city--lindau:hover) .j-tip--lindau,
 .journey__stage:has(.j-city--seoul:hover) .j-tip--seoul,
 .journey__stage:has(.journey__dog:hover) .j-tip--dog { opacity: 1; visibility: visible; transition-delay: 0s; }
 .journey__caption { margin-top: var(--space-3); text-align: center; font-size: var(--text-sm); color: var(--text-muted); }
@@ -231,14 +235,16 @@ html.js .journey .j-draw, html.js .journey .j-arc { stroke-dashoffset: 1; }
 html.js .journey .j-fly { opacity: 0; offset-distance: 0; }
 html.js .journey.is-in .j-pop { animation: j-pop var(--dur-3) var(--ease-spring) var(--d, 0s) both; }
 html.js .journey.is-in .j-draw { animation: j-draw var(--dur-4) var(--ease-in-out) var(--d, 0s) both; }
-html.js .journey.is-in .j-arc { animation: j-draw 2.4s var(--ease-in-out) 4.2s both; }
-html.js .journey.is-in .j-fly { animation: j-fly 2.4s var(--ease-in-out) 4.2s both; }
-html.js .journey.is-in .j-level { animation: j-level 2.4s var(--ease-in-out) 4.2s both; }
+html.js .journey.is-in .journey__hop--lindau { animation: j-draw var(--dur-4) var(--ease-in-out) var(--d, 0s) both, j-fade var(--dur-3) var(--ease-out) var(--fade, 0s) both; }
+html.js .journey.is-in .j-arc { animation: j-draw 2.4s var(--ease-in-out) 4.8s both; }
+html.js .journey.is-in .j-fly { animation: j-fly 2.4s var(--ease-in-out) 4.8s both; }
+html.js .journey.is-in .j-level { animation: j-level 2.4s var(--ease-in-out) 4.8s both; }
 html.js .journey.is-in .journey__atom { animation: j-pop var(--dur-3) var(--ease-spring) var(--d, 0s) both, j-spin 14s linear calc(var(--d, 0s) + var(--dur-3)) infinite; }
 @keyframes j-pop { from { opacity: 0; scale: 0.4; } to { opacity: 1; scale: 1; } }
 @keyframes j-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes j-fly { 0% { opacity: 0; offset-distance: 0; } 3% { opacity: 1; } 100% { opacity: 1; offset-distance: 100%; } }
 @keyframes j-level { 0%, 70% { transform: scale(1.25) rotate(0deg); } 100% { transform: scale(1.25) rotate(-32deg); } }
+@keyframes j-fade { from { opacity: 1; } to { opacity: 0; } }
 @keyframes j-spin { to { rotate: 360deg; } }
 /* No motion path: the plane simply sits at Seoul. */
 @supports not (offset-path: path("M0 0")) {
@@ -248,4 +254,5 @@ html.js .journey.is-in .journey__atom { animation: j-pop var(--dur-3) var(--ease
   html.js .journey .j-pop, html.js .journey .j-draw, html.js .journey .j-arc, html.js .journey .j-fly,
   html.js .journey .journey__atom { animation: none !important; opacity: 1; stroke-dashoffset: 0; offset-distance: 100%; }
   html.js .journey .j-level { animation: none !important; transform: scale(1.25) rotate(-32deg); }
+  html.js .journey .journey__hop--lindau { opacity: 0; }
 }

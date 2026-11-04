@@ -1,16 +1,17 @@
 """Build the journey map in index.html (About section) from Natural Earth data.
 
     python tools/make_journey.py <ne_110m_land.geojson> \
-        <ne_10m_admin_0_boundary_lines_land.geojson> <ne_10m_rivers_lake_centerlines.geojson>
+        <ne_10m_admin_0_boundary_lines_land.geojson> \
+        <ne_10m_rivers_lake_centerlines.geojson> <ne_10m_lakes.geojson>
 
-The three GeoJSON files are public domain and not kept in the repository; each
+The four GeoJSON files are public domain and not kept in the repository; each
 is at https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/<name>
-(about 140 KB, 2.3 MB and 7 MB). The land is projected onto an equirectangular frame with
+(about 140 KB, 2.3 MB, 7 MB and 5 MB). The land is projected onto an equirectangular frame with
 standard parallel 45 N (x = lon * cos 45, y = -lat), lon -15..145 and
 lat 8..72, scaled to a 1000-wide viewBox, simplified (Douglas-Peucker) and
 baked into the figure as one path. The inset is its own projection (1 degree
-of latitude = 80 units, centred on 48.3 N 8.0 E); the 1:10m borders and the
-Rhine are clipped to its circle and simplified the same way. The stops, labels, inset, flight arc,
+of latitude = 80 units, centred on 48.3 N 8.0 E); the 1:10m borders, the Rhine
+and the lakes are clipped to its circle and simplified the same way. The stops, labels, inset, flight arc,
 plane, dog and flags are all defined here; the figure is written between the
 JOURNEY markers in index.html, replacing what is there. The animation itself
 is in css/pages.css ("Journey map").
@@ -149,6 +150,25 @@ def clip_lines(geojson, keep, tol=0.8):
     return "".join(d)
 
 
+def clip_polygons(geojson, tol=0.8):
+    """Polygon features with any point inside the inset, projected into it;
+    the SVG clip-path trims whatever crosses the edge."""
+    data = json.load(open(geojson, encoding="utf-8"))
+    d = []
+    for f in data["features"]:
+        g = f["geometry"]
+        polys = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
+        for poly in polys:
+            for ring in poly:
+                pts = [inset_proj(lon, lat) for lon, lat, *_ in ring]
+                if not any(math.hypot(x, y) <= INSET_R for x, y in pts):
+                    continue
+                pts = dp(pts[:-1] if pts[0] == pts[-1] else pts, tol)
+                if len(pts) >= 3:
+                    d.append("M%.1f %.1f" % pts[0] + "".join("L%.1f %.1f" % q for q in pts[1:]) + "Z")
+    return "".join(d)
+
+
 def land_path(geojson, tol=1.5):
     data = json.load(open(geojson, encoding="utf-8"))
     paths = []
@@ -172,16 +192,18 @@ STOPS = {  # lat, lon
     "strasbourg": (48.5734, 7.7521),
     "basel": (47.5596, 7.5886),
     "karlsruhe": (49.0069, 8.4037),
+    "lindau": (47.5460, 9.6840),
     "seoul": (37.5665, 126.9780),
 }
 
-if len(sys.argv) < 4:
+if len(sys.argv) < 5:
     sys.exit(__doc__)
 LAND = land_path(sys.argv[1])
 ARC = arc_path()
 BORDERS = clip_lines(sys.argv[2], lambda p: True)
 RHINE = clip_lines(sys.argv[3], lambda p: (p.get("name_en") or "") in ("Rhein", "Rhine"))
-print("inset borders", len(BORDERS), "bytes, rhine", len(RHINE), "bytes")
+LAKES = clip_polygons(sys.argv[4])
+print("inset borders", len(BORDERS), "bytes, rhine", len(RHINE), "bytes, lakes", len(LAKES), "bytes")
 for k, (lat, lon) in STOPS.items():
     print("%-10s %7.1f %7.1f" % ((k,) + proj(lon, lat)))
 print("arc", ARC)
@@ -219,7 +241,8 @@ PLANE = """<g class="journey__plane j-fly" style="offset-path: path('%s')"><g cl
 INSET = """<g transform="translate(340 395)">
           <g class="journey__inset j-pop" style="--d: .7s">
             <circle class="journey__inset-bg" r="135"/>
-            <!-- Borders and the Rhine, Natural Earth 1:10m, cut to the circle. -->
+            <!-- Lakes, borders and the Rhine, Natural Earth 1:10m, cut to the circle. -->
+            <path class="journey__lake" clip-path="url(#j-inset-clip)" d="%s"/>
             <path class="journey__borders" clip-path="url(#j-inset-clip)" d="%s"/>
             <path class="journey__rhine" clip-path="url(#j-inset-clip)" d="%s"/>
             %s
@@ -238,18 +261,25 @@ INSET = """<g transform="translate(340 395)">
               %s</g>
             <!-- The PhD: a mortarboard over the Strasbourg–Karlsruhe link. -->
             <use class="journey__cap j-pop" href="#i-education" x="-24" y="-66" width="26" height="26" style="--d: 3.4s"/>
+            <!-- Lindau, on the Bodensee: a side trip from Karlsruhe. -->
+            <path class="journey__hop journey__hop--lindau j-draw" d="M21 -57Q60 10 90 60" pathLength="1" style="--d: 3.7s; --fade: 4.4s"/>
+            <g class="j-city j-city--lindau j-pop" style="--d: 4.2s"><circle class="journey__hit" cx="90" cy="60" r="26"/><circle class="journey__dot journey__dot--minor" cx="90" cy="60" r="4"/>
+              %s
+              %s</g>
           </g>
         </g>""" % (
-    BORDERS, RHINE,
+    LAKES, BORDERS, RHINE,
     t("journey__country", -58, 44, "middle", "France", ko="프랑스", de="Frankreich"),
-    t("journey__country", 50, 28, "middle", "Germany", fr="Allemagne", ko="독일", de="Deutschland"),
-    t("journey__country", 34, 100, "middle", "Switzerland", fr="Suisse", ko="스위스", de="Schweiz"),
+    t("journey__country", 28, 30, "middle", "Germany", fr="Allemagne", ko="독일", de="Deutschland"),
+    t("journey__country", -22, 104, "middle", "Switzerland", fr="Suisse", ko="스위스", de="Schweiz"),
     t("journey__label", -24, -17, "end", "Strasbourg", ko="스트라스부르"),
     year(-24, 0, "end", "2015 – 2024"),
     t("journey__label journey__label--minor", -12, 64, "start", "Basel", fr="Bâle", ko="바젤"),
     year(-12, 80, "start", "2019"),
     t("journey__label", 31, -52, "start", "Karlsruhe", ko="카를스루에"),
     year(31, -36, "start", "2020 – 2024"),
+    t("journey__label journey__label--minor", 96, 82, "end", "Lindau", ko="린다우"),
+    year(96, 98, "end", "2024"),
 )
 
 FLAG_FR = '<svg viewBox="0 0 72 48"><path fill="#0055a4" d="M0 0h24v48H0z"/><path fill="#fff" d="M24 0h24v48H24z"/><path fill="#ef4135" d="M48 0h24v48H48z"/></svg>'
@@ -280,12 +310,12 @@ FLAG_KR = ('<svg viewBox="0 0 72 48"><path fill="#fff" d="M0 0h72v48H0z"/>'
 ATOM = '<svg class="icon journey__atom j-pop" style="--d: %ss" aria-hidden="true"><use href="#i-orbital"/></svg>'
 
 FLAGS = """<div class="journey__flags" aria-hidden="true">
-        <span class="journey__flag j-pop" style="--d: 7s">%s</span>
-        %s
-        <span class="journey__flag j-pop" style="--d: 7.3s">%s</span>
-        %s
         <span class="journey__flag j-pop" style="--d: 7.6s">%s</span>
-      </div>""" % (FLAG_FR, ATOM % "7.15", FLAG_DE, ATOM % "7.45", FLAG_KR)
+        %s
+        <span class="journey__flag j-pop" style="--d: 7.9s">%s</span>
+        %s
+        <span class="journey__flag j-pop" style="--d: 8.2s">%s</span>
+      </div>""" % (FLAG_FR, ATOM % "7.75", FLAG_DE, ATOM % "8.05", FLAG_KR)
 
 def tip(key, x, y, side, en, fr, ko, de):
     """A note shown while its city is hovered. x, y in viewBox units."""
@@ -308,6 +338,7 @@ def note(flag, title, *rows):
 
 
 TIPS = """<div class="journey__tips" aria-hidden="true">
+          %s
           %s
           %s
           %s
@@ -361,6 +392,15 @@ TIPS = """<div class="journey__tips" aria-hidden="true">
         note(FLAG_CH, "Universität Basel",
              ("2019", "Masterpraktikum bei Prof. D. Loss und Prof. M. Rančić"),
              ("", "Theorie der kondensierten Materie und Quantencomputing"))),
+    tip("lindau", 340 + 90, 395 + 60, "right",
+        note(FLAG_DE, "Lindau Nobel Laureate Meeting",
+             ("2024", "73rd Lindau Meeting (physics), one of six French students nominated by Udice")),
+        note(FLAG_DE, "Rencontre des lauréats Nobel de Lindau",
+             ("2024", "73e rencontre de Lindau (physique), l'un des six étudiants français nommés par Udice")),
+        note(FLAG_DE, "린다우 노벨상 수상자 회의",
+             ("2024", "제73회 린다우 회의 (물리학), Udice가 지명한 프랑스 학생 6명 중 한 명")),
+        note(FLAG_DE, "Lindauer Nobelpreisträgertagung",
+             ("2024", "73. Lindauer Tagung (Physik), einer von sechs von Udice nominierten französischen Studierenden"))),
     tip("seoul", 887, 304, "left",
         note(FLAG_KR, "Center for Quantum Nanoscience (QNS), IBS and Ewha Womans University",
              ("2025 –", "Postdoc, Theory of Quantum Spins on Surfaces group")),
@@ -395,7 +435,7 @@ FIGURE = """      <!-- JOURNEY: start -->
           <g class="j-pop" style="--d: .4s"><circle class="journey__ring" cx="142" cy="207" r="10"/><circle class="journey__dot" cx="142" cy="207" r="4"/></g>
           <line class="journey__leader j-draw" x1="142" y1="207" x2="242" y2="302" pathLength="1" style="--d: .6s"/>
           %s
-          <g class="j-city j-city--seoul j-pop" style="--d: 6.6s"><circle class="journey__hit" cx="887" cy="304" r="26"/><circle class="journey__ring" cx="887" cy="304" r="10"/><circle class="journey__dot" cx="887" cy="304" r="5"/>
+          <g class="j-city j-city--seoul j-pop" style="--d: 7.2s"><circle class="journey__hit" cx="887" cy="304" r="26"/><circle class="journey__ring" cx="887" cy="304" r="10"/><circle class="journey__dot" cx="887" cy="304" r="5"/>
             %s
             %s</g>
           %s
