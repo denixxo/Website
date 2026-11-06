@@ -490,8 +490,10 @@
            "Journey map"). The land outline is Natural Earth 1:110m (public
            domain), projected and simplified by a one-off script; the three
            Rhine cities sit 4–9 px apart at this scale, hence the inset. Each
-           city shows a note while hovered (the .journey__tip divs). -->
-      <figure class="journey" data-reveal data-i18n-aria-label="journeyMap" aria-label="Map of my journey: Strasbourg, Karlsruhe, then Seoul">
+           city shows a note while hovered (the .journey__tip divs). A link to
+           #map opens with the map centred in the viewport (js/map.js), the
+           same way #card does for the business card. -->
+      <figure class="journey" id="map" data-reveal data-i18n-aria-label="journeyMap" aria-label="Map of my journey: Strasbourg, Karlsruhe, then Seoul">
         <div class="journey__stage">
         <svg class="journey__map" viewBox="0 0 1000 566" aria-hidden="true" focusable="false">
           <defs><clipPath id="j-inset-clip"><circle r="134"/></clipPath></defs>
@@ -674,6 +676,7 @@
 <script src="js/main.js"></script>
 <script src="js/reveal.js"></script>
 <script src="js/card.js?v=2"></script>
+<script src="js/map.js"></script>
 <!-- Only the portrait and the card faces wait for content, so only they go
      through boot.js. The card spins from js/card.js above either way. -->
 <script src="js/boot.js" data-content="portraits,card" data-scripts="js/portrait.js,js/card-faces.js"></script>
