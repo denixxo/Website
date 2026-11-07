@@ -103,16 +103,22 @@ spin itself is `js/card.js`; the number of turns and the lean are the two
 constants at its top. A link to `jankovic.phd/#card` opens the page with the
 card centred and face on.
 
-**Journey map** — the animated map in the About section (Strasbourg,
-Karlsruhe, Basel, then the flight to Seoul) is an inline SVG written by
+**Journey map** — the animated map (Strasbourg, Karlsruhe, Basel, then the
+flight to Seoul) appears twice: in the About section of the homepage, and in a
+collapsible "My journey" pane at the top of the CV (open by default, hidden
+when printing). Both copies are the one shared partial
+`tools/partials/journey.html`, stamped into the pages by
+`python tools/sync_partials.py`. It is an inline SVG written by
 `tools/make_journey.py`, which takes four Natural Earth GeoJSON files — the
 1:110m land for the world, and the 1:10m borders, rivers and lakes for the
 Rhine inset (public domain, links in the script's docstring; not kept in the repo) —
-and rewrites the figure between the `JOURNEY` markers in `index.html`. Stops,
-labels, the hover notes, country names, the plane and the dog are defined in
-that script; the animation is the
+and rewrites that partial. Stops, labels, the hover notes, country names and the
+plane are defined in that script; the dog on the plane is the picture
+`assets/img/journey/dog-plane.webp`. The animation is the
 "Journey map" block in `css/pages.css`, where each piece's start time is its
-`--d`. The figure's aria-label is `journeyMap` in `data/i18n.js`.
+`--d`. The figure's aria-label is `journeyMap` in `data/i18n.js`. A link to
+`#map` (on either page) opens with the map centred, and `js/map.js` replays
+the animation whenever the CV pane is reopened.
 
 **Editing shared chrome** (nav / footer / icon sprite / boot snippet): edit the
 file in `tools/partials/`, then run `python tools/sync_partials.py` to stamp it

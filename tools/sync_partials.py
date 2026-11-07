@@ -1,4 +1,5 @@
-"""Re-sync shared chrome (sprite, nav, footer, boot snippet) across all pages.
+"""Re-sync shared chrome (sprite, nav, footer, boot snippet) and the journey
+map (homepage About section and the top of the CV) across all pages.
 
 Each root .html file contains fenced regions like:
 
@@ -22,6 +23,7 @@ PARTIALS = {
     "nav": ROOT / "tools" / "partials" / "nav.html",
     "footer": ROOT / "tools" / "partials" / "footer.html",
     "boot": ROOT / "tools" / "partials" / "head-snippet.html",
+    "journey": ROOT / "tools" / "partials" / "journey.html",
 }
 
 

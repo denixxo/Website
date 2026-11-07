@@ -1,4 +1,4 @@
-"""Build the journey map in index.html (About section) from Natural Earth data.
+"""Build the journey map (tools/partials/journey.html) from Natural Earth data.
 
     python tools/make_journey.py <ne_110m_land.geojson> \
         <ne_10m_admin_0_boundary_lines_land.geojson> \
@@ -12,9 +12,11 @@ lat 8..72, scaled to a 1000-wide viewBox, simplified (Douglas-Peucker) and
 baked into the figure as one path. The inset is its own projection (1 degree
 of latitude = 80 units, centred on 48.3 N 8.0 E); the 1:10m borders, the Rhine
 and the lakes are clipped to its circle and simplified the same way. The stops, labels, inset, flight arc,
-plane, dog and flags are all defined here; the figure is written between the
-JOURNEY markers in index.html, replacing what is there. The animation itself
-is in css/pages.css ("Journey map").
+plane, dog and flags are all defined here; the figure is written to
+tools/partials/journey.html, and tools/sync_partials.py then copies it into
+index.html (About section) and cv.html (collapsible pane at the top). The dog
+on the plane is assets/img/journey/dog-plane.webp. The animation itself is in
+css/pages.css ("Journey map").
 """
 import json
 import math
@@ -223,11 +225,9 @@ def year(x, y, anchor, s):
     return '<text class="journey__year" x="%s" y="%s" text-anchor="%s">%s</text>' % (x, y, anchor, s)
 
 
-DOG = """<g class="journey__dog" transform="translate(-3 -7) scale(0.9)">
-            <circle class="journey__hit" cx="5" cy="-12" r="18"/>
-            <path class="journey__dog-black" d="M-13 -9C-13 -14 -9 -17 -4 -17L5 -17C8 -17 10 -16 11 -14L13 -21C13 -24 16 -25 18 -24L24 -22L24 -19L19 -18C17 -17 15 -15 14 -13L12 -9L11 -1L9 -1L8 -8L6 -9L4 -1L2 -1L1 -8L-5 -8L-6 -1L-8 -1L-9 -8L-11 -8L-12 -1L-14 -1L-13 -9ZM-13 -12L-17 -14L-16 -10ZM14 -23L10 -20L13 -15Z"/>
-            <path class="journey__dog-tan" d="M9 -5h2v3h-2zM2 -5h2v3h-2zM-8 -5h2v3h-2zM-14 -5h2v3h-2zM15 -19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0ZM14 -23a1 1 0 1 0 2 0a1 1 0 1 0 -2 0Z"/>
-            <path class="journey__dog-white" d="M11 -14L14 -12L12 -8L10 -9ZM9 -2h2v2h-2zM2 -2h2v2h-2zM-8 -2h2v2h-2zM-14 -2h2v2h-2zM19 -18L24 -19L24 -21L21 -21Z"/>
+DOG = """<g class="journey__dog">
+            <circle class="journey__hit" cx="5" cy="-19" r="17"/>
+            <image href="assets/img/journey/dog-plane.webp" x="-11" y="-33" width="32" height="28.5"/>
           </g>"""
 
 PLANE = """<g class="journey__plane j-fly" style="offset-path: path('%s')"><g class="journey__craft j-level">
@@ -419,14 +419,19 @@ CAPTION = """<figcaption class="journey__caption">
         <span lang="de">Studium in Straßburg, ein Praktikum in Basel, eine deutsch-französische Promotion zwischen Straßburg und Karlsruhe, dann Postdoc in Seoul, mit dem Hund.</span>
       </figcaption>"""
 
-FIGURE = """      <!-- JOURNEY: start -->
+FIGURE = """<!-- @partial:journey -->
       <!-- The journey map: where the studies, the PhD and the postdoc took
            place, animated once as it scrolls into view (css/pages.css,
            "Journey map"). The land outline is Natural Earth 1:110m (public
            domain), projected and simplified by a one-off script; the three
            Rhine cities sit 4–9 px apart at this scale, hence the inset. Each
-           city shows a note while hovered (the .journey__tip divs). -->
-      <figure class="journey" data-reveal data-i18n-aria-label="journeyMap" aria-label="Map of my journey: Strasbourg, Karlsruhe, then Seoul">
+           city shows a note while hovered (the .journey__tip divs). A link to
+           #map opens with the map centred in the viewport (js/map.js), the
+           same way #card does for the business card. Shared with cv.html (a
+           collapsible pane at the top): this is tools/partials/journey.html,
+           copied into both pages by tools/sync_partials.py, and
+           tools/make_journey.py regenerates it. -->
+      <figure class="journey" id="map" data-reveal data-i18n-aria-label="journeyMap" aria-label="Map of my journey: Strasbourg, Karlsruhe, then Seoul">
         <div class="journey__stage">
         <svg class="journey__map" viewBox="0 0 1000 566" aria-hidden="true" focusable="false">
           <defs><clipPath id="j-inset-clip"><circle r="134"/></clipPath></defs>
@@ -445,22 +450,13 @@ FIGURE = """      <!-- JOURNEY: start -->
         %s
         %s
       </figure>
-      <!-- JOURNEY: end -->
+      <!-- /@partial:journey -->
 """ % (LAND, ARC,
        INSET,
        t("journey__label", 858, 328, "end", "Seoul", fr="Séoul", ko="서울"),
        year(858, 344, "end", "2025 –"),
        PLANE, TIPS, FLAGS, CAPTION)
 
-index = "index.html"
-html = open(index, encoding="utf-8").read()
-START, END = "      <!-- JOURNEY: start -->\n", "      <!-- JOURNEY: end -->\n"
-if START in html:
-    a, b = html.index(START), html.index(END) + len(END)
-    html = html[:a] + FIGURE + html[b:]
-else:
-    anchor = '      <div class="chip-cluster" data-reveal style="margin-top: var(--space-5)">'
-    assert anchor in html
-    html = html.replace(anchor, FIGURE + anchor, 1)
-open(index, "w", encoding="utf-8", newline="\n").write(html)
-print("wrote", index, len(FIGURE), "bytes of figure")
+out = "tools/partials/journey.html"
+open(out, "w", encoding="utf-8", newline="\n").write(FIGURE)
+print("wrote", out, len(FIGURE), "bytes of figure; now run tools/sync_partials.py")

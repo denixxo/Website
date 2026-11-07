@@ -157,6 +157,16 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
    flight to Seoul, then the flags. Without JS, or with reduced motion, it
    simply stands finished. */
 .journey { margin: var(--space-6) 0 0; }
+/* On the CV the map sits in a collapsible pane above the CV itself. */
+.journey-pane { border: 1px solid var(--border-hairline); border-radius: var(--radius-card);
+  background: var(--surface-card); padding: var(--space-4) var(--space-5); margin-bottom: var(--space-6); }
+.journey-pane summary { cursor: pointer; font-family: var(--font-display); font-weight: 500;
+  color: var(--text-heading); display: flex; align-items: center; gap: 8px; list-style: none; }
+.journey-pane summary::-webkit-details-marker { display: none; }
+.journey-pane summary .icon { transition: transform var(--dur-2) var(--ease-out); }
+.journey-pane[open] summary .icon { transform: rotate(180deg); }
+.journey-pane .journey { margin-top: var(--space-4); }
+@media print { .journey-pane { display: none; } }
 .journey__stage { position: relative; }
 .journey__map { display: block; width: 100%; height: auto; }
 .journey__land { fill: var(--surface-raised); stroke: var(--border-strong); stroke-width: 1; stroke-linejoin: round; }
@@ -188,9 +198,6 @@ html.js .orbital__ring:nth-child(3) { animation-delay: 300ms; }
 .journey__plane-body { fill: var(--text-body); }
 .journey__plane-window { fill: var(--bg-page); }
 /* A black-tri Australian shepherd: a pale hairline keeps the black on the dark theme. */
-.journey__dog-black { fill: #111517; stroke: var(--text-body); stroke-width: 0.7; paint-order: stroke; stroke-linejoin: round; }
-.journey__dog-tan { fill: #c07a3a; }
-.journey__dog-white { fill: #fff; }
 .journey__flags { display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin-top: var(--space-4); }
 .journey__flag { display: block; width: 46px; height: 31px; border-radius: 4px; overflow: hidden;
   border: 1px solid var(--border-hairline); box-shadow: 0 1px 2px rgb(0 0 0 / 0.2); }

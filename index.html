@@ -484,7 +484,7 @@
         <span lang="ko">현재 QNS의 표면 위 양자 스핀 이론 그룹에서, ESR-STM 실험과의 긴밀한 협력 속에 열린 양자계를 위한 빠르고 강건하며 물리적으로 일관된 제어 전략 — 최적 제어 알고리즘 MAGICARP를 포함하여 — 을 설계하고 있습니다.</span>
         <span lang="de">Heute entwerfe ich in der Gruppe für die Theorie von Quantenspins auf Oberflächen am QNS schnelle, robuste und physikalisch konsistente Steuerstrategien für offene Quantensysteme — darunter den Optimalsteuerungs-Algorithmus MAGICARP — im ständigen Dialog mit ESR-STM-Experimenten.</span>
       </p>
-      <!-- JOURNEY: start -->
+      <!-- @partial:journey -->
       <!-- The journey map: where the studies, the PhD and the postdoc took
            place, animated once as it scrolls into view (css/pages.css,
            "Journey map"). The land outline is Natural Earth 1:110m (public
@@ -492,7 +492,10 @@
            Rhine cities sit 4–9 px apart at this scale, hence the inset. Each
            city shows a note while hovered (the .journey__tip divs). A link to
            #map opens with the map centred in the viewport (js/map.js), the
-           same way #card does for the business card. -->
+           same way #card does for the business card. Shared with cv.html (a
+           collapsible pane at the top): this is tools/partials/journey.html,
+           copied into both pages by tools/sync_partials.py, and
+           tools/make_journey.py regenerates it. -->
       <figure class="journey" id="map" data-reveal data-i18n-aria-label="journeyMap" aria-label="Map of my journey: Strasbourg, Karlsruhe, then Seoul">
         <div class="journey__stage">
         <svg class="journey__map" viewBox="0 0 1000 566" aria-hidden="true" focusable="false">
@@ -538,11 +541,9 @@
           <path class="journey__plane-body" d="M-18 -7L-24 -20L-15 -20L-7 -7ZM-22 -7L-28 -12L-22 -12ZM-2 2L-14 14L-5 14L10 2Z"/>
           <path class="journey__plane-body" d="M28 0C28 -4 24 -7 16 -7L-18 -7C-24 -7 -28 -4 -28 0C-28 4 -24 7 -18 7L16 7C24 7 28 4 28 0Z"/>
           <path class="journey__plane-window" d="M-12 -2a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0ZM-6 -2a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0ZM0 -2a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0ZM6 -2a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0ZM12 -2a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0ZM21 -3a2 2 0 1 0 4 0a2 2 0 1 0 -4 0Z"/>
-          <g class="journey__dog" transform="translate(-3 -7) scale(0.9)">
-            <circle class="journey__hit" cx="5" cy="-12" r="18"/>
-            <path class="journey__dog-black" d="M-13 -9C-13 -14 -9 -17 -4 -17L5 -17C8 -17 10 -16 11 -14L13 -21C13 -24 16 -25 18 -24L24 -22L24 -19L19 -18C17 -17 15 -15 14 -13L12 -9L11 -1L9 -1L8 -8L6 -9L4 -1L2 -1L1 -8L-5 -8L-6 -1L-8 -1L-9 -8L-11 -8L-12 -1L-14 -1L-13 -9ZM-13 -12L-17 -14L-16 -10ZM14 -23L10 -20L13 -15Z"/>
-            <path class="journey__dog-tan" d="M9 -5h2v3h-2zM2 -5h2v3h-2zM-8 -5h2v3h-2zM-14 -5h2v3h-2zM15 -19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0ZM14 -23a1 1 0 1 0 2 0a1 1 0 1 0 -2 0Z"/>
-            <path class="journey__dog-white" d="M11 -14L14 -12L12 -8L10 -9ZM9 -2h2v2h-2zM2 -2h2v2h-2zM-8 -2h2v2h-2zM-14 -2h2v2h-2zM19 -18L24 -19L24 -21L21 -21Z"/>
+          <g class="journey__dog">
+            <circle class="journey__hit" cx="5" cy="-19" r="17"/>
+            <image href="assets/img/journey/dog-plane.webp" x="-11" y="-33" width="32" height="28.5"/>
           </g>
         </g></g>
         </svg>
@@ -569,7 +570,7 @@
         <span lang="de">Studium in Straßburg, ein Praktikum in Basel, eine deutsch-französische Promotion zwischen Straßburg und Karlsruhe, dann Postdoc in Seoul, mit dem Hund.</span>
       </figcaption>
       </figure>
-      <!-- JOURNEY: end -->
+      <!-- /@partial:journey -->
       <div class="chip-cluster" data-reveal style="margin-top: var(--space-5)">
         <span class="chip chip--award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg><span lang="en">Unistra thesis prize 2024</span><span lang="fr">Prix de thèse Unistra 2024</span><span lang="ko">스트라스부르 대학교 논문상 2024</span><span lang="de">Dissertationspreis Unistra 2024</span></span>
         <span class="chip chip--award"><svg class="icon" aria-hidden="true"><use href="#i-award"/></svg>Summa cum laude (KIT)</span>
