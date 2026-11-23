@@ -110,7 +110,7 @@
           : '<div class="pdf-fallback"><div class="pdf-fallback__cover"><svg class="icon" aria-hidden="true"><use href="#i-posters"/></svg></div>' +
             '<div class="pdf-fallback__body"><p>' + esc(p.title) + "</p></div></div>";
         dialog.querySelector("[data-lightbox-caption]").innerHTML =
-          esc(p.title) + " — " + esc(p.event) + (p.year ? ", " + p.year : "");
+          esc(p.title) + ", " + esc(p.event) + (p.year ? ", " + p.year : "");
         var dl = dialog.querySelector("[data-lightbox-download]");
         dl.hidden = true;
         if (p.pdf) {

@@ -17,10 +17,10 @@
       "event": "European Summer School in Quantum Science and Technology",
       "location": "Durbach, Germany",
       "award": {
-        "en": "Best poster — 1st place",
-        "fr": "Meilleur poster — 1re place",
-        "ko": "최우수 포스터 — 1위",
-        "de": "Bestes Poster — 1. Platz"
+        "en": "Best poster, 1st place",
+        "fr": "Meilleur poster, 1re place",
+        "ko": "최우수 포스터, 1위",
+        "de": "Bestes Poster, 1. Platz"
       },
       "pdf": "assets/pdf/posters/2023-poster-noisy-qudit.pdf",
       "thumbnail": "assets/img/posters/2023-poster-noisy-qudit.webp"
@@ -57,10 +57,10 @@
       "event": "Paris International School on Advanced Computational Materials Science, Sorbonne Université",
       "location": "Paris, France",
       "award": {
-        "en": "Best poster — 2nd place",
-        "fr": "Meilleur poster — 2e place",
-        "ko": "최우수 포스터 — 2위",
-        "de": "Bestes Poster — 2. Platz"
+        "en": "Best poster, 2nd place",
+        "fr": "Meilleur poster, 2e place",
+        "ko": "최우수 포스터, 2위",
+        "de": "Bestes Poster, 2. Platz"
       },
       "pdf": "assets/pdf/posters/2021-poster-sorbonne.pdf",
       "thumbnail": "assets/img/posters/2021-poster-sorbonne.webp"
@@ -82,10 +82,10 @@
       "event": "KSOP-QMat Summer School, Karlsruhe Institute of Technology",
       "location": "Karlsruhe, Germany",
       "award": {
-        "en": "Best poster — Materials & Photonic Devices",
-        "fr": "Meilleur poster — Matériaux & Dispositifs photoniques",
-        "ko": "최우수 포스터 — 재료 및 광소자 부문",
-        "de": "Bestes Poster — Materialien & Photonische Bauelemente"
+        "en": "Best poster (Materials & Photonic Devices)",
+        "fr": "Meilleur poster (Matériaux & Dispositifs photoniques)",
+        "ko": "최우수 포스터 (재료 및 광소자 부문)",
+        "de": "Bestes Poster (Materialien & Photonische Bauelemente)"
       },
       "pdf": "assets/pdf/posters/2020-poster-ksop-qmat.pdf",
       "thumbnail": "assets/img/posters/2020-poster-ksop-qmat.webp"

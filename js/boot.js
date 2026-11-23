@@ -36,7 +36,7 @@
           : json || {};
       })
       .catch(function (err) {
-        console.error("[boot] data/" + name + ".json failed to load — " + err.message);
+        console.error("[boot] data/" + name + ".json failed to load: " + err.message);
         SITE[name] = [];
       });
   }

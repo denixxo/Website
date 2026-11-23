@@ -47,7 +47,7 @@
         "en": "All-order expansion of the average gate infidelity, revealing how the control Hamiltonian couples to dissipation.",
         "fr": "Développement à tout ordre de l'infidélité moyenne, révélant le couplage entre hamiltonien de contrôle et dissipation.",
         "ko": "평균 게이트 비충실도의 전차수 전개를 통해 제어 해밀토니안과 소산의 결합 방식을 규명.",
-        "de": "Entwicklung der mittleren Gate-Infidelity zu allen Ordnungen — zeigt, wie der Steuer-Hamiltonian an die Dissipation koppelt."
+        "de": "Entwicklung der mittleren Gate-Infidelity zu allen Ordnungen. Sie zeigt, wie der Steuer-Hamiltonian an die Dissipation koppelt."
       }
     },
     {
@@ -253,7 +253,7 @@
       ],
       "bibtex": "@misc{sheina2026longlived,\n  author = {Sheina, V. and Jang, S. and Jankovi\\'c, D. and Ollier, A. and Sande, M. and Colazzo, L. and Traeger, G. A. and Fang, L. and Bui, C. and Phark, S.-H. and Wolf, C. and Donati, F. and Kahng, S.-J. and Heinrich, A. and Jang, W.-J.},\n  title  = {Long-lived nuclear spin states of a single atom magnet},\n  year   = {2026},\n  note   = {Submitted to Science}\n}",
       "notes": {
-        "en": "Single Ho atoms on MgO as 16-level nuclear–electronic qudits with minute-scale nuclear lifetimes. Submitted to Science — links will appear once the preprint is online."
+        "en": "Single Ho atoms on MgO as 16-level nuclear–electronic qudits with minute-scale nuclear lifetimes. Submitted to Science; links will appear once the preprint is online."
       }
     },
     {
