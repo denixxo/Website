@@ -210,13 +210,13 @@
     },
     {
       "id": "2026-arxiv-drift-aware-qsl",
-      "type": "preprint",
+      "type": "article",
       "year": 2026,
-      "month": 6,
+      "month": 11,
       "authors": "D. Janković, S. Taherpour, P.-L. Etienney, P.-A. Hervieux, C. Wolf",
       "title": "Probing the weak-driving quantum speed limit via drift-aware shooting methods",
-      "journal": null,
-      "doi": null,
+      "journal": "Annalen der Physik 538, e70322",
+      "doi": "10.1002/andp.70322",
       "arxiv": "2606.22212",
       "pdf": "https://arxiv.org/pdf/2606.22212",
       "thumbnail": "assets/img/pubs/2026-arxiv-drift-aware-qsl.webp",
@@ -225,12 +225,12 @@
         "optimal-control",
         "esr-stm"
       ],
-      "bibtex": "@misc{jankovic2026driftaware,\n  author        = {Jankovi\\'c, Denis and Taherpour, Saba and Etienney, Paul-Louis and Hervieux, Paul-Antoine and Wolf, Christoph},\n  title         = {Probing the weak-driving quantum speed limit via drift-aware shooting methods},\n  year          = {2026},\n  eprint        = {2606.22212},\n  archivePrefix = {arXiv}\n}",
+      "bibtex": "@article{jankovic2026driftaware,\n  author  = {Jankovi\\'c, Denis and Taherpour, Saba and Etienney, Paul-Louis and Hervieux, Paul-Antoine and Wolf, Christoph},\n  title   = {Probing the weak-driving quantum speed limit via drift-aware shooting methods},\n  journal = {Annalen der Physik},\n  volume  = {538},\n  number  = {11},\n  pages   = {e70322},\n  year    = {2026},\n  doi     = {10.1002/andp.70322},\n  eprint  = {2606.22212}\n}",
       "notes": {
-        "en": "Drift-aware MAGICARP pulses reveal a pole in the energy–time trade-off: the quantum speed limit is a property of the drift Hamiltonian itself. Invited submission to Annalen der Physik.",
-        "fr": "Les impulsions MAGICARP conscientes de la dérive révèlent un pôle dans le compromis énergie–temps : la limite de vitesse quantique est une propriété de l'hamiltonien de dérive. Soumission invitée à Annalen der Physik.",
-        "ko": "드리프트를 고려한 MAGICARP 펄스가 에너지-시간 트레이드오프의 극점을 드러냄: 양자 속도 한계는 드리프트 해밀토니안 자체의 성질. Annalen der Physik 초청 투고.",
-        "de": "Drift-bewusste MAGICARP-Pulse offenbaren einen Pol im Energie-Zeit-Kompromiss: Das Quanten-Geschwindigkeitslimit ist eine Eigenschaft des Drift-Hamiltonians selbst. Eingeladene Einreichung bei Annalen der Physik."
+        "en": "Drift-aware MAGICARP pulses reveal a pole in the energy–time trade-off: the quantum speed limit is a property of the drift Hamiltonian itself. Invited article.",
+        "fr": "Les impulsions MAGICARP conscientes de la dérive révèlent un pôle dans le compromis énergie–temps : la limite de vitesse quantique est une propriété de l'hamiltonien de dérive. Article invité.",
+        "ko": "드리프트를 고려한 MAGICARP 펄스가 에너지-시간 트레이드오프의 극점을 드러냄: 양자 속도 한계는 드리프트 해밀토니안 자체의 성질. 초청 논문.",
+        "de": "Drift-bewusste MAGICARP-Pulse offenbaren einen Pol im Energie-Zeit-Kompromiss: Das Quanten-Geschwindigkeitslimit ist eine Eigenschaft des Drift-Hamiltonians selbst. Eingeladener Artikel."
       }
     },
     {
