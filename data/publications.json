@@ -9,7 +9,7 @@
       "title": "Noisy qudit vs multiple qubits: conditions on gate efficiency for enhancing fidelity",
       "journal": "npj Quantum Information 10, 59",
       "doi": "10.1038/s41534-024-00829-6",
-      "arxiv": null,
+      "arxiv": "2302.04543",
       "pdf": "https://www.nature.com/articles/s41534-024-00829-6.pdf",
       "thumbnail": "assets/img/pubs/2024-npjqi-noisy-qudit.webp",
       "selected": true,
@@ -17,7 +17,7 @@
         "qudits",
         "open-systems"
       ],
-      "bibtex": "@article{jankovic2024noisy,\n  author  = {Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Noisy qudit vs multiple qubits: conditions on gate efficiency for enhancing fidelity},\n  journal = {npj Quantum Information},\n  volume  = {10},\n  pages   = {59},\n  year    = {2024},\n  doi     = {10.1038/s41534-024-00829-6}\n}",
+      "bibtex": "@article{jankovic2024noisy,\n  author  = {Jankovi\\'c, Denis and Hartmann, Jean-Gabriel and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Noisy qudit vs multiple qubits: conditions on gate efficiency for enhancing fidelity},\n  journal = {npj Quantum Information},\n  volume  = {10},\n  pages   = {59},\n  year    = {2024},\n  doi     = {10.1038/s41534-024-00829-6},\n  eprint  = {2302.04543}\n}",
       "notes": {
         "en": "Establishes the quantitative criterion for when a noisy d-level qudit beats an equivalent register of qubits.",
         "fr": "Établit le critère quantitatif pour qu'un qudit bruité à d niveaux surpasse un registre de qubits équivalent.",
@@ -34,7 +34,7 @@
       "title": "Nonlinearity of the fidelity in open qudit systems: gate and noise dependence in high-dimensional quantum computing",
       "journal": "Quantum 9, 1690",
       "doi": "10.22331/q-2025-04-07-1690",
-      "arxiv": null,
+      "arxiv": "2406.15141",
       "pdf": "https://quantum-journal.org/papers/q-2025-04-07-1690/pdf/",
       "thumbnail": "assets/img/pubs/2025-quantum-nonlinearity.webp",
       "selected": true,
@@ -42,7 +42,7 @@
         "qudits",
         "open-systems"
       ],
-      "bibtex": "@article{hartmann2025nonlinearity,\n  author  = {Hartmann, Jean-Gabriel and Jankovi\\'c, Denis and Pasquier, R{\\'e}mi and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Nonlinearity of the fidelity in open qudit systems: gate and noise dependence in high-dimensional quantum computing},\n  journal = {Quantum},\n  volume  = {9},\n  pages   = {1690},\n  year    = {2025},\n  doi     = {10.22331/q-2025-04-07-1690}\n}",
+      "bibtex": "@article{hartmann2025nonlinearity,\n  author  = {Hartmann, Jean-Gabriel and Jankovi\\'c, Denis and Pasquier, R{\\'e}mi and Ruben, Mario and Hervieux, Paul-Antoine},\n  title   = {Nonlinearity of the fidelity in open qudit systems: gate and noise dependence in high-dimensional quantum computing},\n  journal = {Quantum},\n  volume  = {9},\n  pages   = {1690},\n  year    = {2025},\n  doi     = {10.22331/q-2025-04-07-1690},\n  eprint  = {2406.15141}\n}",
       "notes": {
         "en": "All-order expansion of the average gate infidelity, revealing how the control Hamiltonian couples to dissipation.",
         "fr": "Développement à tout ordre de l'infidélité moyenne, révélant le couplage entre hamiltonien de contrôle et dissipation.",
